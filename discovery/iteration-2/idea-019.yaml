@@ -1,0 +1,50 @@
+candidate_seat: Host PATH shim for package-manager pinning
+v1_as_shipped: PATH shim intercepting node/python/go invocations, resolving only through pinned toolchain file, denying exec outside pin
+entry: generated
+substrate: Host runtime enforcement (PATH, interpreter, package manager)
+process_or_protocol: Exec PATH interception + toolchain-file gate
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 6
+  as_plugin: Sparse 3
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 5
+incumbents:
+  - name: asdf
+    url: https://asdf-vm.com/manage/versions.html
+    quote: "When asdf installs a package it creates shims for every executable program in that package in a shims directory. This directory being on the PATH is how the installed programs are made available in the environment."
+    seat_match: exact
+    leftover: no unpinned-deny; system keyword passes through to unmanaged toolchain
+  - name: mise-en-place
+    url: https://mise.en.dev/dev-tools/shims.html
+    quote: "When a shim cannot resolve a mise-managed tool, it falls back to the first same-named executable found elsewhere on PATH rather than erroring."
+    seat_match: exact
+    leftover: deny is a settings flag, default is fallback not deny
+  - name: Volta
+    url: https://docs.volta.sh/guide/understanding
+    quote: "The node executable provided by Volta in your PATH environment will, by default, automatically run your chosen version of Node."
+    seat_match: language_scoped
+    leftover: Node/npm/yarn/pnpm only; no python/go coverage despite same shim mechanic
+  - name: pyenv
+    url: https://github.com/pyenv/pyenv/
+    quote: "At a high level, pyenv intercepts Python commands using shim executables injected into your PATH, determines which Python version has been specified by your application, and passes your commands along to the correct Python installation."
+    seat_match: language_scoped
+    leftover: Python only; system fallback explicitly outside its control, no cross-toolchain deny
+  - name: direnv
+    url: https://github.com/direnv/direnv/blob/master/README.md
+    quote: "Before each prompt, direnv checks for the existence of a .envrc file in the current and parent directories. If the file exists (and is authorized), it is loaded into a bash sub-shell."
+    seat_match: adjacent_pain
+    leftover: env/PATH loader per directory; no toolchain-pin file gate or exec deny
+auto_rejects_fired: [5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Unpinned exec is silent drift across node/python/go; version managers are opt-in resolvers with system fallback, so a default-deny shim would turn coordination files into enforcement."
+claim_hygiene: ok
+file_on: https://github.com/jdx/mise
+deny_catalog: embedded_baseline
+rate_next: not_run

@@ -1,0 +1,50 @@
+candidate_seat: NATS JetStream ack-deadline protocol enforcer
+v1_as_shipped: NATS proxy/sidecar enforcing ack deadlines + redelivery invariants as protocol gate in staging
+entry: generated
+substrate: Broker / queue protocol
+process_or_protocol: NATS ack/nak protocol gating
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 5
+  as_plugin: Occupied 5
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 6
+incumbents:
+  - name: NATS JetStream acknowledgment docs
+    url: https://docs.nats.io/learn/jetstream/acknowledgment
+    quote: "If a delivery is not ack'd, nak'd, or kept alive with in-progress before AckWait runs out, the server treats it as a silent failure and redelivers."
+    seat_match: exact
+    leftover: none - server already enforces ack deadline + redelivery
+  - name: NATS delivery and acknowledgment docs
+    url: https://docs.nats.io/learn/jetstream/delivery-and-acknowledgment
+    quote: "If no ack arrives within the Ack Wait deadline, the server assumes the reader failed and delivers the message again"
+    seat_match: exact
+    leftover: none - at-least-once redelivery loop ships in-server
+  - name: Synadia platform
+    url: https://docs.synadia.com/platform/control-plane/guides/jetstream
+    quote: "Create and manage consumers: Control Plane allows system and account administrators to create and manage push and pull consumers"
+    seat_match: adjacent_pain
+    leftover: management plane for streams/consumers, not protocol gate
+  - name: Liftbridge
+    url: https://github.com/liftbridge-io/liftbridge/
+    quote: "Liftbridge provides lightweight, fault-tolerant message streams by implementing a durable, replicated, and scalable message log."
+    seat_match: adjacent_pain
+    leftover: Kafka-lite log on NATS, not ack-deadline enforcer
+  - name: Strimzi
+    url: https://strimzi.io/docs/operators/latest/full/deploying.html
+    quote: "Strimzi uses operators to deploy and manage Kafka components."
+    seat_match: wrong_substrate
+    leftover: Kafka-on-Kubernetes operator, different data plane
+auto_rejects_fired: [1]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Staging teams misconfigure AckWait/MaxDeliver and discover poison-message loops late; a protocol gate that fails deploys on deadline/redelivery misconfig could still be a useful linter."
+claim_hygiene: ok
+file_on: none
+deny_catalog: embedded_baseline
+rate_next: not_run

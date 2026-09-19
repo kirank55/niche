@@ -1,0 +1,50 @@
+candidate_seat: Socket-activation policy gate
+v1_as_shipped: Socket-activation proxy only activating services with a socket policy entry, dropping unlisted binds
+entry: generated
+substrate: Process supervisor / daemon
+process_or_protocol: Socket bind/activation gating
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 6
+  as_plugin: Occupied 5
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 3
+incumbents:
+  - name: systemd SocketBindAllow
+    url: https://linux-audit.com/systemd/settings/units/socketbindallow/
+    quote: "Purpose: define which address families, transport protocols, and/or ports are allowed to bind() to a socket"
+    seat_match: exact
+    leftover: per-service BPF bind allowlist; activation-proxy packaging still missing but enforcement exists
+  - name: systemd SocketBindDeny
+    url: https://linux-audit.com/systemd/settings/units/socketbinddeny/
+    quote: "By defining the value 'any', all combinations are denied. This is typically used in combination with SocketBindAllow to open up one or more ports."
+    seat_match: exact
+    leftover: deny-default + allowlist is the headline UX; proxy wrapper adds nothing mechanical
+  - name: systemd.socket
+    url: https://www.freedesktop.org/software/systemd/man/latest/systemd.socket.html
+    quote: "Specifies the service unit name to activate on incoming traffic. This setting is only allowed for sockets with Accept=no."
+    seat_match: adjacent_pain
+    leftover: named-service activation with no policy-entry allowlist / drop-unlisted
+  - name: xinetd
+    url: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/6/html/security_guide/sect-security_guide-altering_xinetd_configuration_files-access_control_options
+    quote: "only_from - Allows only the specified hosts to use the service."
+    seat_match: exact
+    leftover: client-address allowlist + activation; not a socket-policy-entry bind gate, legacy aisle
+  - name: Envoy RBAC network filter
+    url: https://www.envoyproxy.io/docs/envoy/latest/configuration/listeners/network_filters/rbac_filter.html
+    quote: "The RBAC network filter is used to authorize actions by identified downstream clients. This is useful to explicitly manage callers to an application and protect it from unexpected or forbidden agents."
+    seat_match: wrong_substrate
+    leftover: downstream-client authz in wire proxy; not supervisor socket bind/activation enforcement
+auto_rejects_fired: [1]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 5
+  why_build: "Shadow listeners and unlisted binds are lateral-movement surface; a supervisor activation gate with deny-default would kill them at bind, not at mesh policy advice."
+claim_hygiene: ok
+file_on: none
+deny_catalog: embedded_baseline
+rate_next: not_run

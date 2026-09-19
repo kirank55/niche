@@ -1,0 +1,50 @@
+candidate_seat: Reproducible image-layer CI enforcer
+v1_as_shipped: CI check rebuilding container image twice, failing on non-reproducible layers/digests
+entry: generated
+substrate: Compiler, linker, bundler, lockfile (image build)
+process_or_protocol: Image rebuild determinism gate
+verdicts:
+  as_company: Occupied 6
+  as_oss: Sparse 3
+  as_plugin: Sparse 3
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 2
+incumbents:
+  - name: apko
+    url: https://github.com/chainguard-dev/apko/
+    quote: "Fully reproducible by default. Run apko twice and you will get exactly the same binary."
+    seat_match: adjacent_pain
+    leftover: declarative builder guaranteeing reproducibility; not a generic-Dockerfile double-build CI gate
+  - name: ko (via apko README)
+    url: https://github.com/chainguard-dev/apko/blob/main/README.md
+    quote: "The ko project builds Go projects from source in a similar manner to apko."
+    seat_match: language_scoped
+    leftover: Go-only image builder; not a language-agnostic layer/digest enforcer
+  - name: Secure-Pipelines reproducible-container lab
+    url: https://secure-pipelines.com/ci-cd-security/lab-reproducible-container-builds-pinning-verifying-diffing/
+    quote: "Reproducibility is only valuable if you verify it continuously. A build that is reproducible today can become non-reproducible tomorrow if someone adds a floating dependency or a timestamp. The solution is to build twice on every CI run and assert that the results are identical."
+    seat_match: exact
+    leftover: lab/workflow template with diffoscope; productization gap only, mechanics identical to v1
+  - name: SystemShardening reproducible-builds guide
+    url: https://www.systemshardening.com/articles/cicd/reproducible-builds/
+    quote: "Build the image twice (ideally on different machines) and compare digests:"
+    seat_match: exact
+    leftover: guide + YAML snippet; same double-build gate, no maintained check SKU
+  - name: Nix --check / diff-hook
+    url: https://nix.dev/manual/nix/2.34/advanced-topics/diff-hook.html
+    quote: "Verify a path which already exists in the Nix store by passing --check to the build command."
+    seat_match: wrong_substrate
+    leftover: Nix-store derivation determinism; not an OCI layer/digest gate
+auto_rejects_fired: [2]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Non-reproducible layers hide supply-chain tampering; a CI gate that rebuilds twice and diffs digests turns reproducibility from a guide into enforcement."
+claim_hygiene: ok
+file_on: none
+deny_catalog: embedded_baseline
+rate_next: not_run

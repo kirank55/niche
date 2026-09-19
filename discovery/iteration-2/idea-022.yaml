@@ -1,0 +1,50 @@
+candidate_seat: Expand-contract DDL deploy blocker
+v1_as_shipped: CI deploy gate parsing Postgres DDL diffs, blocking non-expand-contract breaking migrations
+entry: generated
+substrate: Schema / tenancy cutover
+process_or_protocol: DDL diff gate enforcing expand-contract
+verdicts:
+  as_company: Sparse 3
+  as_oss: Sparse 3
+  as_plugin: Occupied 5
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 0
+incumbents:
+  - name: pgroll
+    url: https://github.com/xataio/pgroll
+    quote: "pgroll is an open source command-line tool that offers safe and reversible schema migrations for PostgreSQL by serving multiple schema versions simultaneously."
+    seat_match: adjacent_pain
+    leftover: executes expand/contract migrations; does not parse arbitrary DDL diffs to block unsafe deploys
+  - name: Atlas (declarative CI)
+    url: https://atlasgo.io/declarative/setup-cicd
+    quote: "Linting and Policy Checks - Atlas checks schema changes for safety, compliance, and policy violations"
+    seat_match: adjacent_pain
+    leftover: declarative planner + generic lint; no vanilla-Postgres expand-contract DDL-diff block rule
+  - name: PlanetScale deploy requests
+    url: https://planetscale.com/docs/vitess/schema-changes/deploy-requests
+    quote: "PlanetScale will check if the request is deployable."
+    seat_match: wrong_substrate
+    leftover: Vitess/MySQL online-schema gate; not a vanilla RDS Postgres expand-contract gate
+  - name: Sqitch
+    url: https://sqitch.org/docs/manual/sqitchtutorial/
+    quote: "Its job is to test that the deploy did what it was supposed to. It should do so without regard to any data that might be in the database, and should throw an error if the deploy was not successful."
+    seat_match: adjacent_pain
+    leftover: per-change verify scripts; no DDL-diff expand-contract enforcement
+  - name: Flyway validate
+    url: https://www.red-gate.com/hub/product-learning/flyway/flyways-validate-command-explained-simply/
+    quote: "The Validate command aims to make sure that the database can be reliably reproduced from its source scripts."
+    seat_match: adjacent_pain
+    leftover: checksum/drift validation; says nothing about breaking-DDL expand-contract safety
+auto_rejects_fired: []
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Breaking DDL is a top outage source; runners check checksums and generic lint while pgroll requires adopting its executor - a CI gate that blocks non-expand-contract DDL on vanilla Postgres sits in an empty enforcement seat."
+claim_hygiene: ok
+file_on: none
+deny_catalog: embedded_baseline
+rate_next: compose_next

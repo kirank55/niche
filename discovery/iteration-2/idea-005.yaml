@@ -1,0 +1,55 @@
+candidate_seat: OpenAI-compat token-budget enforcement gateway per tenant
+v1_as_shipped: OpenAI-compat proxy holding per-tenant spend ledger, hard-blocks/402 when budget exceeded on every /v1/chat/completions call
+entry: generated
+substrate: Wire proxy / protocol gate
+process_or_protocol: OpenAI chat-completions accounting + cutoff
+verdicts:
+  as_company: Saturated 8
+  as_oss: Saturated 8
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 9
+  exact_mechanics_density: 8
+incumbents:
+  - name: LangSmith LLM Gateway
+    url: https://www.langchain.com/blog/langsmith-llm-gateway-runtime-controls-for-production-agents
+    quote: "When a cap is hit, the agent receives a 402 response with a clear error."
+    seat_match: exact
+    leftover: none - time-bound caps at org/workspace/key/user + per-customer header policies is the v1
+  - name: LiteLLM AI Gateway (Proxy)
+    url: https://docs.litellm.ai/docs/simple_proxy
+    quote: "OpenAI Proxy Server (LLM Gateway) to call 100+ LLMs in a unified interface & track spend, set budgets per virtual key/user"
+    seat_match: exact
+    leftover: none - OpenAI-compat proxy with per-key/user budgets is the v1
+  - name: LiteLLM Customer budgets
+    url: http://docs.litellm.ai/docs/proxy/customers
+    quote: "Track spend, set budgets and permissions for your customers."
+    seat_match: exact
+    leftover: per-tenant ledger via customer ID header + default budget already shipped
+  - name: Portkey Budget Limits
+    url: https://portkey.ai/docs/product/ai-gateway/virtual-keys/budget-limits
+    quote: "Set a budget limit in USD that, once reached, will automatically expire the key to prevent further usage and overspending."
+    seat_match: exact
+    leftover: cost/token hard cutoff already shipped; enterprise gate is packaging, not mechanics
+  - name: Cloudflare AI Gateway Spend limits
+    url: https://developers.cloudflare.com/ai-gateway/features/spend-limits
+    quote: "When cumulative spend reaches the limit within a time window, AI Gateway blocks further requests with a `429` response until the window resets."
+    seat_match: exact
+    leftover: per-agent split-by-value budgets already shipped; 429-vs-402 is packaging
+  - name: LLM Gateway (llmgateway.io, OSS)
+    url: https://docs.llmgateway.io/
+    quote: "The gateway routes each request to the right provider, tracks tokens and cost per model, provider, project, and API key, and fails over to a healthy provider when one errors."
+    seat_match: adjacent_pain
+    leftover: cost visibility evidenced, hard per-tenant cutoff not evidenced on this page
+auto_rejects_fired: [1]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 8
+  why_build: "Multi-tenant agent resellers need a neutral, BYOK spend ledger with hard per-tenant cutoffs that works identically across all providers without adopting a full gateway platform."
+claim_hygiene: ok
+file_on: https://docs.litellm.ai/docs/proxy/customers
+deny_catalog: embedded_baseline
+rate_next: not_run

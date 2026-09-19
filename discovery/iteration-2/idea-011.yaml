@@ -1,0 +1,50 @@
+candidate_seat: JS/TS bundler unpinned-import build gate
+v1_as_shipped: Bundler plugin (esbuild/rollup/vite) that fails build on bare/unpinned or lockfile-absent imports
+entry: generated
+substrate: Compiler, linker, bundler, lockfile
+process_or_protocol: Module-resolution gate consulting lockfile at build
+verdicts:
+  as_company: Occupied 5
+  as_oss: Sparse 3
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 0
+incumbents:
+  - name: eslint-plugin-import
+    url: https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-extraneous-dependencies.md
+    quote: "Forbid the import of external modules that are not declared in the package.json's dependencies, devDependencies, optionalDependencies, peerDependencies, or bundledDependencies."
+    seat_match: adjacent_pain
+    leftover: lint warning on extraneous deps, not a hard build failure on unpinned/lockfile-absent resolution
+  - name: eslint no-restricted-imports
+    url: https://zh-hans.eslint.org/docs/latest/rules/no-restricted-imports
+    quote: "Disallow specified modules when loaded by import"
+    seat_match: adjacent_pain
+    leftover: advisory restricted-module lint, does not consult lockfile or fail bundler resolution
+  - name: depcheck
+    url: https://socket.dev/npm/package/depcheck
+    quote: "Depcheck is a tool for analyzing the dependencies in a project to see: how each dependency is used, which dependencies are useless, and which dependencies are missing from package.json."
+    seat_match: adjacent_pain
+    leftover: unused/missing report, not a pin/lockfile build gate
+  - name: knip
+    url: https://knip.dev/
+    quote: "Knip finds and fixes unused dependencies, exports and files."
+    seat_match: adjacent_pain
+    leftover: unused-code pruning report, not an unpinned-import build failure
+  - name: Socket Firewall
+    url: https://www.socket.dev/blog/introducing-socket-firewall
+    quote: "Socket Firewall is a free tool that blocks malicious packages at install time, giving developers proactive protection against rising supply chain attacks."
+    seat_match: adjacent_pain
+    leftover: install-time malware block via proxy, not a bundler module-resolution pin gate
+auto_rejects_fired: [2]
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 3
+  why_build: "Failing the build at module resolution on bare/unpinned or lockfile-absent imports enforces pinning where lint warnings are ignored."
+claim_hygiene: ok
+file_on: https://github.com/import-js/eslint-plugin-import
+deny_catalog: embedded_baseline
+rate_next: not_run

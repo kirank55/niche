@@ -1,0 +1,50 @@
+candidate_seat: Python interpreter lockfile shim
+v1_as_shipped: PATH shim for python/pip that resolves only via uv.lock/pdm.lock and blocks ad-hoc pip install outside lock
+entry: generated
+substrate: Host runtime enforcement (PATH, interpreter, package manager)
+process_or_protocol: Interpreter invocation gating against lockfile
+verdicts:
+  as_company: Sparse 3
+  as_oss: Sparse 3
+  as_plugin: Occupied 5
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 0
+incumbents:
+  - name: uv
+    url: https://pypi.org/project/uv/0.9.9
+    quote: "A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more."
+    seat_match: adjacent_pain
+    leftover: fast manager with universal lockfile via its own CLI, does not intercept bare python/pip invocations
+  - name: Poetry
+    url: https://python-poetry.org/docs/main
+    quote: "Poetry offers a lockfile to ensure repeatable installs, and can build your project for distribution."
+    seat_match: adjacent_pain
+    leftover: repeatable installs only when invoked via poetry, no PATH exec interception of ad-hoc pip
+  - name: PDM
+    url: https://pdm-project.org/latest/usage/lockfile
+    quote: "PDM installs packages exclusively from the existing lock file named pdm.lock. This file serves as the sole source of truth for installing dependencies."
+    seat_match: adjacent_pain
+    leftover: lockfile-truth via pdm sync/install, bypassable by direct pip outside PDM
+  - name: Pixi
+    url: http://pixi.prefix.dev/latest/workspace/lock_file
+    quote: "Pixi - like many other modern package managers - has native support for lock files. This file is named pixi.lock."
+    seat_match: adjacent_pain
+    leftover: env lockfile via pixi commands, not a python/pip PATH shim
+  - name: Socket Firewall (pip)
+    url: https://www.socket.dev/blog/introducing-socket-firewall
+    quote: "It spins up an ephemeral HTTP proxy that intercepts traffic for the subprocess and checks with the Socket API for safety before packages are fetched, extracted, and installed by your package manager."
+    seat_match: adjacent_pain
+    leftover: network-proxy malware block, not lockfile-membership exec gating
+auto_rejects_fired: []
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 4
+  why_build: "Exec interception on PATH closes ad-hoc pip drift that lockfiles alone cannot, since every bare python/pip invocation is forced through the lock."
+claim_hygiene: ok
+file_on: none
+deny_catalog: embedded_baseline
+rate_next: not_run

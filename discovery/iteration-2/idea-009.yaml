@@ -1,0 +1,50 @@
+candidate_seat: eBPF execve binary-allowlist daemon
+v1_as_shipped: eBPF LSM daemon that denies execve of binaries whose sha256 not in versioned allowlist, enforced in kernel
+entry: generated
+substrate: Kernel / eBPF / LSM
+process_or_protocol: execve LSM enforcement against allowlist
+verdicts:
+  as_company: Sparse 2
+  as_oss: Sparse 3
+  as_plugin: Occupied 5
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 0
+incumbents:
+  - name: Tetragon
+    url: https://tetragon.io/
+    quote: "Tetragon is a flexible Kubernetes-aware security observability and runtime enforcement tool that applies policy and filtering directly with eBPF, allowing for reduced observation overhead, tracking of any process, and real-time enforcement of policies."
+    seat_match: adjacent_pain
+    leftover: policy/SIGKILL enforcement, not a versioned sha256 exec allowlist
+  - name: Falco
+    url: http://falco.org/
+    quote: "Falco is a cloud native security tool that provides runtime security across hosts, containers, Kubernetes, and cloud environments. It leverages custom rules on Linux kernel events and other data sources through plugins, enriching event data with contextual metadata to deliver real-time alerts."
+    seat_match: adjacent_pain
+    leftover: detection/alerting on execve, no kernel-deny allowlist enforcement
+  - name: Tracee
+    url: https://github.com/aquasecurity/tracee
+    quote: "Tracee is a runtime security and observability tool that helps you understand how your system and applications behave. It is using eBPF technology to tap into your system and expose that information as events that you can consume."
+    seat_match: adjacent_pain
+    leftover: event/detection engine, no exec-deny allowlist gate
+  - name: fapolicyd
+    url: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_blocking-and-allowing-applications-using-fapolicyd_security-hardening
+    quote: "The administrator can define allow and deny execution rules for any application with the option to audit based on a path, hash, MIME type, or trust."
+    seat_match: wrong_substrate
+    leftover: is the sha256/trust exec allowlist UX, but fanotify/userspace+RPMDB daemon, not an eBPF LSM versioned-allowlist daemon
+  - name: KubeArmor
+    url: https://github.com/kubearmor/kubearmor
+    quote: "KubeArmor leverages Linux security modules (LSMs) such as AppArmor, SELinux, or BPF-LSM to enforce the user-specified policies."
+    seat_match: adjacent_pain
+    leftover: LSM path/policy exec restriction, not a sha256-versioned binary allowlist
+auto_rejects_fired: []
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 5
+  why_build: "Kernel-deny at exec on a versioned sha256 allowlist closes TOCTOU vs scanners and gives GitOps-pinned binary integrity no policy-path tool ships."
+claim_hygiene: ok
+file_on: none
+deny_catalog: embedded_baseline
+rate_next: not_run

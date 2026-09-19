@@ -1,0 +1,50 @@
+candidate_seat: Retrieval embedding freshness sidecar at write-time
+v1_as_shipped: Write-time hook verifying/refreshing vector embeddings for changed docs before merge, blocks merge if stale
+entry: generated
+substrate: Vector / retrieval sidecar consulted at write-time
+process_or_protocol: Doc-write to embedding-index sync gate
+verdicts:
+  as_company: Sparse 3
+  as_oss: Sparse 3
+  as_plugin: Sparse 2
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 0
+incumbents:
+  - name: Databricks Vector Search Delta Sync
+    url: https://docs.databricks.com/api/vector-search/v1/sync-vector-index
+    quote: "`DELTA_SYNC`: An index that automatically syncs with a source Delta Table, automatically and incrementally updating the index as the underlying data in the Delta Table changes."
+    seat_match: adjacent_pain
+    leftover: async pipeline sync; no pre-merge verify-or-block gate
+  - name: Qdrant Incremental Embedding Updates tutorial
+    url: https://qdrant.tech/documentation/tutorials-operations/incremental-embedding-updates
+    quote: "Your sync trigger could be a CI job on merge if your docs live in git, or a nightly cron job."
+    seat_match: adjacent_pain
+    leftover: CI-triggered reconciler exists as a pattern; the blocking freshness gate is the unbuilt checkbox
+  - name: Qdrant Data Synchronization strategies
+    url: https://qdrant.tech/documentation/data-synchronization
+    quote: "Event-driven sync - listen for change events (CDC, triggers, or message queues) and upsert or delete points in Qdrant in real time."
+    seat_match: adjacent_pain
+    leftover: sync transport documented; write-time enforcement gate absent
+  - name: Zilliz lake-native sync (Vector Lakebase)
+    url: https://zilliz.com/ai-faq/keep-vector-index-in-sync-with-data-lake
+    quote: "Keeping a vector index in sync with your data lake means either operating a dual-path CDC pipeline that re-embeds and upserts changes into a separate store, or using a lake-native index that refreshes incrementally on changed files only."
+    seat_match: adjacent_pain
+    leftover: removes sync glue for lakes; doc-PR merge blocking untouched
+  - name: Tian Pan - Embedding Refresh Problem (CDC pattern)
+    url: https://tianpan.co/blog/2026/04/19/embedding-refresh-vector-store-database-engineer
+    quote: "In the vector index context, CDC works like this: every insert, update, or delete in the source system emits a change event. A pipeline consumes those events, re-embeds affected documents, and writes the new vectors to the index."
+    seat_match: adjacent_pain
+    leftover: pattern guidance only; no merge-blocking enforcement product
+auto_rejects_fired: [2]
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 4
+  why_build: "Stale embeddings silently degrade retrieval and no vector DB blocks the offending doc merge; a write-time freshness gate would make embedding sync a CI invariant instead of an ops pipeline."
+claim_hygiene: ok
+file_on: https://qdrant.tech/documentation/tutorials-operations/incremental-embedding-updates
+deny_catalog: embedded_baseline
+rate_next: not_run

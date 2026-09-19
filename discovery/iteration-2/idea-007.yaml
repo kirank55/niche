@@ -1,0 +1,50 @@
+candidate_seat: Eval-regression merge gate for agent repos
+v1_as_shipped: CI check running versioned golden eval set + replay harness, fails merge on regression
+entry: generated
+substrate: Eval / replay harness at CI gate
+process_or_protocol: Pre-merge CI evaluation gate
+verdicts:
+  as_company: Saturated 9
+  as_oss: Occupied 6
+  as_plugin: Occupied 5
+density_scores:
+  problem_density: 9
+  exact_mechanics_density: 9
+incumbents:
+  - name: promptfoo-action (GitHub Action)
+    url: https://github.com/promptfoo/promptfoo-action
+    quote: "This GitHub Action uses Promptfoo to evaluate prompts when monitored files change."
+    seat_match: exact
+    leftover: none - PR eval with fail-on-threshold + repeat/repeat-min-pass is the v1
+  - name: NVIDIA NeMo Evaluator CI Regression Gate
+    url: https://docs.nvidia.com/nemo/evaluator/deployment/ci-regression
+    quote: "Block merge requests that cause evaluation regressions."
+    seat_match: exact
+    leftover: none - baseline-vs-candidate compare with --max-drop --strict is the v1
+  - name: eval-gate (slatino-dev)
+    url: https://github.com/slatino-dev/eval-gate
+    quote: "Block merges the moment your LLM's eval scores drift outside the noise floor."
+    seat_match: exact
+    leftover: none - golden dataset + t-interval noise floor + exit-1 gate is the v1
+  - name: llm-eval-cicd (Rakesh-lella)
+    url: https://github.com/Rakesh-lella/llm-eval-cicd
+    quote: "Block the merge if quality regresses."
+    seat_match: exact
+    leftover: none - golden Q-A set + hallucination/latency/cost thresholds + merge block is the v1
+  - name: llm-eval-suite (Pasukalu)
+    url: https://github.com/Pasukalu/llm-eval-suite
+    quote: "Designed for CI integration - quality regressions automatically block PRs."
+    seat_match: exact
+    leftover: none - golden set + RAGAS/judge metrics + exit-code gate is the v1
+auto_rejects_fired: [1]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 9
+  why_build: "Agent repos need deterministic, replayable pre-merge quality gates with versioned golden sets, and existing evals are dashboards or flaky scripts rather than blocking CI checks."
+claim_hygiene: ok
+file_on: none
+deny_catalog: embedded_baseline
+rate_next: not_run

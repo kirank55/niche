@@ -1,0 +1,50 @@
+candidate_seat: eBPF per-process egress allowlist daemon
+v1_as_shipped: eBPF tc/connect daemon enforcing per-binary DNS+egress allowlist, drops unlisted connects
+entry: generated
+substrate: Kernel / eBPF / LSM
+process_or_protocol: connect/sendmsg egress gating
+verdicts:
+  as_company: Sparse 3
+  as_oss: Sparse 3
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 0
+incumbents:
+  - name: Cilium network policy
+    url: https://docs.cilium.io/en/stable/security/policy/language
+    quote: "The following example illustrates how to use a simple egress rule to allow communication to endpoints with the label role=backend from endpoints with the label role=frontend."
+    seat_match: adjacent_pain
+    leftover: identity-selected L3-L7 egress allow, not per-binary kernel connect gating
+  - name: Calico DNS policy
+    url: https://docs.tigera.io/calico-cloud/network-policy/domain-based-policy
+    quote: "Using domain names in policy rules is limited to only egress allow rules. Calico Cloud allows connections only to IP addresses returned from DNS lookups to trusted DNS servers."
+    seat_match: adjacent_pain
+    leftover: pod/cluster DNS egress allow, not per-binary kernel enforcement
+  - name: Tetragon enforcement
+    url: https://tetragon.io/docs/getting-started/enforcement
+    quote: "you will use a Tetragon tracing policy to block TCP connections outside the Kubernetes cluster where Tetragon is running."
+    seat_match: adjacent_pain
+    leftover: namespaced tracing-policy SIGKILL on connect, not a per-binary versioned egress allowlist
+  - name: Istio egress gateway
+    url: https://istio.io/latest/docs/tasks/traffic-management/egress/egress-gateway
+    quote: "Egress gateways allow you to apply Istio features, for example, monitoring and route rules, to traffic exiting the mesh."
+    seat_match: wrong_substrate
+    leftover: mesh sidecar/gateway routing, not a kernel connect/sendmsg drop hook
+  - name: Cloudflare Zero Trust Gateway
+    url: https://github.com/cloudflare/cloudflare-docs/blob/production/src/content/docs/learning-paths/secure-internet-traffic/build-dns-policies/recommended-dns-policies.mdx
+    quote: "Allowlist any known domains and hostnames. With this policy, you ensure that your users can access your organization's domains even if the domains fall under a blocked category."
+    seat_match: wrong_substrate
+    leftover: user/edge DNS allowlist, not per-binary host kernel gating
+auto_rejects_fired: []
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 5
+  why_build: "Per-binary kernel egress gating stops exfil from a single rogue binary where pod/mesh allowlists are too coarse, with DNS+connect joined at the hook."
+claim_hygiene: ok
+file_on: none
+deny_catalog: embedded_baseline
+rate_next: not_run

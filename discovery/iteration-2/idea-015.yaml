@@ -1,0 +1,50 @@
+candidate_seat: Secret-in-diff merge blocker
+v1_as_shipped: Pre-merge check that scans diff for high-confidence secrets and fails the status check (block, not warn)
+entry: generated
+substrate: CI scheduler / merge queue
+process_or_protocol: Pre-merge diff scan + blocking status check
+verdicts:
+  as_company: Saturated 8
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 7
+incumbents:
+  - name: GitHub secret scanning / push protection
+    url: https://docs.github.com/en/code-security/concepts/secret-security/push-protection
+    quote: "Rather than alerting you to credential leaks after the fact, push protection blocks pushes that contain secrets before they reach your repository."
+    seat_match: exact
+    leftover: none - server-side hard block ships
+  - name: Gitleaks Action
+    url: https://github.com/gitleaks/gitleaks-action/
+    quote: "Gitleaks is a SAST tool for detecting and preventing hardcoded secrets like passwords, API keys, and tokens in git repos."
+    seat_match: exact
+    leftover: none - PR/push scan with fail gate ships
+  - name: TruffleHog
+    url: https://trufflesecurity.com/docs/scanning-in-ci.md
+    quote: "TruffleHog can scan Git based CI tools to prevent secrets from being merged."
+    seat_match: exact
+    leftover: none - CI scan with --fail ships
+  - name: git-secrets
+    url: https://github.com/awslabs/git-secrets/
+    quote: "git-secrets scans commits, commit messages, and --no-ff merges to prevent adding secrets into your git repositories."
+    seat_match: adjacent_pain
+    leftover: client-side hook, bypassable, not server merge gate
+  - name: Talisman
+    url: https://thoughtworks.github.io/talisman/docs
+    quote: "Talisman is a tool that installs a hook to your repository to ensure that potential secrets or sensitive information do not leave the developer's workstation."
+    seat_match: adjacent_pain
+    leftover: workstation hook, not required status check
+auto_rejects_fired: [1, 2]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 9
+  why_build: "A zero-config required check tuned to high-confidence patterns with low false-positive rate could still win on drop-in strictness where teams misconfigure scanners."
+claim_hygiene: ok
+file_on: none
+deny_catalog: embedded_baseline
+rate_next: not_run

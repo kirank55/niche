@@ -1,0 +1,55 @@
+candidate_seat: Vanilla Postgres tenant-extract cutover daemon
+v1_as_shipped: Daemon doing tenant-filtered logical replication (PG15 WHERE clause) + checksum + atomic cutover out of vanilla RDS Postgres
+entry: generated
+substrate: Schema / tenancy cutover
+process_or_protocol: PG logical replication + tenant-filtered cutover
+verdicts:
+  as_company: Occupied 6
+  as_oss: Sparse 3
+  as_plugin: Occupied 5
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 5
+incumbents:
+  - name: PostgreSQL 15 CREATE PUBLICATION docs
+    url: https://www.postgresql.org/docs/15/sql-createpublication.html
+    quote: "If the optional WHERE clause is specified, it defines a row filter expression. Rows for which the expression evaluates to false or null will not be published."
+    seat_match: exact
+    leftover: filtered replication ships; checksum + atomic cutover orchestration missing
+  - name: AWS DMS (Postgres source)
+    url: https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html
+    quote: "AWS DMS supports change data capture (CDC) using logical replication."
+    seat_match: exact
+    leftover: full-load + CDC migration ships; tenant-filtered extract daemon still glue
+  - name: Debezium Postgres connector
+    url: https://debezium.io/documentation/reference/stable/connectors/postgresql
+    quote: "The Debezium PostgreSQL connector captures row-level changes in the schemas of a PostgreSQL database."
+    seat_match: adjacent_pain
+    leftover: CDC stream to Kafka, not cutover daemon
+  - name: Vitess MoveTables
+    url: https://vitess.io/docs/23.0/reference/vreplication/movetables/
+    quote: "MoveTables is used to start and manage workflows to move one or more tables from an external database or an existing Vitess keyspace into a new Vitess keyspace."
+    seat_match: wrong_substrate
+    leftover: Vitess/MySQL keyspace mover, not vanilla RDS Postgres
+  - name: Ghostferry
+    url: https://shopify.github.io/ghostferry/main/introduction.html
+    quote: "Ghostferry is a library that enables you to copy data from one MySQL instance to another with minimal amount of downtime."
+    seat_match: wrong_substrate
+    leftover: MySQL binlog mover, not Postgres
+  - name: Citus isolate_tenant_to_new_shard
+    url: https://docs.citusdata.com/en/stable/use_cases/multi_tenant.html
+    quote: "First isolate the tenant's data to a dedicated shard suitable to move."
+    seat_match: wrong_substrate
+    leftover: Citus cluster shard isolate, not extract-out-of-vanilla-RDS
+auto_rejects_fired: []
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Vanilla RDS tenants still exit with dump/restore plus hand-rolled verify; a daemon wiring PG15 row-filter publications to checksummed atomic cutover could own the narrow extract path."
+claim_hygiene: ok
+file_on: https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html
+deny_catalog: embedded_baseline
+rate_next: not_run

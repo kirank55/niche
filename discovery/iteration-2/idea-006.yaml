@@ -1,0 +1,50 @@
+candidate_seat: Agent file-write policy sidecar consulted at write-time
+v1_as_shipped: FS interposer consulting repo policy file on every agent file-write, denies out-of-scope paths
+entry: generated
+substrate: Agent runtime / sandbox enforcement
+process_or_protocol: Agent file-write gating against policy file
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Sparse 3
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 7
+incumbents:
+  - name: Kilo Code OS-level sandbox (#11537, macOS)
+    url: https://github.com/Kilo-Org/kilocode/issues/11537
+    quote: "Commands are wrapped in `sandbox-exec` with a generated seatbelt profile that confines writes to the project directory + Kilo state directories."
+    seat_match: exact
+    leftover: scope consults Project.sandboxes + allow-rules today; remaining wedge is a repo-committed policy file format only
+  - name: AgentOpsSec agent-sandbox
+    url: https://github.com/AgentOpsSec/agent-sandbox
+    quote: "Block common secret paths such as `.env` and `~/.ssh`"
+    seat_match: exact
+    leftover: copy-based workspace + blockedPaths; not a per-write repo-policy interposer, but headline deny-at-write ships
+  - name: SandboxAgent filesystem API (Rivet)
+    url: https://sandboxagent.dev/docs/file-system
+    quote: "Requests that attempt to escape allowed roots are rejected by the server."
+    seat_match: exact
+    leftover: server-side allowed-roots, not a repo policy file consult
+  - name: Kubernetes Agent Sandbox files API
+    url: https://agent-sandbox.sigs.k8s.io/docs/filesystem/read-write
+    quote: "Use `sandbox.files.write()` to create or overwrite a file inside the sandbox."
+    seat_match: adjacent_pain
+    leftover: SDK-mediated sandbox containment; no policy-file consult mechanics
+  - name: Microsoft MXC (Execution Containers)
+    url: https://www.developersdigest.tech/blog/microsoft-mxc-developer-guide-2026
+    quote: "Everything else is blocked by default"
+    seat_match: exact
+    leftover: declarative JSON policy + OS enforcement ships; repo-policy adapter is a plugin, not a company
+auto_rejects_fired: [1]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 8
+  why_build: "Agent hosts enforce fixed scopes; a repo-committed, host-neutral write policy that travels with the repo and denies out-of-scope writes on every host would close the consent-gate-vs-confinement gap."
+claim_hygiene: ok
+file_on: none
+deny_catalog: embedded_baseline
+rate_next: not_run

@@ -1,0 +1,50 @@
+candidate_seat: AST-interference merge-queue scheduler
+v1_as_shipped: Merge-queue scheduler that serializes/reorders merges by AST-impact overlap graph, blocks parallel merges touching same symbols
+entry: generated
+substrate: CI scheduler / merge queue
+process_or_protocol: Pre-merge queue scheduling with interference graph
+verdicts:
+  as_company: Occupied 6
+  as_oss: Sparse 3
+  as_plugin: Sparse 3
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 4
+incumbents:
+  - name: Trunk Merge Queue (parallel queues)
+    url: https://docs.trunk.io/merge-queue/optimizations/parallel-queues
+    quote: "With a dynamic parallel queue, trunk merge creates additional checkout lanes in real-time while still guaranteeing that the protected branch doesn't break."
+    seat_match: exact
+    leftover: AST-symbol granularity missing; Trunk lanes key on impacted targets, not symbol overlap
+  - name: Aviator MergeQueue (parallel mode)
+    url: https://docs.aviator.co/mergequeue/concepts/parallel-mode
+    quote: "The main principle is to run builds optimistically in parallel, and falling back when a failure occurs."
+    seat_match: adjacent_pain
+    leftover: optimistic speculative parallelism, not overlap-graph enforcement
+  - name: Mergiraf
+    url: https://mergiraf.org/introduction.html
+    quote: "Mergiraf can solve a wide range of Git merge conflicts. That's because it's aware of the trees in your files!"
+    seat_match: adjacent_pain
+    leftover: merge driver, not queue scheduler
+  - name: Bazel target-determinator
+    url: https://github.com/bazel-contrib/target-determinator
+    quote: "Determines which Bazel targets were affected between two git commits."
+    seat_match: adjacent_pain
+    leftover: affected-target computation for CI selection, not merge-gate enforcement
+  - name: Nx affected
+    url: https://nx.dev/docs/features/ci-features/affected
+    quote: "determines the minimum set of projects that are affected by the change"
+    seat_match: adjacent_pain
+    leftover: task runner filter, not merge-queue gate
+auto_rejects_fired: [5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Target-level lanes still serialize coarsely; a symbol-overlap graph would let provably disjoint PRs merge in parallel while hard-blocking same-symbol races the target graph misses."
+claim_hygiene: ok
+file_on: https://docs.trunk.io/merge-queue/optimizations/parallel-queues/api
+deny_catalog: embedded_baseline
+rate_next: not_run

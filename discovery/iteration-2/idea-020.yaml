@@ -1,0 +1,50 @@
+candidate_seat: Supervisor consulting version-policy sidecar
+v1_as_shipped: Process supervisor reading versioned policy file on start/restart, refusing to start unapproved artifact versions
+entry: generated
+substrate: Process supervisor / daemon
+process_or_protocol: Supervisor start gating against policy file
+verdicts:
+  as_company: Sparse 3
+  as_oss: Sparse 3
+  as_plugin: Occupied 5
+density_scores:
+  problem_density: 4
+  exact_mechanics_density: 0
+incumbents:
+  - name: supervisord
+    url: https://www.supervisord.org/configuration.html
+    quote: "The configuration file must contain one or more program sections in order for supervisord to know which programs it should start and control."
+    seat_match: adjacent_pain
+    leftover: static program config start/control; no version-policy sidecar consult or refuse-on-unapproved
+  - name: systemd-sysupdate
+    url: https://man.archlinux.org/man/core/systemd/systemd-sysupdate.8.en
+    quote: "Installs (updates to) the specified version, or if none is specified to the newest version available. If the version is already installed or no newer version available, no operation is executed."
+    seat_match: adjacent_pain
+    leftover: OS-image version install path; not a supervisor start gate consulting a sidecar
+  - name: s6-overlay
+    url: https://github.com/just-containers/s6-overlay/
+    quote: "Run user s6-rc services declared in the user-bundles bundle, following dependencies."
+    seat_match: adjacent_pain
+    leftover: dependency-ordered start; no artifact-version policy check
+  - name: PM2
+    url: https://pm2.keymetrics.io/docs/usage/quick-start/
+    quote: "PM2 is a daemon process manager that will help you manage and keep your application online."
+    seat_match: adjacent_pain
+    leftover: keep-alive/monitoring/restart; no version-policy file gate
+  - name: s6-rc
+    url: https://skarnet.org/software/s6-rc/overview.html
+    quote: "s6-rc is a service manager, or, in other words, a machine state manager: given a database of services, with dependencies between them, it can safely bring the global machine state to the desired point."
+    seat_match: adjacent_pain
+    leftover: dependency-closure state manager; no version allowlist enforcement
+auto_rejects_fired: []
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: fail
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 4
+  why_build: "Install-time pins rot; the supervisor is the last host that can refuse a bad artifact version at start/restart, closing supply-chain drift no monitor can."
+claim_hygiene: ok
+file_on: none
+deny_catalog: embedded_baseline
+rate_next: not_run

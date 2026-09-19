@@ -1,0 +1,50 @@
+candidate_seat: Kafka idempotency wire gate in CI
+v1_as_shipped: Kafka wire-protocol proxy in CI asserting idempotent produce + consumer invariant checks, fails build on violation
+entry: generated
+substrate: Broker / queue protocol
+process_or_protocol: Kafka produce/fetch wire assertion in CI
+verdicts:
+  as_company: Occupied 6
+  as_oss: Sparse 3
+  as_plugin: Sparse 3
+density_scores:
+  problem_density: 5
+  exact_mechanics_density: 4
+incumbents:
+  - name: Kroxylicious
+    url: https://kroxylicious.io/documentation/
+    quote: "Kroxylicious is an Apache Kafka protocol-aware (Layer 7) proxy designed to enhance Kafka-based systems."
+    seat_match: exact
+    leftover: idempotency/consumer-invariant CI gate filter still missing; proxy + filter API ships
+  - name: Coyote
+    url: https://microsoft.github.io/coyote/overview/how/
+    quote: "Regardless if you use Coyote binary rewriting on your unmodified program or wrote your code using Coyote actors, the next step is to use Coyote to systematically test your code!"
+    seat_match: language_scoped
+    leftover: in-process .NET scheduling tester, not Kafka wire proxy
+  - name: Filibuster
+    url: https://github.com/filibuster-testing/filibuster-java-instrumentation
+    quote: "Filibuster is built to empower developers with the capability to assess the fault tolerance and resilience of their microservice application by injecting faults."
+    seat_match: adjacent_pain
+    leftover: HTTP/gRPC/SQL fault injection, not Kafka wire assertions
+  - name: Temporal
+    url: https://docs.temporal.io/design-patterns/saga-pattern
+    quote: "The Saga pattern manages distributed transactions across multiple services by coordinating a sequence of local transactions, each with a compensating action that can undo its effects if subsequent steps fail."
+    seat_match: adjacent_pain
+    leftover: durable orchestration avoiding choreography, not CI wire gate
+  - name: Kafkaesque
+    url: https://github.com/dcminter/kafkaesque
+    quote: "Server-side idempotency for producers (dedupe on retry, per-partition sequence tracking)"
+    seat_match: adjacent_pain
+    leftover: embedded test broker, not drop-in wire proxy gate
+auto_rejects_fired: [5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 5
+  why_build: "No drop-in CI proxy fails builds on Kafka wire-level idempotency and consumer-visibility violations; a Kroxylicious filter plus invariant assertions could own that narrow gate."
+claim_hygiene: ok
+file_on: https://kroxylicious.io/documentation/
+deny_catalog: embedded_baseline
+rate_next: not_run

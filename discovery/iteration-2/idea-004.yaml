@@ -1,0 +1,50 @@
+candidate_seat: MCP tool-call policy proxy between agent host and MCP servers
+v1_as_shipped: Standalone MCP wire proxy enforcing per-tool allow/deny + arg schema against versioned policy file, blocks calls pre-dispatch
+entry: generated
+substrate: Wire proxy / protocol gate
+process_or_protocol: MCP tool-call dispatch (JSON-RPC tools/call)
+verdicts:
+  as_company: Saturated 8
+  as_oss: Saturated 8
+  as_plugin: Occupied 5
+density_scores:
+  problem_density: 9
+  exact_mechanics_density: 8
+incumbents:
+  - name: mcp-guard (kgeg401)
+    url: https://github.com/kgeg401/mcp-guard
+    quote: "`mcp-guard` is a local-first MCP proxy that enforces policy before forwarding JSON-RPC tool calls to an upstream MCP server."
+    seat_match: exact
+    leftover: none - allow/deny lists + arg_rules + versioned YAML config is the v1
+  - name: mcp-gate (rsh1k)
+    url: https://github.com/rsh1k/mcp-gate
+    quote: "Every `tools/call` is intercepted, evaluated against a declarative policy, and then allowed, denied, held for human approval, or forwarded with arguments redacted"
+    seat_match: exact
+    leftover: none - declarative YAML policy, first-match-wins, default-deny is the v1
+  - name: Docker MCP gateway access policies
+    url: https://docs.docker.com/ai/sandboxes/governance/access-controls/mcp
+    quote: "MCP access policies let organization administrators control which Model Context Protocol (MCP) servers developers can register and what agents can do through Docker's MCP gateway."
+    seat_match: exact
+    leftover: host-shipped; remaining wedge is at most a portable policy-file format, not a proxy
+  - name: Tyk MCP Gateway Policies
+    url: https://tyk.mintlify.dev/docs/ai-management/mcp-gateway/policies
+    quote: "controls which protocol-level operations the consumer may use. For example, you can allow `tools/call` and `tools/list` while blocking `sampling/createMessage`."
+    seat_match: exact
+    leftover: per-tool allow/block + per-primitive rate limits already shipped; nothing mechanical left
+  - name: Google Cloud MCP IAM controls
+    url: https://docs.cloud.google.com/mcp/control-mcp-use-iam
+    quote: "Configure these policies to block unwanted MCP tool access."
+    seat_match: adjacent_pain
+    leftover: IAM-permission mechanics, not a standalone versioned-policy proxy
+auto_rejects_fired: [1]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 8
+  why_build: "Every agent host needs a host-neutral, audited pre-dispatch policy point with versioned arg-schema rules that no single vendor gateway owns."
+claim_hygiene: ok
+file_on: none
+deny_catalog: embedded_baseline
+rate_next: not_run

@@ -1,0 +1,50 @@
+candidate_seat: Cargo audit-link gate
+v1_as_shipped: Cargo link-time gate failing build if dependency version not in audited allow-set (cargo-deny/cargo-audit policy enforced, not advisory)
+entry: generated
+substrate: Compiler, linker, bundler, lockfile
+process_or_protocol: Cargo dependency-resolution + link gate
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 6
+incumbents:
+  - name: cargo-deny
+    url: https://docs.rs/cargo-deny/latest/cargo_deny/index.html
+    quote: "The bans check is used to deny (or allow) specific crates, as well as detect and handle multiple versions of the same crate."
+    seat_match: exact
+    leftover: only link-vs-CI placement remains; deny/allow + licenses/sources/advisories gate already fails builds
+  - name: cargo-vet
+    url: https://github.com/mozilla/cargo-vet
+    quote: "The cargo vet subcommand is a tool to help projects ensure that third-party Rust dependencies have been audited by a trusted entity."
+    seat_match: exact
+    leftover: audited-version attestation gate already exists; only invocation-point placement remains
+  - name: cargo-audit
+    url: https://docs.rs/crate/cargo-audit/latest/source/README.md
+    quote: "Audit Cargo.lock for crates with security vulnerabilities"
+    seat_match: adjacent_pain
+    leftover: advisory scan against RustSec DB, not an audited allow-set build gate
+  - name: Dependabot
+    url: https://docs.github.com/en/code-security/concepts/supply-chain-security/about-dependabot-version-updates
+    quote: "Dependabot takes the effort out of maintaining your dependencies. You can use it to ensure that your repository automatically keeps up with the latest releases of the packages and applications it depends on."
+    seat_match: adjacent_pain
+    leftover: update PRs for latest/vulnerable versions, not a link-time allow-set denial
+  - name: Snyk (Cargo)
+    url: https://security.snyk.io/package/cargo/cargo
+    quote: "Known vulnerabilities in the cargo package. This does not include vulnerabilities belonging to this package's dependencies."
+    seat_match: adjacent_pain
+    leftover: vulnerability DB + upgrade path, not a build/link enforcement gate
+auto_rejects_fired: [1]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 4
+  why_build: "A hard link-time audited-allow-set gate would turn advisory-only audit output into an un-bypassable build denial."
+claim_hygiene: ok
+file_on: https://github.com/EmbarkStudios/cargo-deny
+deny_catalog: embedded_baseline
+rate_next: not_run
