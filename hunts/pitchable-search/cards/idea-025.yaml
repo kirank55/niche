@@ -1,0 +1,79 @@
+candidate_seat: Shopmonkey-linked shop hazmat waste manifest tracker for independent shops
+v1_as_shipped: Standalone waste tracker for Shopmonkey cloud shops — used-oil coolant refrigerant hauler pickup scheduling, manifest plus chain-of-custody log linked to Shopmonkey office record; never blocks RO save
+entry: restated
+niche:
+  icp: independent auto-repair shops
+  system_of_record: Shopmonkey cloud
+  workflow_step: hazmat waste pickup plus manifest chain-of-custody log
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [hauler pickup scheduling, manifest plus chain-of-custody log]
+search_classes:
+  sor_primitive: Shopmonkey office record waste manifest docs
+  dropin_addon: Shopmonkey App Store waste hazmat
+  commercial_sku: used oil hazmat waste manifest hauler auto shop
+  tracker_leftover: waste manifest tracker issue Shopmonkey marketplace
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 5
+  exact_mechanics_density: 4
+incumbents:
+  - name: Shopmonkey
+    url: https://shopmonkey.com/
+    quote: NEED_EVIDENCE
+    seat_match: adjacent_pain
+    leftover: Fetch 403 this run; office-record waste primitive unverified. Do not claim vacancy.
+  - name: Safety-Kleen
+    url: https://www.safety-kleen.com/
+    quote: "Safety-Kleen collects used oil from thousands of locations across the United States, Canada and Puerto Rico."
+    seat_match: exact
+    leftover: Hauler pickup plane exists; still needs manifest plus chain-of-custody log on Shopmonkey office record; file on Safety-Kleen.
+  - name: Clean Harbors
+    url: https://www.cleanharbors.com/
+    quote: "For 45 years, Clean Harbors has been providing comprehensive hazardous and non-hazardous waste management services to meet the needs of customers throughout North America."
+    seat_match: exact
+    leftover: Waste-management plane exists; pickup scheduling plus manifest sync to Shopmonkey is add-to-hauler glue.
+  - name: EPA e-Manifest
+    url: https://www.epa.gov/e-manifest
+    quote: "e-Manifest facilitates the electronic transmission of the uniform manifest form, which accompanies shipments of hazardous waste."
+    seat_match: exact
+    leftover: Federal manifest plane exists; still needs hauler pickup plus Shopmonkey chain-of-custody copy.
+  - name: Arcwood Environmental
+    url: https://www.heritage-enviro.com/
+    quote: "We safely transport, treat, and dispose of waste, focusing on reuse and recycling to minimize environmental impact."
+    seat_match: exact
+    leftover: Transport plus disposal plane exists; manifest log on Shopmonkey office record is glue.
+  - name: KPA
+    url: https://www.kpa.io/
+    quote: "Collision centers face unique compliance exposure, from VOC emissions and paint booth requirements to hazardous waste analysis and disposal."
+    seat_match: adjacent_pain
+    leftover: Compliance-software plane only; hauler manifest plus pickup scheduling remains hauler plus EPA glue.
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Manifest gaps are fines; a standalone pickup plus e-Manifest chain-of-custody copy on the Shopmonkey office record could keep small shops audit-ready."
+claim_hygiene: ok
+file_on: https://www.safety-kleen.com/
+keep_gate_checks:
+  g1_quotes_literal: fail
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: pass
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: pass
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: compose_next

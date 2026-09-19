@@ -1,0 +1,79 @@
+candidate_seat: Shopmonkey-linked NHTSA recall verification plus completion log for independent shops
+v1_as_shipped: Standalone recall tracker for Shopmonkey cloud shops — VIN recall lookup via NHTSA portal, open-recall docket, dealer-completion proof linked to Shopmonkey RO; never blocks RO save
+entry: restated
+niche:
+  icp: independent auto-repair shops
+  system_of_record: Shopmonkey cloud
+  workflow_step: VIN recall lookup plus completion proof log
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [VIN recall lookup via NHTSA portal, open-recall docket, dealer-completion proof linked to Shopmonkey RO]
+search_classes:
+  sor_primitive: Shopmonkey RO recall VIN docs
+  dropin_addon: Shopmonkey App Store recall VIN
+  commercial_sku: NHTSA VIN recall lookup completion auto repair
+  tracker_leftover: recall docket tracker issue Shopmonkey marketplace
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 5
+  exact_mechanics_density: 3
+incumbents:
+  - name: Shopmonkey
+    url: https://shopmonkey.com/
+    quote: NEED_EVIDENCE
+    seat_match: adjacent_pain
+    leftover: Fetch 403 this run; no verified native recall module. Do not claim vacancy.
+  - name: NHTSA API
+    url: https://api.nhtsa.gov/
+    quote: "This API is NOT meant to be used by any other applications to perform bulk VIN lookups."
+    seat_match: exact
+    leftover: Lookup primitive exists with rate limits; still needs open-recall docket plus dealer-completion proof on Shopmonkey RO.
+  - name: Recall Masters
+    url: https://www.recallmasters.com/
+    quote: "The #1 Provider of Comprehensive Recall & Retention Solutions"
+    seat_match: exact
+    leftover: Recall plus retention UX exists; Shopmonkey RO docket link is add-to-Recall-Masters glue.
+  - name: CARFAX recall alerts
+    url: https://www.carfax.com/
+    quote: "See if your car has a “Do Not Drive” or “Park Outside” recall – and be alerted to new ones."
+    seat_match: exact
+    leftover: Consumer recall-alert UX exists; shop-side open-recall docket plus completion proof on Shopmonkey RO remains.
+  - name: Mitchell1
+    url: https://www.mitchell1.com/
+    quote: "Diagnostic, estimating, OEM repair information and exclusive expert-based fixes delivered together."
+    seat_match: wrong_substrate
+    leftover: Different shop-management SKU repair-info plane; still needs VIN recall docket on Shopmonkey RO.
+  - name: ALLDATA
+    url: https://www.alldata.com/
+    quote: "We're the industry's #1 choice for OEM-accurate mechanical and collision repair information, shop management software and support services"
+    seat_match: adjacent_pain
+    leftover: OEM repair-info plane only; still needs NHTSA lookup plus completion log tied to Shopmonkey RO.
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Open recalls are safety plus revenue; a standalone VIN-lookup docket with dealer-completion proof on the RO could close them without blocking RO save."
+claim_hygiene: ok
+file_on: https://www.recallmasters.com/
+keep_gate_checks:
+  g1_quotes_literal: fail
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: pass
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: pass
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: compose_next

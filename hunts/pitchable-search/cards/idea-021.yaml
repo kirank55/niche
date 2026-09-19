@@ -1,0 +1,79 @@
+candidate_seat: Shopmonkey-linked OEM warranty-parts return packet tracker for independent shops
+v1_as_shipped: Standalone warranty-return tracker for Shopmonkey cloud shops — OEM portal claim assembly, parts-return ship proof, credit-match vs distributor statement linked to Shopmonkey RO; never blocks RO save
+entry: restated
+niche:
+  icp: independent auto-repair shops
+  system_of_record: Shopmonkey cloud
+  workflow_step: OEM warranty-parts return packet assembly and credit-match
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [OEM portal claim assembly, parts-return ship proof, credit-match vs distributor statement]
+search_classes:
+  sor_primitive: Shopmonkey RO estimate warranty claim docs
+  dropin_addon: Shopmonkey App Store warranty claim
+  commercial_sku: OEM warranty parts return claim packet auto repair
+  tracker_leftover: warranty claim tracker issue Shopmonkey marketplace
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 5
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 4
+  exact_mechanics_density: 0
+incumbents:
+  - name: Shopmonkey
+    url: https://shopmonkey.com/
+    quote: NEED_EVIDENCE
+    seat_match: adjacent_pain
+    leftover: Fetch 403 this run; cannot verify native warranty module. Do not claim vacancy from block.
+  - name: Decisiv SRM
+    url: https://www.decisiv.com/
+    quote: "Decisiv SRM connects everyone involved in every step of the service event process from beginning to end."
+    seat_match: adjacent_pain
+    leftover: Still needs OEM-portal claim assembly plus parts-return ship proof plus distributor credit-match linked to Shopmonkey RO; file as Decisiv service-event glue.
+  - name: Mitchell1 ProDemand / Manager SE
+    url: https://www.mitchell1.com/
+    quote: "Diagnostic, estimating, OEM repair information and exclusive expert-based fixes delivered together."
+    seat_match: wrong_substrate
+    leftover: Different shop-management SKU; still needs OEM warranty-return packet plus credit-match on Shopmonkey RO.
+  - name: Tekmetric
+    url: https://www.tekmetric.com/
+    quote: "Order parts straight from the repair order and watch your inventory update itself."
+    seat_match: wrong_substrate
+    leftover: Different shop-management SKU; still needs warranty-parts return docket plus ship proof linked to Shopmonkey RO.
+  - name: Identifix ShopCentral
+    url: https://www.identifix.com/
+    quote: "ShopCentral software provides auto repair shops with a best-in-class shop management solution designed to improve your customers’ interactions with your shop."
+    seat_match: wrong_substrate
+    leftover: Different shop-management SKU; still needs OEM claim packet plus credit-match; file as RO-note plugin.
+  - name: ALLDATA
+    url: https://www.alldata.com/
+    quote: "We're the industry's #1 choice for OEM-accurate mechanical and collision repair information, shop management software and support services"
+    seat_match: adjacent_pain
+    leftover: Repair-info plane only; still needs portal claim plus return-ship proof plus statement match tied to Shopmonkey RO.
+auto_rejects_fired: [5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Shops lose warranty credits to portal paperwork plus return-ship proof plus statement matching; a standalone return packet tied to the RO could recover credits without touching RO save."
+claim_hygiene: ok
+file_on: https://www.decisiv.com/
+keep_gate_checks:
+  g1_quotes_literal: fail
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: pass
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: pass
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: compose_next

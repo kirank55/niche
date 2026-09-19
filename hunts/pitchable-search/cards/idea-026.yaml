@@ -1,0 +1,79 @@
+candidate_seat: standalone parts core-return credit tracker on Shopmonkey cloud
+v1_as_shipped: standalone core-return tracker (core tag, distributor RMA, return-ship proof, credit-match vs statement linked to Shopmonkey RO/PO); never blocks Shopmonkey save
+entry: restated
+niche:
+  icp: independent auto-repair shops
+  system_of_record: Shopmonkey cloud
+  workflow_step: parts core-return credit reconciliation
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [core tag log, distributor RMA docket, return-ship proof, credit-match vs statement]
+search_classes:
+  sor_primitive: Shopmonkey inventory purchase order docs
+  dropin_addon: Shopmonkey App Store PartsTech integration
+  commercial_sku: reman core returns portal CARDONE LKQ distributor RMA
+  tracker_leftover: Shopmonkey reporting vendor summary purchase audit
+verdicts:
+  as_company: Occupied 6
+  as_oss: Sparse 3
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 3
+incumbents:
+  - name: Shopmonkey Inventory
+    url: https://www.shopmonkey.io/product/inventory
+    quote: "Always know what's in your inventory and easily track purchase orders."
+    seat_match: exact
+    leftover: standalone core-tag / RMA-status / ship-proof / statement credit-match docket linked to RO/PO still missing; no core-charge field, no RMA lifecycle
+  - name: Shopmonkey PartsTech integration
+    url: https://www.shopmonkey.io/integrations/partstech
+    quote: "One search shows live inventory and wholesale pricing from all your suppliers in one lookup through Shopmonkey's integration with PartsTech."
+    seat_match: adjacent_pain
+    leftover: ordering lookup only; no RMA issuance, no return-ship proof, no credit-match vs statement
+  - name: PartsTech
+    url: https://www.partstech.com/
+    quote: "PartsTech integrates with 35+ management systems, so you can easily add parts and tires to ROs with a single click."
+    seat_match: adjacent_pain
+    leftover: adds parts to RO; no core-return lifecycle, no ship proof, no credit reconciliation
+  - name: CARDONE
+    url: https://www.cardone.com/
+    quote: "Access the Bill of Lading Generator, Returns Portal, and other self-service systems"
+    seat_match: exact
+    leftover: distributor-side returns portal; shop-side core-tag log linked to Shopmonkey RO/PO and statement credit-match still a standalone tracker
+  - name: LKQ Corp
+    url: https://lkqcorp.com/
+    quote: "We take pride in being the largest recycler in the automotive industry."
+    seat_match: adjacent_pain
+    leftover: recycled parts supply; no per-RO core tag, RMA status, ship proof, credit-match
+  - name: Shopmonkey Reporting
+    url: https://www.shopmonkey.io/product/reporting
+    quote: "View trends in purchasing volume from each vendor to negotiate better pricing agreements."
+    seat_match: exact
+    leftover: aggregate vendor trends; no core-specific RMA / ship / credit-match docket
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Shops leak core credits across distributor portals and statements; a single RO-linked core docket with RMA status plus ship proof plus statement credit-match would recover money Shopmonkey POs plus CARDONE portals leave scattered."
+claim_hygiene: ok
+file_on: https://www.shopmonkey.io/product/inventory
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run
