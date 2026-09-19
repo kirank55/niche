@@ -70,7 +70,7 @@ steelman:
 claim_hygiene: ok | unsourced | implausible
 file_on: <incumbent repo/issue/marketplace URL, or none>
 keep_gate: pass | fail            # pass required for as_company Sparse/Greenfield; G1-G9 in gate-bind-saas.md
-deny_catalog: local_adr_0001 | embedded_saas_baseline | incomplete
+deny_catalog: local_* | embedded_saas_baseline | incomplete
 rate_next: <not_run | compose_next>   # reminder only: hand a candidate to an idea-rater, never inline a rater verdict
 ```
 

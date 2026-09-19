@@ -45,12 +45,22 @@ is a keep-gate G2 fail. Stopping after a SoR help article that admits
 | Restaurant / retail (Toast / Square) | SoR POS/close/payroll docs; app marketplace for that SKU |
 | Clinic / studio (Jane / SimplePractice / Mindbody) | SoR scheduling/chart/billing docs; app marketplace for that SKU |
 | Construction (Buildertrend) | SoR selection/change-order/draw docs; marketplace or partner integrations |
+| Veterinary (ezyVet) | SoR consult/invoice/inventory docs; ezyVet integrations / App Store for the named step |
+| Auto shop (Shopmonkey) | SoR RO/estimate/inspect docs; Shopmonkey App Store for the named step |
+| Property (AppFolio) | SoR lease/work-order/ledger docs; AppFolio Stack marketplace for the named step |
+| Accounting firms (Karbon) | SoR work/email/time docs; Karbon integrations for the named step |
 
 These starters are query shapes, not a closed-aisle list and not
 generation seeds. Switch hosts for aisle-close live in
 [seat-generation-saas.md](seat-generation-saas.md).
 
-## Class-1 gap quote is not a stop
+## Class-1 dedicated module and gap quote are not vacancy
+
+Class 1 that names a **dedicated native module** for the restated step
+(Lab Tracking, Recall, POS ticket, job dispatch) is occupancy of that
+module. Record it as `exact`. Finish class 2-3, then Occupied /
+`file_on` the module. Do not keep Sparse because leftover is "manual"
+or "no write-time block."
 
 A fetched SoR sentence that says any of: "does not have a native /
 dedicated … module", "you must build a custom … report", "is a manual
@@ -77,6 +87,10 @@ token**. Two quotes from one SoR URL do not count as class 3.
 | Legal | crash / police-report order portals; docket / SOL engines; trust escheatment SKUs; `{SoR}` App Directory + the step |
 | Clinic / studio | OON superbill / reimbursement trackers; supervision-hours trackers; `{SoR}` letter / template library for the step |
 | Dental / construction | claims / lab / change-order add-on SKUs **and** the named marketplace |
+| Veterinary | controlled-substance log / DEA biennial SKUs; lab/reference analyzer bridges; `{SoR}` App Store + the step |
+| Auto shop | OEM warranty-parts return packet SKUs; `{SoR}` App Store + the step |
+| Property | habitability / local-registration filing SKUs; `{SoR}` Stack + the step |
+| Accounting firms | notice / e-file status tracker SKUs; `{SoR}` integrations + the step |
 
 Do not copy those SKU names onto a new seat as occupancy. Re-search
 **this** step. Name **this** step's class-3 page.

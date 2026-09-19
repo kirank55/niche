@@ -46,7 +46,9 @@ around the Toast/Clio primitive." You may not pass it by labeling the
 SoR workaround `adjacent_pain` because the leftover is "manual" or
 "not auto." If the class-1 page describes Skills / forms / Invoice
 Items / intro-offer flags / letter templates that *are* the headline
-UX, that row is `exact` for that slice.
+UX, that row is `exact` for that slice. A dedicated native module for
+the restated step (Lab Tracking, Recall, POS ticket, job dispatch) is
+`exact`; leftover "block save" is auto-reject 5.
 
 **G5. Conjunction v1 is a bundle.** If `v1_as_shipped` joins two or more
 mechanisms with "and" / "plus" (CSV + reminder + portal, intake +
@@ -96,6 +98,7 @@ labeling is in [calibration-saas.md](calibration-saas.md).
 | Add missing trade to a named marketplace app | Auto-reject 5. `file_on` the app. |
 | Typeform/Jotform + Zapier as the vertical v1 | Auto-reject 2. Occupied / drop. |
 | SoR "no dedicated module" + write-time guard (license-expiry dispatch, 3PO payout join, EPA cylinder ledger) | Class-1 workaround is `exact` for that slice; class 3 occupies the standalone SKU. Skipping class 2-3 is G2 fail. Auto-reject 5. `file_on` the primitive or the matcher/ledger SKU. |
+| Write-time remake/recall/claims guard on Eaglesoft Lab Tracking, Recall, or claims | Native module is `exact`. Auto-reject 1 and 5. `file_on` the module. Do not generate. |
 
 ## Write-time consult test (probe b / auto-reject 7)
 
@@ -163,6 +166,9 @@ false-keep seeds.
 4. **SoR gap quote as vacancy.** "No dedicated module; use custom
    fields / reports / skills" is occupancy of that workaround, not a
    vacant process.
+5. **Native headline module as vacancy.** Lab Tracking, Recall, POS
+   ticket, job dispatch, chart, ledger already *are* the UX. A
+   write-time guard on that screen is auto-reject 5.
 
 ## SaaS embedded deny fallback
 
@@ -177,6 +183,9 @@ seats under `.docs/` or `docs/`), use this list
 - SoR "no dedicated module" leftover claimed as a vacant write-time
   company keep (license-expiry Skill sync, 3PO payout join, EPA
   cylinder ledger on the named FSM)
+- Write-time tray/overlay/guard on a closed native headline module
+  (Eaglesoft Lab Tracking / Recall / claims, ServiceTitan dispatch,
+  Toast POS ticket, Clio matters)
 
 A previous kill is a deny-list entry, not a scoring template. Do not
 generate from this list. Re-search **this** seat.
