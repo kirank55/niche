@@ -1,0 +1,79 @@
+candidate_seat: standalone specialist referral packet tracker for Eaglesoft GP practices
+v1_as_shipped: standalone referral tracker beside Eaglesoft on Windows (endo/perio/oral-surgery referral assembly, consult-note + treatment pullback to Eaglesoft patient record)
+entry: restated
+niche:
+  icp: independent dental practices
+  system_of_record: Patterson Eaglesoft on Windows
+  workflow_step: specialist referral assembly and consult-note pullback
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [referral assembly + send, referral tracking + messaging, consult-note + treatment pullback to Eaglesoft record]
+search_classes:
+  sor_primitive: Patterson Eaglesoft specialist referral workflow docs
+  dropin_addon: Eaglesoft-integrated referral add-on marketplace
+  commercial_sku: dental referral network + specialty PMS referral SKU
+  tracker_leftover: Eaglesoft feature request referral tracking consult-note sync
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 5
+incumbents:
+  - name: Sindi Referrals
+    url: https://sindireferrals.com/
+    quote: "Referrals shouldn't disappear after they're sent."
+    seat_match: exact
+    leftover: ships referral + CBCT sharing + tracking lifecycle; Eaglesoft record pullback is add-to-incumbent glue
+  - name: CaseLink
+    url: https://www.caselink.net/
+    quote: "A secure referral and collaboration network for general dentists and specialists."
+    seat_match: exact
+    leftover: ships send-share-track-to-outcome workspace; Eaglesoft attachment is auto-reject 5 glue
+  - name: CareStack referral management
+    url: https://carestack.com/dental-software/features/specialty-dental-referral-software
+    quote: "With CareStack, general dentists can conveniently refer patients to other specialty providers from within the application"
+    seat_match: wrong_substrate
+    leftover: same slogan on a different SoR SKU (cloud PMS vs Eaglesoft); not this seat
+  - name: DSN multi-specialty referral management
+    url: https://www.dsn.com/specialized-solution/multi-specialty-software/
+    quote: "DSN automates referral tracking, follow-ups, and detailed reporting"
+    seat_match: wrong_substrate
+    leftover: specialty-PMS slice on a different host SKU; not an Eaglesoft GP seat
+  - name: Vyne Dental Trellis
+    url: https://vynedental.com/
+    quote: "Handle all of your revenue cycle needs in one place, from appointment scheduling and eligibility checks to claim submission and patient payments."
+    seat_match: adjacent_pain
+    leftover: revenue-cycle/claims mechanics, not referral assembly + consult-note pullback
+  - name: Patterson Eaglesoft referral docs (SoR primitive)
+    url: https://www.pattersondental.com/products/technology/digital-imaging
+    quote: NEED_EVIDENCE (HTTP 403 this run, no verified quote)
+    seat_match: adjacent_pain
+    leftover: unverified this run; treat as unproven, not vacancy
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "GPs on Eaglesoft lose 30%+ of referrals to fax black holes, so a neutral tracker with consult-note pullback could tax the leakage."
+claim_hygiene: ok
+file_on: https://sindireferrals.com/
+keep_gate_checks:
+  g1_quotes_literal: fail
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: fail
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

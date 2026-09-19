@@ -1,0 +1,79 @@
+candidate_seat: Eaglesoft standalone sedation monitoring log packet for independent dental practices
+v1_as_shipped: Standalone sedation tracker (sedation permit checklist, vitals-monitoring log capture, adverse-event + reversal-agent log linked to Eaglesoft note; no dosing advice beyond fetched protocol pages)
+entry: restated
+niche:
+  icp: independent dental practices
+  system_of_record: Patterson Eaglesoft on Windows
+  workflow_step: sedation monitoring + permit/vitals/adverse-event logging
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: [Lab Tracking/Lab Case Manager, Recall, Treatment Plan, Claims/insurance send, Appointment Book/schedule, Ledger/walkout, Perio/charting]
+  source: agent_opt_out
+slices: [sedation permit checklist, vitals-monitoring log capture, adverse-event + reversal-agent log, Eaglesoft note link]
+search_classes:
+  sor_primitive: Patterson Eaglesoft sedation anesthesia clinical notes documentation
+  dropin_addon: Patterson Eaglesoft eServices marketplace sedation add-on
+  commercial_sku: dental sedation monitoring log software vitals adverse event tracker
+  tracker_leftover: dental sedation documentation Capterra feature request paper-record replacement
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 4
+incumbents:
+  - name: Patterson Eaglesoft Patient Notes
+    url: https://pattersonsupport.custhelp.com/app/answers/detail/a_id/9566/~/use-patient-notes-and-note-history
+    quote: "Record and manage notes easer in the Notes History window."
+    seat_match: adjacent_pain
+    leftover: No sedation vitals stream, permit checklist, or adverse-event log; generic note storage only
+  - name: Patterson Eaglesoft eService Solutions
+    url: https://pattersonsupport.custhelp.com/app/answers/detail/a_id/7548/~/eaglesoft-and-fuse-integrated-eservice-solutions
+    quote: "Explore an entire suite of integrated eService solutions available with your Eaglesoft or Fuse practice management software."
+    seat_match: adjacent_pain
+    leftover: No sedation-specific add-on named; generic engagement/revenue-cycle catalog
+  - name: SedationVault
+    url: https://sedationvault.com/
+    quote: "Automatically sync vitals from Edan, MindRay, and Criticare monitors. No manual entry."
+    seat_match: exact
+    leftover: Only Eaglesoft PDF export link remains; headline vitals + drug-log UX already ships
+  - name: iSedate SedationVault pricing
+    url: https://isedate.com/pricing
+    quote: "Export to Dentrix / Eaglesoft / Open Dental"
+    seat_match: exact
+    leftover: Only standalone Eaglesoft note-link glue remains; charting + vitals + PDF packet already ships
+  - name: Vitalis mobile dental anesthesia
+    url: https://vitalismobile.com/
+    quote: "Vitals stream into the chart. One-tap events. Anesthesia-native note entry."
+    seat_match: exact
+    leftover: Only independent-practice permit-checklist cut remains; live vitals + anesthesia note UX already ships
+  - name: Sedate Dentistry digital sedation records
+    url: https://sedatedentistry.com/home
+    quote: "Generate accurate records for every IV Sedation and Local Anesthesia procedure."
+    seat_match: exact
+    leftover: Only Eaglesoft-linked adverse-event docket remains; automated sedation visit record already ships
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Skeptic builds it anyway: board-audit sedation packets are painful, Eaglesoft has no vitals-native sedation module, and a standalone inspection-ready packet linked as an Eaglesoft note could wedge via malpractice-carrier distribution."
+claim_hygiene: ok
+file_on: https://sedationvault.com/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: pass
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: compose_next

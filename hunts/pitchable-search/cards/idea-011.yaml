@@ -1,0 +1,79 @@
+candidate_seat: standalone CBCT/imaging worklist packet tracker for Eaglesoft GP practices
+v1_as_shipped: standalone imaging tracker beside Eaglesoft on Windows (referral to imaging center, DICOM worklist status, image + radiology-report pullback linked to Eaglesoft patient as attachment)
+entry: restated
+niche:
+  icp: independent dental practices
+  system_of_record: Patterson Eaglesoft on Windows
+  workflow_step: CBCT/imaging referral worklist and report pullback
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [imaging-center referral + DICOM worklist status, image capture + management, radiology-report pullback to Eaglesoft attachment]
+search_classes:
+  sor_primitive: Patterson Eaglesoft imaging integration eServices docs
+  dropin_addon: Patterson Eaglesoft marketplace imaging add-on worklist
+  commercial_sku: dental CBCT imaging hub + oral radiology report service SKU
+  tracker_leftover: Eaglesoft feature request imaging worklist attachment sync
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 6
+incumbents:
+  - name: DEXIS DTX Studio Clinic
+    url: https://www.dexis.com/en-us
+    quote: "One intelligent platform for all 2D & 3D imaging—built for diagnostics, treatment planning, and patient connection."
+    seat_match: exact
+    leftover: standalone DICOM worklist + Eaglesoft attachment sync is add-to-incumbent glue, not a company
+  - name: BeamReaders
+    url: https://beamreaders.com/
+    quote: "Get a structured, comprehensive interpretation of the full imaged volume"
+    seat_match: exact
+    leftover: VoxDental already ships submit-track-report-collaborate; Eaglesoft attachment pullback is auto-reject 5 glue
+  - name: Planmeca Romexis
+    url: https://www.planmeca.com/software/
+    quote: "Comprehensive dentistry software"
+    seat_match: exact
+    leftover: all-in-one imaging PACS slice occupied; worklist-over-Eaglesoft leftover is orchestration around the primitive
+  - name: Carestream Dental Imaging
+    url: https://www.carestreamdental.com/en-us/
+    quote: "From CBCT data to confident decisions"
+    seat_match: adjacent_pain
+    leftover: sells the CBCT capture hardware/software, not the referral worklist tracker
+  - name: Overjet
+    url: https://www.overjet.com/
+    quote: "Overjet provides the most advanced AI platform for dentistry that automates administrative work and enhances clinical decisions"
+    seat_match: adjacent_pain
+    leftover: AI x-ray analysis, different mechanics from referral worklist tracking
+  - name: Patterson Eaglesoft imaging docs (SoR primitive)
+    url: https://www.pattersondental.com/products/technology/digital-imaging
+    quote: NEED_EVIDENCE (HTTP 403 this run, no verified quote)
+    seat_match: adjacent_pain
+    leftover: unverified this run; treat as unproven, not vacancy
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "No Eaglesoft-native CBCT worklist exists, so a neutral tracker plus attachment pullback could skim imaging-center referrals across all GP practices."
+claim_hygiene: ok
+file_on: https://beamreaders.com/
+keep_gate_checks:
+  g1_quotes_literal: fail
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: fail
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

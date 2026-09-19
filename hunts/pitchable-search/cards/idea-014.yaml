@@ -1,0 +1,79 @@
+candidate_seat: standalone clear-aligner case submission packet tracker for Eaglesoft practices
+v1_as_shipped: standalone aligner tracker beside Eaglesoft on Windows (photos/scans assembly, aligner portal submission, staging + refinement docket linked to Eaglesoft patient)
+entry: restated
+niche:
+  icp: independent dental practices
+  system_of_record: Patterson Eaglesoft on Windows
+  workflow_step: aligner case assembly, portal submission, staging + refinement
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [photos/scans assembly, portal submission, staging plan, refinement + monitoring docket linked to Eaglesoft]
+search_classes:
+  sor_primitive: Patterson Eaglesoft orthodontic case documentation workflow
+  dropin_addon: Eaglesoft clear-aligner case tracking add-on marketplace
+  commercial_sku: clear aligner portal + remote monitoring SKU
+  tracker_leftover: Eaglesoft feature request aligner staging refinement sync
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 7
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 7
+incumbents:
+  - name: Invisalign provider platform
+    url: https://www.invisalign.com/provider
+    quote: "Go digital and streamline your practice’s workflow from end-to-end by adopting the seamless Align Digital Workflow."
+    seat_match: exact
+    leftover: ships scan-submit-ClinCheck-treat-monitor-retain; Eaglesoft docket link is glue
+  - name: SureSmile
+    url: https://www.suresmile.com/
+    quote: "Your doctor will prescribe a personal treatment plan that meets your unique needs and send it to the SureSmile digital lab."
+    seat_match: exact
+    leftover: occupies the digital-lab submission + staging slice
+  - name: Ormco Spark Clear Aligners
+    url: https://www.ormco.com/
+    quote: "Spark Clear Aligners are trusted by professionals worldwide to deliver more precise, more efficient treatment — from first scan to final smile."
+    seat_match: exact
+    leftover: occupies the submission + Approver-workflow slice
+  - name: DentalMonitoring
+    url: https://dentalmonitoring.com/
+    quote: "We are the orthodontic industry’s first and only AI-powered Software as a Medical Device."
+    seat_match: exact
+    leftover: occupies the remote refinement + monitoring docket slice
+  - name: OrthoFi
+    url: https://orthofi.com/
+    quote: "Increase revenue, strengthen cash flow, gain operational insight, and make data-driven decisions to scale with confidence."
+    seat_match: adjacent_pain
+    leftover: case-acceptance/financing mechanics, not submission + staging
+  - name: Patterson Eaglesoft ortho docs (SoR primitive)
+    url: https://www.pattersondental.com/products/technology/digital-imaging
+    quote: NEED_EVIDENCE (HTTP 403 this run, no verified quote)
+    seat_match: adjacent_pain
+    leftover: unverified this run; treat as unproven, not vacancy
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 8
+  why_build: "GPs juggle five incompatible aligner portals, so a neutral submission-to-refinement docket synced to Eaglesoft could be the front door."
+claim_hygiene: ok
+file_on: https://www.invisalign.com/provider
+keep_gate_checks:
+  g1_quotes_literal: fail
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: fail
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

@@ -1,0 +1,79 @@
+candidate_seat: standalone sleep-apnea HST referral + oral-appliance packet tracker for Eaglesoft practices
+v1_as_shipped: standalone sleep tracker beside Eaglesoft on Windows (home-sleep-test referral to sleep lab, physician diagnosis status, oral-appliance delivery + calibration log linked to Eaglesoft chart note)
+entry: restated
+niche:
+  icp: independent dental practices
+  system_of_record: Patterson Eaglesoft on Windows
+  workflow_step: HST referral, diagnosis status, oral-appliance delivery + calibration
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [HST referral + diagnosis status, oral-appliance delivery, calibration log + Eaglesoft chart-note link, sleep medical billing]
+search_classes:
+  sor_primitive: Patterson Eaglesoft dental sleep medicine documentation workflow
+  dropin_addon: Eaglesoft sleep-apnea appliance tracking add-on marketplace
+  commercial_sku: dental sleep software + oral appliance + home sleep test SKU
+  tracker_leftover: Eaglesoft feature request sleep appliance calibration log sync
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 7
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 7
+incumbents:
+  - name: Nierman Practice Management DentalWriter Plus
+    url: https://www.niermanpm.com/
+    quote: "DentalWriter Plus+ is a cloud platform that makes it easy for dental practices to document medical necessity and receive medical reimbursement."
+    seat_match: exact
+    leftover: ships sleep documentation + physician letters + billing + referral networks; Eaglesoft chart-note link is glue
+  - name: SomnoMed SomnoDent
+    url: https://www.somnomed.com/en-us/
+    quote: "SomnoMed is the world’s largest supplier of oral sleep apnea devices, operating in 28 countries."
+    seat_match: exact
+    leftover: occupies the oral-appliance delivery slice via manufacturer portal
+  - name: ProSomnus Therapy
+    url: https://prosomnus.com/
+    quote: "ProSomnus Therapy helps you get a restful night of sleep without noisy machines, masks, or hoses."
+    seat_match: exact
+    leftover: occupies the appliance + home-sleep-test + provider-portal slice
+  - name: ZOLL Itamar WatchPAT
+    url: https://www.itamar-medical.com/professionals/watchpat/
+    quote: "Simple. Accurate. Reliable."
+    seat_match: exact
+    leftover: occupies the HST diagnostics + automated-report slice
+  - name: ResMed sleep health
+    url: https://www.resmed.com/en-us/sleep-health/
+    quote: "A sleep test is usually recommended after you speak with a doctor about symptoms like snoring"
+    seat_match: adjacent_pain
+    leftover: CPAP-centric diagnosis-to-therapy path, different mechanics from dental oral-appliance tracking
+  - name: Patterson Eaglesoft sleep docs (SoR primitive)
+    url: https://www.pattersondental.com/products/technology/digital-imaging
+    quote: NEED_EVIDENCE (HTTP 403 this run, no verified quote)
+    seat_match: adjacent_pain
+    leftover: unverified this run; treat as unproven, not vacancy
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 8
+  why_build: "Dental sleep is split across labs, physicians, and appliance makers, so one tracker from HST referral to calibrated appliance could own the GP sleep workflow."
+claim_hygiene: ok
+file_on: https://www.niermanpm.com/
+keep_gate_checks:
+  g1_quotes_literal: fail
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: fail
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run
