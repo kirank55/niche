@@ -111,6 +111,32 @@ Labeling the workaround `adjacent_pain` so density can be 0. Stamping
 `keep_gate: pass` with two incumbents. Recording a tracker "keep"
 without emitting a card.
 
+## Occupied plugin / hook sold as Sparse company
+
+### Leftover is only a different hook; plugin Occupied; KEEP
+
+**Claim:** Sparse 2-3. Five incumbents. Each leftover is "does not
+intercept write-path" / "only when using the SoR CLI" / "not a tray" /
+"not auto." `exact_mechanics_density: 0`. `as_plugin` Occupied 5.
+`file_on: none`. `keep_gate: pass`.
+
+**Correct:** Occupied leftover. Those quotes *are* the headline UX of
+the step. Hook mismatch is not `wrong_substrate` (SKU mismatch only).
+Labeling them `adjacent_pain` to keep exact density at 0 is a card
+fail. `as_plugin` Occupied **forbids** Sparse company (G8): the leftover
+is a flag/plugin/issue. Auto-reject 1 and/or 5. G10 fail. `file_on` the
+named SoR or class-3 SKU.
+
+If this hunt already `file_on`'d that host for the step, a narrower cut
+(one extra filter or hook) is the same leftover, not a new keep.
+
+**Disposition:** `file_on` the named host. `as_company` Occupied.
+`keep_gate: fail`.
+
+**Mistake to avoid:** Publishing Sparse because no logo uses the hook
+named in `v1_as_shipped`. Filling `keep_gate: pass` from leftover
+eloquence without `keep_gate_checks`.
+
 ## Native headline module sold as vacant write-time company
 
 ### Eaglesoft Lab Tracking / Recall / claims remake-or-attachment guard
@@ -150,6 +176,8 @@ false-keeps.
   `adjacent_pain` with density 0.
 - Dedicated native module for the restated step is `exact`. A
   write-time guard on that screen is auto-reject 5, not Sparse.
+- Hook mismatch is not `wrong_substrate`. `as_plugin` Occupied forbids
+  `as_company` Sparse. Fill `keep_gate_checks` before `keep_gate: pass`.
 
 ## Steelman discipline
 

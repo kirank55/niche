@@ -49,6 +49,22 @@ if grep -qiE 'tekmetric[[:space:]]*\|[[:space:]]*Shopmonkey' \
   err "tekmetric must not route to Shopmonkey"
 fi
 
+if ! grep -q 'g10_hook_is_not_vacancy' "$skill/references/gate-bind-saas.md"; then
+  err "gate-bind missing G10 hook latch"
+fi
+if ! grep -q 'keep_gate_checks' "$skill/references/output-template-saas.md"; then
+  err "output template missing keep_gate_checks"
+fi
+if ! grep -q 'g8_plugin_forbids_sparse_company' "$skill/references/gate-bind-saas.md"; then
+  err "G8 missing Occupied-plugin forbids Sparse company"
+fi
+if ! grep -q 'Hook mismatch' "$skill/references/gate-bind-saas.md"; then
+  err "gate-bind missing hook-mismatch is not wrong_substrate"
+fi
+if ! grep -q 'Occupied or Saturated +' "$skill/references/eval-fixtures.md"; then
+  err "eval-fixtures missing Occupied-plugin Sparse fail"
+fi
+
 if [[ "$fail" -ne 0 ]]; then
   echo "check-skill: FAILED"
   exit 1
