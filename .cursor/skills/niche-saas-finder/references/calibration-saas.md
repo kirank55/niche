@@ -111,6 +111,26 @@ Labeling the workaround `adjacent_pain` so density can be 0. Stamping
 `keep_gate: pass` with two incumbents. Recording a tracker "keep"
 without emitting a card.
 
+## Native headline module sold as vacant write-time company
+
+### Eaglesoft Lab Tracking / Recall / claims remake-or-attachment guard
+
+**Claim:** Sparse. Native Lab Tracking (or Recall, or claims send) is
+manual, so a Windows tray that blocks appointment-complete / schedule-save
+/ claim-create is a vacant company seat.
+
+**Correct:** Occupied. The named module *is* the headline UX. Class-1
+docs for Lab Tracking, eReminders, Vyne/claims plugins are `exact`.
+Leftover "block save when remake/recall/attachment is missing" is
+auto-reject 5. Do not generate this shape. Iteration-1 cards on this
+v1 are DROP / `file_on` the module.
+
+**Disposition:** `file_on` the native module. `as_company` Occupied.
+
+**Mistake to avoid:** Generating five write-time guards on native PMS
+screens, then spending a full four-class search to rediscover the
+module.
+
 ## Labeling notes (do not generalize into new seeds)
 
 These are seat-match reminders, not generation seeds and not extra
@@ -128,6 +148,8 @@ false-keeps.
 - SoR workaround on the class-1 page is `exact` for that slice when it
   is the headline UX. "Manual step" leftover is auto-reject 5, not
   `adjacent_pain` with density 0.
+- Dedicated native module for the restated step is `exact`. A
+  write-time guard on that screen is auto-reject 5, not Sparse.
 
 ## Steelman discipline
 

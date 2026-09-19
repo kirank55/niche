@@ -31,7 +31,9 @@ Pass if any one is true:
    use the default inventory. Fill the niche from **exactly one**
    seed-SoR row via the interest routing table in
    [seat-generation-saas.md](seat-generation-saas.md)
-   (`source: agent_opt_out`). Then pass.
+   (`source: agent_opt_out`). Then pass. If interest is a **named
+   vertical with no routing row**, this gate does **not** pass -- ask
+   question 2. Empty/generic interest may use the first inventory row.
 
 Fail otherwise. Emit the intake card below. **Stop.** Do not generate
 seats. Do not search. Do not invent a niche to be helpful.
@@ -55,10 +57,17 @@ These are not seats. Do not treat them as hunt-ready:
 "SaaS" is a billing shape, not a system of record.
 
 **Pass:** "hunt seats around Clio cloud for solo PI firms" -- named ICP
-+ named SoR; generate workflow steps inside that SoR.
++ named SoR; generate workflow steps inside that SoR. The SoR does not
+have to be in the seed inventory.
 
 **Fail:** "give me a dental SaaS idea" -- emit the card, ask questions
 1-2 at minimum, stop.
+
+**Fail-then-grill:** "veterinary SaaS" / "auto shop SaaS" -- slogan;
+ask ICP + SoR. Do not opt-out-route to ServiceTitan.
+
+**Opt-out with named unmatched vertical** ("pick a stack for aviation
+MRO"): do not fill ServiceTitan. Ask question 2 (SoR SKU/host).
 
 ## Questions (max 5)
 
@@ -69,8 +78,12 @@ are you solving?"
    `solo PI firms`). Not `dental` / `law` alone. This is not the
    system of record.
 2. **Immutable system-of-record.** Named SKU + hosting (e.g.
-   `Eaglesoft on Windows`, `Clio cloud`). Vacancy is relative to this
-   host. `dental` alone does not fill this field.
+   `Eaglesoft on Windows`, `Clio cloud`, `ezyVet cloud`). Vacancy is
+   relative to this host. `dental` / `veterinary` alone does not fill
+   this field. If ICP is named and SoR is not, ask which PMS/SKU they
+   actually run. You may offer a **search query** as a question
+   ("which PMS do independent vet clinics run?") -- do not fill the
+   SKU from memory. A SKU not in the seed inventory still passes.
 3. **Workflow step.** Named step in that SoR. Asked if blank; **never
    blocks intake**. Search never runs with this field unset --
    generation names it on every raw seat. If the user named a step, all
@@ -113,7 +126,9 @@ second `niche_icp` block.
 - Named seat -> step 4 (restate), then 3 (deny), then 5-9. Deny does
   not run before a one-line seat exists.
 - Filled niche or opt-out -> load [seat-generation-saas.md](seat-generation-saas.md).
-  Generate >=5 raw seats **inside this niche**. Then `SKILL.md` steps
-  3-9. Do not deny-check an empty hunt.
+  Generate >=5 raw seats **inside this niche** that are not closed
+  native headline modules. Then `SKILL.md` steps 3-9. Do not deny-check
+  an empty hunt. Named interest with no routing row is not a passed
+  opt-out -- re-emit this card, ask question 2.
 - User answers never replace incumbent URLs. "Nobody does this" is not a
   row. Unique data does not raise `exact_mechanics_density`.
