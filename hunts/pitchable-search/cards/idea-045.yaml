@@ -1,0 +1,74 @@
+candidate_seat: owner 1099 IRS e-filing packet tracker for AppFolio PMs
+v1_as_shipped: standalone tracker framed as IRS filing (owner/vendor totals, TIN match log, IRIS transmission record, recipient-mail proof) fed by AppFolio 1099 exports; no ledger postings, no charge corrections, advisory export only
+entry: restated
+niche:
+  icp: residential property managers
+  system_of_record: AppFolio Property Manager cloud
+  workflow_step: owner 1099 IRS e-filing packet
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [leasing/tenant portal, work orders, native ledger, inspections]
+  source: agent_opt_out
+slices: [IRS e-filing packet plus TIN-match plus transmission proof]
+search_classes:
+  sor_primitive: AppFolio owner portal 1099 statements 1099 e-filing workflow
+  dropin_addon: AppFolio Stack marketplace 1099 TIN matching print-mail
+  commercial_sku: owner 1099 e-filing software IRS IRIS FIRE property management
+  tracker_leftover: AppFolio 1099 preview correction TIN formatting IRIS CSV feature request
+verdicts:
+  as_company: Occupied 7
+  as_oss: Sparse 2
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 7
+incumbents:
+  - name: AppFolio Owner Portal
+    url: https://www.appfolio.com/help/owner
+    quote: "Use your Owner Portal to securely access reports, property inspections, important documents, or 1099s shared by your property manager"
+    seat_match: exact
+    leftover: SoR distributes the 1099; leftover is only IRIS transmit plus TIN scrub
+  - name: Taxstra AppFolio Bookkeeping
+    url: https://taxstra.com/appfolio-bookkeeping
+    quote: "AppFolio's 1099 e-filing module handles vendor forms well when the data is complete"
+    seat_match: adjacent_pain
+    leftover: bookkeeping translation plus threshold/W-9 gap; filing itself stays with AppFolio plus IRS transmitters
+  - name: 1099Pro
+    url: https://1099pro.com/
+    quote: "Easily manage 1099, 1098, 1042, and W-2 reporting with fast, IRS-compliant eFiling."
+    seat_match: exact
+    leftover: TIN matching plus state filing plus print-mail-eDelivery; full IRS packet already shipped
+  - name: 1099FIRE
+    url: https://www.1099fire.com/software/index.htm
+    quote: "IRS e-file specialists focused on secure, accurate filing services."
+    seat_match: exact
+    leftover: A2A IRIS transmission plus corrections plus bulk TIN match; duplicate filing path
+  - name: Tax1099
+    url: http://tax1099.com/
+    quote: "File 1099 Online | eFile 1099 NEC, MISC,W2, 941, 1095 & more Forms – Tax1099"
+    seat_match: exact
+    leftover: eFile plus state plus recipient delivery; owner-1099 slice already occupied
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Skeptic builds it: January TIN errors plus IRIS rejections burn staff weeks; a pre-flight TIN scrub plus rejection-repair log on top of AppFolio exports would sell."
+claim_hygiene: ok
+file_on: https://1099pro.com/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: pass
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

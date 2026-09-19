@@ -1,0 +1,79 @@
+candidate_seat: AppFolio Property Manager cloud + renters-insurance compliance tracker for residential managers
+v1_as_shipped: Standalone renters-insurance COI compliance tracker for AppFolio units, expiry log plus gap list, no write-time block, no overlay
+entry: restated
+niche:
+  icp: residential property managers
+  system_of_record: AppFolio Property Manager cloud
+  workflow_step: renters-insurance compliance tracker
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [leasing/tenant portal, work orders, native ledger, inspections]
+  source: agent_opt_out
+slices: [COI-compliance-tracker]
+search_classes:
+  sor_primitive: AppFolio renters insurance requirement tracking docs
+  dropin_addon: AppFolio Stack renters insurance compliance integration
+  commercial_sku: renters insurance compliance Foxen Second Nature COI monitoring
+  tracker_leftover: AppFolio Stack insurance compliance gap feature request
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 3
+incumbents:
+  - name: Foxen Renters Insurance Compliance
+    url: https://www.foxen.com/
+    quote: "100% Renters Insurance Compliance, Guaranteed"
+    seat_match: exact
+    leftover: Missing AppFolio-native unit view; remaining is enroll AppFolio portfolio in Foxen
+  - name: Second Nature Renters Insurance Program
+    url: https://www.secondnature.com/
+    quote: "Our Renters Insurance Program means 100% coverage, so your asset is always protected."
+    seat_match: exact
+    leftover: Missing AppFolio sync for lapse list; remaining is add AppFolio feed to Second Nature
+  - name: Foxen COI monitoring detail
+    url: https://www.foxen.com/
+    quote: "Foxen's renters insurance compliance monitoring solution and property damage liability waiver program support all property management software"
+    seat_match: adjacent_pain
+    leftover: Monitoring plus waiver bundle already occupied; standalone tracker is slice of it
+  - name: Buildium Marketplace
+    url: https://www.buildium.com/
+    quote: "Buildium Marketplace gives you on-demand access to over 50+ of the latest property management tools and platform integrations"
+    seat_match: wrong_substrate
+    leftover: Different SoR marketplace; not AppFolio seat
+  - name: AppFolio Performance Platform
+    url: https://www.appfolio.com/
+    quote: "even integrate your favorite proptech solutions."
+    seat_match: adjacent_pain
+    leftover: Generic proptech integration, not COI tracking; file as integration request
+  - name: TenantCloud platform
+    url: https://www.tenantcloud.com/
+    quote: "TenantCloud helps you simplify and grow your property management business."
+    seat_match: adjacent_pain
+    leftover: Horizontal PM suite, not COI compliance engine
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Skeptic would build always-on COI lapse tracker to force 100% lease compliance without chasing PDFs."
+claim_hygiene: ok
+file_on: https://www.foxen.com/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: compose_next

@@ -1,0 +1,74 @@
+candidate_seat: municipal rental-registry filing packet tracker for AppFolio PMs
+v1_as_shipped: standalone tracker that assembles city rental-registry/habitability filing packets (unit list, contact of record, fee worksheet, inspection due dates) alongside AppFolio, exports the city portal CSV/PDF; never a write-time block on ledger or leasing
+entry: restated
+niche:
+  icp: residential property managers
+  system_of_record: AppFolio Property Manager cloud
+  workflow_step: municipal rental-registry and habitability filing packet
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [leasing/tenant portal, work orders, native ledger, inspections]
+  source: agent_opt_out
+slices: [registry-packet assembly and renewal calendar]
+search_classes:
+  sor_primitive: AppFolio affordable housing compliance controls audit-ready portfolio
+  dropin_addon: AppFolio Stack marketplace integrations property operations
+  commercial_sku: rental registry filing software municipal compliance RentRegistry CityView Permit Suite
+  tracker_leftover: AppFolio Stack rental registration inspection filing feature request
+verdicts:
+  as_company: Occupied 6
+  as_oss: Sparse 3
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 6
+incumbents:
+  - name: AppFolio Affordable Housing
+    url: https://www.appfolio.com/markets/affordable-housing
+    quote: "Ease the stress of managing affordable housing program requirements with specialized tools and compliance controls designed to help keep your portfolio audit-ready."
+    seat_match: adjacent_pain
+    leftover: HUD/LIHTC controls, not city rental-registry packet; leftover is a registry-pack export on AppFolio
+  - name: AppFolio Stack Marketplace
+    url: https://www.appfolio.com/integrations
+    quote: "Extend the power of AppFolio’s easy-to-use platform with one of the fastest growing partner ecosystems."
+    seat_match: adjacent_pain
+    leftover: integration surface only; registry packet is a flag/partner issue on Stack
+  - name: RentRegistry.io
+    url: https://rentregistry.io/
+    quote: "Owners register tenancies, submit lease data, pay fees, and retrieve their own compliance history without contacting your office."
+    seat_match: exact
+    leftover: city-side registry; PM-side leftover is only sync unit roster from AppFolio
+  - name: Permit Suite
+    url: https://permitsuite.com/
+    quote: "Run a self-funded rental registry with one officer—automate registrations, fees, inspections, renewals, and identify unregistered rentals."
+    seat_match: exact
+    leftover: municipal portal plus landlord portal; PM leftover is prefill from AppFolio export
+  - name: CityView Rental Housing
+    url: https://www.municipalsoftware.com/rental-housing/
+    quote: "Rental Housing Software for Local Government"
+    seat_match: exact
+    leftover: jurisdiction system of record; PM-side tracker duplicates its registration/renewal queue
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Skeptic builds it: every city has its own registry form, fee schedule, and deadline; AppFolio holds the unit roster, so a packet assembler plus renewal calendar saves fines."
+claim_hygiene: ok
+file_on: https://rentregistry.io/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: pass
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

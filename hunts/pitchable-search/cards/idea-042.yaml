@@ -1,0 +1,74 @@
+candidate_seat: eviction filing plus writ plus constable packet tracker for AppFolio PMs
+v1_as_shipped: standalone tracker that assembles eviction packets (notice math, court filing checklist, writ application, constable/sheriff scheduling log) from AppFolio delinquency exports; no write-time tenancy block, no ledger posting
+entry: restated
+niche:
+  icp: residential property managers
+  system_of_record: AppFolio Property Manager cloud
+  workflow_step: eviction filing plus writ plus constable packet
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [leasing/tenant portal, work orders, native ledger, inspections]
+  source: agent_opt_out
+slices: [eviction-writ-constable packet assembly and status log]
+search_classes:
+  sor_primitive: AppFolio delinquency collections Genesis Stack delinquency ledger export
+  dropin_addon: AppFolio Stack marketplace collections eviction filing integration
+  commercial_sku: eviction filing case management software writ of possession property managers
+  tracker_leftover: eviction e-filing status writ scheduling feature request
+verdicts:
+  as_company: Occupied 7
+  as_oss: Sparse 3
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 7
+incumbents:
+  - name: EasyEviction
+    url: https://easyeviction.com/
+    quote: "With EasyEviction, you can customize your documents and automatically fill them out in seconds."
+    seat_match: exact
+    leftover: attorney/PM portal plus billing; leftover is only an AppFolio delinquency import
+  - name: Connect2Court
+    url: https://www.connect2court.com/property-solutions
+    quote: "File Nonpayment of Rent Cases in Minutes."
+    seat_match: exact
+    leftover: eFiling plus writ plus set-out scheduling; leftover is PM roster sync
+  - name: Legal Technologies Eviction Assistant
+    url: https://legaltechllc.com/
+    quote: "Eviction Assistant makes filing an eviction lawsuit as simple as answering a few questions about your property, your tenant(s), and the jurisdiction in which your property is located."
+    seat_match: exact
+    leftover: bulk-filer case system plus EA Enterprise portfolio view; leftover is AppFolio field mapping
+  - name: Rent Manager Eviction Assistant integration
+    url: https://www.rentmanager.com/integrations/eviction-assistant
+    quote: "Eviction Assistant is a cloud-based comprehensive case management system that makes filing an eviction lawsuit as simple as answering a few questions about your property, your tenant(s), and the jurisdiction in which your property is located."
+    seat_match: wrong_substrate
+    leftover: same mechanics on Rent Manager SKU; proves step is occupied, not vacant on AppFolio
+  - name: EZ Evict USA
+    url: https://ezevictusa.com/how-it-works
+    quote: "We’ll serve notices, file court documents, coordinate law enforcement, and process your eviction quickly."
+    seat_match: exact
+    leftover: full-service filing plus law-enforcement coordination; tracker duplicates its checklist
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Skeptic builds it: writ plus constable scheduling is the chaotic tail after judgment; a single packet with deadlines plus server log tied to AppFolio balances would sell."
+claim_hygiene: ok
+file_on: https://easyeviction.com/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: pass
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run
