@@ -1,0 +1,79 @@
+candidate_seat: liquor-license renewal packet for Toast restaurants
+v1_as_shipped: Standalone tracker beside Toast (no POS write-path): per-location liquor-license register with state/class metadata + multi-stage renewal reminders + document vault (insurance, server certs) + GM self-service renewal packet download.
+entry: restated
+niche:
+  icp: independent restaurants serving alcohol
+  system_of_record: Toast POS cloud
+  workflow_step: liquor-license renewal packet
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [POS ticket, end-of-night close, payroll, native inventory, online ordering]
+  source: agent_opt_out
+slices: [license register, renewal reminders, document vault, GM self-service packet]
+search_classes:
+  sor_primitive: "Toast integrations directory + Toast Partner Connect categories liquor license"
+  dropin_addon: "Toast marketplace liquor license renewal app"
+  commercial_sku: "liquor license management renewal reminder software restaurant groups"
+  tracker_leftover: "alcohol license renewal reminder software comparison restaurant"
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 7
+incumbents:
+  - name: Toast (POS integrations guide)
+    url: https://pos.toasttab.com/blog/on-the-line/toast-pos-integrations
+    quote: "Toast's integration partner directory lists hundreds of vetted software partners across categories including online ordering, payroll, inventory, marketing, reservations, and accounting."
+    seat_match: adjacent_pain
+    leftover: Ecosystem covers ordering/payroll/accounting; no liquor-license module. If exact, missing license register.
+  - name: Copliancy
+    url: https://www.copliancy.com/liquor-license-management-software-for-restaurant-groups
+    quote: "Notifications fire at 90, 60, 30, and 7 days before each liquor expiration — to multiple recipients, with escalation rules built in."
+    seat_match: exact
+    leftover: Only Toast sales-sync. Full liquor workflow (state rules, GM self-service, display checks) already ships.
+  - name: PermitsAlert
+    url: https://permitsalert.com/restaurants
+    quote: "PermitsAlert tracks all restaurant compliance credentials: health and food establishment permits, liquor licenses, food handler certifications per employee, business licenses, and fire safety certificates."
+    seat_match: exact
+    leftover: Only AI extraction depth. Headline register already ships.
+  - name: Renewal IQ
+    url: http://renewal-iq.com/
+    quote: "Renewal IQ tracks every licence, permit and certification across every location, then emails and texts the person who can fix it — 60, 30, 14, 7 and 1 day before it expires."
+    seat_match: exact
+    leftover: Only liquor-specific packet assembly. Headline reminder UX already ships.
+  - name: Harbor Compliance License Manager
+    url: https://www.harborcompliance.com/license-manager-software
+    quote: "Whether you manage licenses internally or outsource to our experts, License Manager—powered by our proprietary Compliance Core™ research engine—simplifies the process of researching, applying for, managing, and renewing your licenses."
+    seat_match: exact
+    leftover: Only restaurant-vertical packaging. Headline register already ships.
+  - name: Remindax (liquor license guide)
+    url: https://www.remindax.com/document-tracking/liquor-license
+    quote: "Remindax can be configured to send automated reminders at 90 days, 60 days, 30 days, and 7 days before each liquor license expiration date"
+    seat_match: exact
+    leftover: Only vertical packet UX. Headline reminder UX already ships.
+auto_rejects_fired: [1]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Liquor lapse kills 25-40% of revenue overnight; Toast has no license module, so a Toast-placed renewal packet with state-specific checklists could sell to bar-heavy independents."
+claim_hygiene: ok
+file_on: https://www.copliancy.com/liquor-license-management-software-for-restaurant-groups
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: fail
+  g6_auto_reject_5: pass
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: compose_next

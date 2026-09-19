@@ -1,0 +1,79 @@
+candidate_seat: Linen/uniform service invoice audit beside Toast
+v1_as_shipped: Standalone tracker auditing Cintas/Alsco/UniFirst/Vestis linen and uniform invoices against contract terms (rate caps, ghost wearers, surcharges), emitting a credit-ready dispute memo; CSV in, memo out
+entry: restated
+niche:
+  icp: independent restaurants on Toast cloud POS
+  system_of_record: Toast (cloud)
+  workflow_step: linen/uniform service invoice audit
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [POS ticket, end-of-night close, payroll, native inventory, online ordering]
+  source: agent_opt_out
+slices: [contract-vs-invoice-audit]
+search_classes:
+  sor_primitive: "Toast linen uniform invoice docs"
+  dropin_addon: "Toast marketplace linen uniform audit app"
+  commercial_sku: "uniform rental invoice audit Cintas Alsco UniFirst Vestis"
+  tracker_leftover: "Alsco linen overbilling lawsuit invoice minimum dispute"
+verdicts:
+  as_company: Saturated 8
+  as_oss: Occupied 5
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 4
+incumbents:
+  - name: UniformProof
+    url: https://uniformproof.com/
+    quote: "Stop Overpaying Cintas, UniFirst, and Vestis. Recover Your Overcharges in 7 Days."
+    seat_match: exact
+    leftover: None material; incumbent IS v1 and naming Toast adds no mechanics
+  - name: UniformProof (guarantee)
+    url: https://uniformproof.com/
+    quote: "100% Fee-Back Guarantee: If we don't find at least $1,500 in discrepancies across your records, your audit fee is 100% refunded."
+    seat_match: exact
+    leftover: Same SKU, second row; confirms the forensic-audit seat is sold, not vacant
+  - name: Alsco (merger-program guide)
+    url: https://alsco.com/resources/what-could-change-about-your-uniform-or-linen-program-after-an-acquisition
+    quote: "Uniform and linen service invoices can include multiple charges beyond the basic rental or service rate, and focusing on one number can make it difficult to see what the program actually costs your business."
+    seat_match: exact
+    leftover: Supplier publishes the audit methodology itself; dispute memo remains UniformProof's seat
+  - name: Aspen Daily News (Alsco billing suit)
+    url: https://www.aspendailynews.com/news/restaurant-international-service-firm-defrauding-clients-via-improper-bills/article_fd012bd0-2735-11e8-8884-dfd53da6e1b2.html
+    quote: "Alsco conceals this overbilling and fails to reveal the increased inventory minimums anywhere in its invoices."
+    seat_match: adjacent_pain
+    leftover: Press coverage of the pain, not a product; points at audit demand UniformProof serves
+  - name: Cintas (chef uniforms)
+    url: https://www.cintas.com/local//chef-uniforms
+    quote: "Each week, Cintas will pick up your soiled garments."
+    seat_match: adjacent_pain
+    leftover: Counterparty supplier; will not audit its own invoices
+  - name: xtraCHEF/Restaurant365 partnership
+    url: https://xtrachef.com/resources/restaurant365-and-xtrachef-announce-a-strategic-partnership
+    quote: "enabling Restaurant365 customers to easily take a photo or scan in all invoices including food, alcohol and non-food such as linens, services etc."
+    seat_match: exact
+    leftover: Invoice-capture slice occupied; dispute-memo slice is UniformProof (auto-reject 1)
+auto_rejects_fired: [1]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 9
+  why_build: "Linen overbilling is documented in federal court and restaurants lack audit staff; a restaurant-vertical auditor could undercut contingency auditors."
+claim_hygiene: ok
+file_on: https://uniformproof.com/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: compose_next

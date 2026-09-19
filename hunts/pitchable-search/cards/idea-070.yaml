@@ -1,0 +1,84 @@
+candidate_seat: Gift-card breakage plus state escheatment tracker beside Toast
+v1_as_shipped: Standalone tracker aging Toast gift-card liability by state dormancy rule, emitting escheatment-ready reports plus due-diligence letters; reads Toast liability export, files nothing itself
+entry: restated
+niche:
+  icp: independent restaurants on Toast cloud POS
+  system_of_record: Toast (cloud)
+  workflow_step: gift-card breakage plus state escheatment tracker
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [POS ticket, end-of-night close, payroll, native inventory, online ordering]
+  source: agent_opt_out
+slices: [dormancy-aging-report]
+search_classes:
+  sor_primitive: "Toast gift cards track balances reports liability"
+  dropin_addon: "Toast gift card processor integration eCard Givex Paytronix"
+  commercial_sku: "gift card breakage escheatment unclaimed property software Sovos CardCompliant"
+  tracker_leftover: "Toast gift card liability import unclaimed property escheat dormancy"
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 5
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 6
+incumbents:
+  - name: Toast gift cards setup
+    url: https://support.toasttab.com/en/article/getting-started-with-toast-gift-cards
+    quote: "It lets your restaurant sell physical gift cards and digital eGift cards, track balances, and accept gift cards as payment on the POS and online."
+    seat_match: exact
+    leftover: Balance tracking without dormancy aging or escheat filing; aging is add-to-Toast
+  - name: Toast gift cards product
+    url: https://pos.toasttab.com/products/gift-card
+    quote: "Access detailed reports on gift card sales"
+    seat_match: exact
+    leftover: Sales reporting, not unclaimed-property reporting
+  - name: Toast gift cards (liability import)
+    url: https://support.toasttab.com/en/article/getting-started-with-toast-gift-cards
+    quote: "When a guest purchases a gift card, the sale is recorded as a liability"
+    seat_match: exact
+    leftover: Liability recorded, never aged; escheat join is the filed-issue workflow below
+  - name: eCard Systems Toast integration
+    url: https://ecardsystems.com/partners/toast-pos/gift-card-integration
+    quote: "We specialize in complex multi-location and franchise gift card needs, including money movement reconciliation & settlement"
+    seat_match: exact
+    leftover: Settlement and reconciliation, not state escheatment
+  - name: Sovos gift-card escheat guide
+    url: https://sovos.com/blog/trr/gift-cards-the-gift-that-may-keep-giving-back-to-the-states
+    quote: "Are unclaimed gift cards reportable as unclaimed property? It all depends."
+    seat_match: adjacent_pain
+    leftover: Editorial pointer at Sovos's own compliance suite, not a seat
+  - name: Sovos unclaimed property software
+    url: https://sovos.com/unclaimed-property-compliance-software
+    quote: "Automate manual, time-consuming unclaimed property compliance processes."
+    seat_match: exact
+    leftover: Horizontal enterprise suite; Toast-liability aging join is auto-reject 5
+  - name: CardCompliant
+    url: http://www.cardcompliant.com/
+    quote: "We address U.S. GAAP & IFRS Accounting Standards, Unclaimed Property Statutes, Federal & State Consumer Protection Laws, Anti-Money Laundering Regulations, and More."
+    seat_match: exact
+    leftover: Service firm IS the escheatment seat including restaurant programs; Toast export is plumbing
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 8
+  why_build: "Toast holds the liability but never ages it by state rule; a dormancy engine on the Toast export could own the restaurant escheatment moment."
+claim_hygiene: ok
+file_on: https://sovos.com/unclaimed-property-compliance-software
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: compose_next
