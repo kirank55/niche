@@ -14,10 +14,11 @@ Do not emit a `niche_icp` block. Do not use `host_primitive`,
 card fail. A marketplace app labeled `exact` without a fetched SoR
 write-path quote is a card fail. Citing Landlock, Kroxylicious, or
 `CREATE PUBLICATION` as occupancy on this card is a card fail.
-Omitted `search_classes`, fewer than 5 incumbent rows, two rows from
-one SoR URL as the whole table, or `as_plugin` Occupied with
-`file_on: none` forbids `keep_gate: pass`. A tracker name without this
-card is not a keep.
+Omitted `search_classes`, omitted `keep_gate_checks`, fewer than 5
+incumbent rows, two rows from one SoR URL as the whole table,
+`as_plugin` Occupied with `file_on: none`, or `as_plugin`
+Occupied/Saturated with `as_company` Sparse/Greenfield forbids
+`keep_gate: pass`. A tracker name without this card is not a keep.
 
 ```yaml
 candidate_seat: <one-line stack position>
@@ -69,19 +70,34 @@ steelman:
 
 claim_hygiene: ok | unsourced | implausible
 file_on: <incumbent repo/issue/marketplace URL, or none>
-keep_gate: pass | fail            # pass required for as_company Sparse/Greenfield; G1-G9 in gate-bind-saas.md
+keep_gate_checks:                 # every key required; missing key => keep_gate fail
+  g1_quotes_literal: pass | fail
+  g2_four_classes: pass | fail
+  g3_file_on_if_host_named: pass | fail
+  g4_no_exact_as_vacant: pass | fail
+  g5_no_occupied_bundle: pass | fail
+  g6_auto_reject_5: pass | fail
+  g7_claim_hygiene: pass | fail
+  g8_plugin_forbids_sparse_company: pass | fail
+  g9_steelman_ceiling: pass | fail
+  g10_hook_is_not_vacancy: pass | fail
+keep_gate: pass | fail            # pass required for as_company Sparse/Greenfield; G1-G10 in gate-bind-saas.md
 deny_catalog: local_adr_0001 | embedded_saas_baseline | incomplete
 rate_next: <not_run | compose_next>   # reminder only: hand a candidate to an idea-rater, never inline a rater verdict
 ```
 
 Seat-match labels match [seat-match.md](seat-match.md)
 (six labels) plus [gate-bind-saas.md](gate-bind-saas.md) notes (SKU
-mismatch is `wrong_substrate`; G2/Capterra listings are `adjacent_pain`).
+mismatch is `wrong_substrate`; hook mismatch is not;
+G2/Capterra listings are `adjacent_pain`).
 `keep_gate: fail` forbids `as_company` Sparse/Greenfield. Default
-company verdict is Occupied or `file_on`.
+company verdict is Occupied or `file_on`. `keep_gate: pass` only if
+every `keep_gate_checks` key is `pass`.
 
-`as_plugin` Occupied plus `file_on: none` is a card fail. Leftover
-that names the SoR must set `file_on` to that URL.
+`as_plugin` Occupied plus `file_on: none` is a card fail. `as_plugin`
+Occupied or Saturated plus `as_company` Sparse/Greenfield is a card
+fail. Leftover that names the SoR must set `file_on` to that URL.
+Leftover that is only a hook mismatch is G10 fail, not Sparse.
 
 `deny_catalog: embedded_saas_baseline` is the happy path when no local
 killed-seats file exists. `incomplete` only if gate-bind fallback and a

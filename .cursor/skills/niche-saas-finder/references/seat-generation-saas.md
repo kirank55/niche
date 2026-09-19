@@ -215,7 +215,8 @@ become `file_on` or drop. A hunt that emits five slogan keeps has
 failed. A hunt that emits seats outside the SoR has failed. A hunt that
 emits five write-time guards on closed native headline modules has
 failed. A hunt that emits Sparse company keeps without `keep_gate: pass`
-has failed. A hunt that records tracker "keeps" without emitting
+has failed. A hunt that emits `as_plugin` Occupied plus `as_company`
+Sparse has failed. A hunt that records tracker "keeps" without emitting
 [output-template-saas.md](output-template-saas.md) cards has failed.
 
 If `v1_as_shipped` is a conjunction, list slices on the raw seat before

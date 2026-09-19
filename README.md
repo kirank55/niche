@@ -32,10 +32,10 @@ repo's actual job.
 
 ## Fail-closed keeps
 
-`as_company` Sparse/Greenfield requires `keep_gate: pass` (literal
-quotes, four SaaS search classes, no occupied bundle, not a native SoR
-module). A tracker bullet without an emitted candidate card is not a
-keep.
+`as_company` Sparse/Greenfield requires `keep_gate: pass` with every
+`keep_gate_checks` key (G1-G10) filled. Occupied plugin is `file_on`,
+not KEEP. Hook-only leftover is Occupied, not Sparse. A tracker bullet
+without an emitted candidate card is not a keep.
 
 Author/test fixtures: `references/eval-fixtures.md` (do not load on a
 hunt). Isolation check:
