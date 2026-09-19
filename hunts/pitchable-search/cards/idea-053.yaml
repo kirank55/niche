@@ -1,0 +1,79 @@
+candidate_seat: FinCEN BOI filing packet tracker for Karbon firms
+v1_as_shipped: standalone BOI filing packet tracker used alongside Karbon cloud
+entry: restated
+niche:
+  icp: accounting/bookkeeping firms
+  system_of_record: Karbon cloud
+  workflow_step: FinCEN BOI filing packet tracking
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [Work/client timeline, email, time, native task workflow]
+  source: agent_opt_out
+slices: [BOI filing packet tracker]
+search_classes:
+  sor_primitive: Karbon integrations FileForms entity compliance
+  dropin_addon: Karbon FileForms automate entity compliance all 50 states
+  commercial_sku: FinCEN BOI filing packet software CTA tracker
+  tracker_leftover: BOI filing workflow feature request marketplace issue
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 5
+incumbents:
+  - name: FinCEN BOI
+    url: https://www.fincen.gov/boi
+    quote: "File a report using the BOI E-Filing System"
+    seat_match: exact
+    leftover: federal portal ships headline filing UX; Karbon packet is chase wrapper around it
+  - name: Harbor Compliance
+    url: https://www.harborcompliance.com/beneficial-ownership-information-reporting
+    quote: "reporting companies must submit their BOIR to FinCEN"
+    seat_match: exact
+    leftover: CTA service already ships BOIR prep plus 30-day update tracking; Karbon packet duplicates it
+  - name: FileForms
+    url: https://fileforms.com/
+    quote: "Manage annual reports and state filings across all 50 states with clear status tracking and repeatable client workflows."
+    seat_match: exact
+    leftover: entity compliance platform already ships status tracking; BOI cut is add-on
+  - name: ZenBusiness BOI
+    url: https://zenbusiness.com/beneficial-ownership-filing/
+    quote: "Filing a Beneficial Ownership Information (BOI) report is no longer required."
+    seat_match: exact
+    leftover: filing service plus Worry-Free Compliance already shipped BOI; US exemption shrinks wedge further
+  - name: FileForms via Karbon
+    url: https://karbonhq.com/integrations/
+    quote: "Automate entity compliance in all 50 states (ARs, RA, formations, EINs, FQs) without leaving Karbon."
+    seat_match: adjacent_pain
+    leftover: entity automation without BOI-specific packet; marketplace without write-path quote
+  - name: LegalZoom
+    url: https://www.legalzoom.com/
+    quote: "Business compliance coverage"
+    seat_match: adjacent_pain
+    leftover: generic compliance coverage, not BOI packet tracker
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 5
+  why_build: "Karbon firms faced a one-time CTA scramble across entities; a BOI packet with 30-day update tracking could have owned the deadline."
+claim_hygiene: ok
+file_on: https://www.harborcompliance.com/beneficial-ownership-information-reporting
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

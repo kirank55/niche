@@ -5,7 +5,7 @@ Mode: `agent_opt_out` (no user niche). One SoR row per batch (aisle-switch: neve
 Stop rule: first `as_company` Sparse/Greenfield with zero auto-rejects, falsification 3/3, >=5 verified incumbents, `keep_gate: pass`.
 PR update cadence: every 10 scored seats.
 
-- Scored so far: 50
+- Scored so far: 60
 - Pitchable found: no
 
 ## Batch 1 — Clio cloud (solo PI + small litigation firms), ideas 001–010
@@ -38,6 +38,12 @@ All Occupied/file_on, keep_gate fail (AR 1+5; RentRegistry/PermitSuite, EasyEvic
 file_on targets: rentregistry.io, easyeviction.com, appfolio.com HOA, coisoftware.com, 1099pro.com, petscreening.com, foxen.com, buildingreports.com, ezlandlordforms.com, lodgify.com.
 Note: ideas 041–045 scored with niche.source recorded as `user` by the scorer; batch ran opt-out routed (normalized to agent_opt_out in cards).
 
+## Batch 6 — Karbon cloud (accounting/bookkeeping firms), ideas 051–060
+
+All Occupied/file_on, keep_gate fail (AR 1, some +5; NoticeNinja/Drake/HarborCompliance/Avalara/Uncat/Karbon Engagements/SafeSend/Vertex/Boast own every slice).
+file_on targets: noticeninja.com, drakesoftware.com, harborcompliance.com, avalara.com, uncat.com, karbonhq.com engagements, safesend.com, vertexinc.com, boast.ai (x2 via noticeninja).
+Note: ideas 056–060 scored with niche.source recorded as `user` by the scorer; batch ran opt-out routed (normalized to agent_opt_out in cards).
+
 ## Prior art (not counted — different session, ServiceTitan cloud, 20 seats, all Occupied/file_on)
 
 Permit filing, rebate claims, equipment registration, warranty claims, financing funding,
@@ -54,4 +60,5 @@ core returns, SLA ledger, plan transfer, chargeback bundle, special-order ETA.
 | 3 | Shopmonkey cloud (auto repair) | 021–030 | 10 (1 Saturated: ADAS) | 0 | batch-3 |
 | 4 | ezyVet cloud (veterinary) | 031–040 | 10 | 0 | batch-4 |
 | 5 | AppFolio PM cloud (property) | 041–050 | 10 | 0 | batch-5 |
-| — | next: Karbon (accounting) | — | — | — | — |
+| 6 | Karbon cloud (accounting) | 051–060 | 10 | 0 | batch-6 |
+| — | next: Toast (restaurants) | — | — | — | — |

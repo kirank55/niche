@@ -1,0 +1,79 @@
+candidate_seat: Karbon-firm R&D tax-credit study packet
+v1_as_shipped: Standalone packet for Karbon firms covering R&D project scoping interviews, expense evidence gathering, and substantiation binder (no write-time block)
+entry: restated
+niche:
+  icp: accounting/bookkeeping firms
+  system_of_record: Karbon cloud
+  workflow_step: R&D tax-credit study and substantiation binder
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [Work/client timeline, email, time, native task workflow]
+  source: agent_opt_out
+slices: [project scoping interviews, expense evidence gathering, substantiation binder]
+search_classes:
+  sor_primitive: "Karbon R&D tax credit study workpapers substantiation binder"
+  dropin_addon: "Karbon integrations R&D tax credit study evidence"
+  commercial_sku: "R&D tax credit study software Boast TaxTaker technical interviews"
+  tracker_leftover: "R&D study documentation CPA substantiation accounting feature request"
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 5
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 3
+incumbents:
+  - name: Boast
+    url: https://www.boast.ai
+    quote: "Boast is the only R&D tax credit solution that combines technical and R&D tax expertise with AI to simplify claim preparation and maximize returns"
+    seat_match: exact
+    leftover: Firm-side coordination is a referral plus intake flag on this SKU, not a company.
+  - name: Boast platform binder
+    url: https://www.boast.ai
+    quote: "With features like real-time tracking of your claim, R&D investment analysis, secure data management, and a digital audit binder"
+    seat_match: exact
+    leftover: Substantiation binder already ships; Karbon remainder is a status sync.
+  - name: TaxTaker
+    url: https://www.taxtaker.com/
+    quote: "TaxTaker helps founders and finance teams claim defensible R&D tax credits, cleanly, conservatively, and in sync with your CPA."
+    seat_match: exact
+    leftover: Specialist study plus CPA handoff already ships, including the noted gap ("Most accounting firms do not conduct detailed technical interviews, project analysis, or documentation required for a defensible claim."); remainder is a referral integration.
+  - name: SafeSend
+    url: https://www.safesend.com/
+    quote: "Automated DRLs with automatic alerts and reminders and real-time completion status."
+    seat_match: adjacent_pain
+    leftover: Evidence-request mechanics without R&D scoping methodology.
+  - name: SmartVault
+    url: https://www.smartvault.com/document-management
+    quote: "Track, secure, and retain documents to meet IRS, SOC 2 Type 2, and FTC compliance."
+    seat_match: adjacent_pain
+    leftover: Substantiation storage without study methodology.
+  - name: Jetpack Workflow
+    url: https://jetpackworkflow.com/
+    quote: "Firms use it to standardize recurring client work like monthly closes, payroll runs, and tax returns."
+    seat_match: adjacent_pain
+    leftover: Recurring-work tracker without R&D technical-interview semantics.
+auto_rejects_fired: [1]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Specialist study firms own interviews-plus-methodology-plus-binder end to end, so the ceiling assumes only a firm-coordination flag is missing."
+claim_hygiene: ok
+file_on: https://www.boast.ai
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: fail
+  g6_auto_reject_5: pass
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

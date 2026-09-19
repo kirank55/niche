@@ -1,0 +1,79 @@
+candidate_seat: IRS notice (CP2000/letter) response packet tracker for Karbon firms
+v1_as_shipped: standalone IRS-notice response packet tracker used alongside Karbon cloud
+entry: restated
+niche:
+  icp: accounting/bookkeeping firms
+  system_of_record: Karbon cloud
+  workflow_step: IRS notice response packet tracking
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [Work/client timeline, email, time, native task workflow]
+  source: agent_opt_out
+slices: [notice response packet tracker]
+search_classes:
+  sor_primitive: Karbon work templates IRS notice response
+  dropin_addon: Karbon integrations TaxNow IRS transcripts alerts
+  commercial_sku: IRS notice response packet CP2000 tracker software
+  tracker_leftover: IRS notice workflow feature request marketplace issue
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 5
+incumbents:
+  - name: Karbon
+    url: https://karbonhq.com/
+    quote: "Boost productivity, strengthen client relationships, and drive profit with the #1-ranked accounting practice management software."
+    seat_match: adjacent_pain
+    leftover: generic practice management; notice packet still needs standalone tracker
+  - name: TaxNow via Karbon
+    url: https://karbonhq.com/integrations/
+    quote: "Monitor clients’ IRS transcripts and receive automated, prioritized alerts on important IRS activities for your clients, right within Karbon."
+    seat_match: adjacent_pain
+    leftover: transcript alerts only, not CP2000 response-letter packet; marketplace app without write-path quote cannot be exact
+  - name: Canopy Transcripts and Notices
+    url: https://www.getcanopy.com/transcripts-notices/
+    quote: "No need to memorize how to respond to any of the thousands of notices. We’ve got it!"
+    seat_match: wrong_substrate
+    leftover: Canopy SoR vs Karbon SoR; same step on competing practice-management SKU
+  - name: NoticeNinja
+    url: https://noticeninja.com/
+    quote: "See every notice. Hit every deadline. Prove every outcome."
+    seat_match: exact
+    leftover: enterprise notice compliance platform already ships headline UX; Karbon packet duplicates it
+  - name: PitBullTax
+    url: https://www.pitbulltax.com/
+    quote: "Effortlessly download your clients' IRS transcripts and let our powerful software do the work for you."
+    seat_match: exact
+    leftover: resolution workflow with transcripts already ships; Karbon tracker duplicates case flow
+  - name: TaxHelpSoftware
+    url: https://www.taxhelpsoftware.com/
+    quote: "Identifies audits & CP2000s six months or more in advance in addition to IRS Notices"
+    seat_match: exact
+    leftover: predictive CP2000 detection already ships; response packet is add-on to THS
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Karbon firms juggle CP2000 deadlines across clients with no Karbon-native notice module; a standalone packet tracker could own intake plus deadline plus letter checklist."
+claim_hygiene: ok
+file_on: https://noticeninja.com/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run
