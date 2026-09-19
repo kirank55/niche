@@ -1,0 +1,79 @@
+candidate_seat: AppFolio Property Manager cloud + ESA assistance-animal verification packet tracker for residential managers
+v1_as_shipped: Standalone ESA reasonable-accommodation packet tracker for AppFolio portfolios, centralized request log plus document checklist, no write-time block, no overlay
+entry: restated
+niche:
+  icp: residential property managers
+  system_of_record: AppFolio Property Manager cloud
+  workflow_step: ESA assistance-animal verification packet
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [leasing/tenant portal, work orders, native ledger, inspections]
+  source: agent_opt_out
+slices: [verification-packet-tracker]
+search_classes:
+  sor_primitive: AppFolio assistance animal reasonable accommodation workflow docs
+  dropin_addon: AppFolio Stack PetScreening assistance animals integration
+  commercial_sku: ESA assistance animal verification PetScreening Foxen PetClear
+  tracker_leftover: AppFolio Stack pet ESA verification feature request issue
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 3
+incumbents:
+  - name: PetScreening Assistance Animals
+    url: https://www.petscreening.com/assistance-animals
+    quote: "Our Assistance Animal Review Team contacts every health care provider to affirm the documentation submitted is authentic."
+    seat_match: exact
+    leftover: Missing AppFolio-native filing view; would still be add-on packet on PetScreening
+  - name: Foxen PetClear
+    url: https://www.foxen.com/
+    quote: "Deter ESA fraud and increase property revenue"
+    seat_match: exact
+    leftover: Missing HUD interactive-process audit trail; remaining is add ESA checklist to Foxen
+  - name: PetScreening platform integrations
+    url: https://www.petscreening.com/
+    quote: "Our platform integrates with third-party software such as Yardi, OneSite, Entrata, ResMan, Appfolio, Buildium, MRI, Rent Manager and many more."
+    seat_match: exact
+    leftover: Missing per-unit AppFolio ledger link; remaining is sync field to AppFolio
+  - name: Buildium platform
+    url: https://www.buildium.com/
+    quote: "Property management software (like Buildium) helps property managers save time and money by streamlining their day-to-day operations."
+    seat_match: wrong_substrate
+    leftover: Different SKU than AppFolio; not this seat even if same packet existed
+  - name: AppFolio Performance Platform
+    url: https://www.appfolio.com/
+    quote: "even integrate your favorite proptech solutions."
+    seat_match: adjacent_pain
+    leftover: Generic integration promise, not ESA packet; remaining is file integration request on AppFolio
+  - name: TenantCloud screening
+    url: https://www.tenantcloud.com/
+    quote: "Screen tenants with 99.9% accuracy"
+    seat_match: adjacent_pain
+    leftover: Applicant screening, not HUD accommodation verification; remaining is separate packet
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Skeptic would build centralized HUD-consistent ESA packet to cut discrimination risk plus fake-ESA leakage across AppFolio portfolios."
+claim_hygiene: ok
+file_on: https://www.petscreening.com/assistance-animals
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: compose_next

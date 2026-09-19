@@ -1,0 +1,74 @@
+candidate_seat: AppFolio Property Manager cloud + short-term-rental municipal permit packet for residential managers
+v1_as_shipped: Standalone STR municipal permit packet tracker for AppFolio units, permit inventory plus renewal-date register, no write-time block, no overlay
+entry: restated
+niche:
+  icp: residential property managers
+  system_of_record: AppFolio Property Manager cloud
+  workflow_step: short-term-rental municipal permit packet
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [leasing/tenant portal, work orders, native ledger, inspections]
+  source: agent_opt_out
+slices: [permit-packet-tracker]
+search_classes:
+  sor_primitive: AppFolio short-term rental permit tracking docs
+  dropin_addon: AppFolio Stack short-term rental permit integration
+  commercial_sku: short-term rental management Awning Guesty OwnerRez Lodgify
+  tracker_leftover: AppFolio Stack STR permit renewal feature request
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 1
+incumbents:
+  - name: Awning STR management
+    url: https://www.awning.com/
+    quote: "We run your short-term rental end to end — listing, pricing, guests, cleaning, maintenance — in all 50 states."
+    seat_match: adjacent_pain
+    leftover: Full-service management, not municipal permit register; remaining is permit flag on Awning
+  - name: Guesty vacation rental software
+    url: https://www.guesty.com/
+    quote: "Manage one property or hundreds on an AI PMS built to automate tasks, sync listings across 70+ channels and maximize revenue."
+    seat_match: adjacent_pain
+    leftover: Channel plus operations PMS, not permit compliance; remaining is permit tracker plugin
+  - name: OwnerRez channel leadership
+    url: https://www.ownerrez.com/
+    quote: "We are an internationally-recognized leader in the vacation rental industry for channel management, CRM, PM, accounting, messaging and websites."
+    seat_match: adjacent_pain
+    leftover: Channel/CRM/accounting suite, not municipal filing packet
+  - name: Lodgify guest compliance
+    url: https://www.lodgify.com/
+    quote: "Damage protection, secure payments and automated guest registration keep you safe and compliant."
+    seat_match: exact
+    leftover: Guest registration compliance, not city permit renewal log; remaining is add municipal permit module to Lodgify
+  - name: AppFolio Performance Platform
+    url: https://www.appfolio.com/
+    quote: "even integrate your favorite proptech solutions."
+    seat_match: adjacent_pain
+    leftover: Generic integration surface; remaining is file permit-tracker integration request
+auto_rejects_fired: [5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Skeptic would build city-permit renewal register to keep AppFolio STR units bookable across shifting municipal rules."
+claim_hygiene: ok
+file_on: https://www.lodgify.com/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: compose_next

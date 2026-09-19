@@ -1,0 +1,79 @@
+candidate_seat: standalone loaner-car agreement plus toll-violation packet tracker on Shopmonkey cloud
+v1_as_shipped: standalone loaner tracker (loaner agreement capture, toll/violation notice matching, customer chargeback draft linked to Shopmonkey RO); never blocks Shopmonkey save
+entry: restated
+niche:
+  icp: independent auto-repair shops
+  system_of_record: Shopmonkey cloud
+  workflow_step: loaner-car agreement and toll-violation chargeback
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [loaner agreement capture, toll-violation notice matching, customer chargeback draft]
+search_classes:
+  sor_primitive: Shopmonkey workflow scheduling plus estimates e-signature
+  dropin_addon: Shopmonkey payments chargeback dispute support
+  commercial_sku: loaner car software TSD plus fleet toll violation Verra Mobility
+  tracker_leftover: Shopmonkey reporting payments audit loaner toll
+verdicts:
+  as_company: Occupied 6
+  as_oss: Sparse 3
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 4
+incumbents:
+  - name: Shopmonkey Workflow
+    url: https://www.shopmonkey.io/product/workflow
+    quote: "Easily schedule jobs to fit your shop’s capacity, all while preventing double bookings."
+    seat_match: adjacent_pain
+    leftover: bay scheduling only; no loaner agreement, no toll-violation matching, no chargeback draft
+  - name: Shopmonkey Estimates
+    url: https://www.shopmonkey.io/product/estimates
+    quote: "Allow customers to digitally authorize estimates and invoices with our e-signature tool."
+    seat_match: exact
+    leftover: generic e-signature auth; no loaner-terms capture, no toll-notice matching, no chargeback draft linked to RO
+  - name: TSD Mobility
+    url: https://tsdweb.com/
+    quote: "TSD’s car rental software and loaner car software power over 16K automotive businesses today."
+    seat_match: exact
+    leftover: dealer fleet loaner system; independent-shop loaner docket linked to Shopmonkey RO plus toll matching plus chargeback draft still standalone
+  - name: Verra Mobility
+    url: https://www.verramobility.com/
+    quote: "We provide the integrated technology to help these customers manage tolls, violations and vehicle registrations."
+    seat_match: exact
+    leftover: fleet toll plus violation processing; loaner-agreement link to RO plus independent-shop customer chargeback draft still missing
+  - name: Shopmonkey Payments
+    url: https://www.shopmonkey.io/product/payments
+    quote: "Get real-time assistance to resolve payment disputes efficiently."
+    seat_match: exact
+    leftover: post-payment dispute support; no pre-charge toll-violation matching, no loaner-agreement packet
+  - name: AutoLeap
+    url: https://www.autoleap.com/
+    quote: "AutoLeap is purpose-built auto repair shop management software trusted by thousands of shop owners across North America."
+    seat_match: wrong_substrate
+    leftover: different SoR SKU; no loaner plus toll packet mechanics
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Loaners generate tolls plus violations weeks later; a loaner-terms plus plate-period plus notice-matching plus chargeback-draft docket tied to RO would stop write-offs."
+claim_hygiene: ok
+file_on: https://tsdweb.com/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

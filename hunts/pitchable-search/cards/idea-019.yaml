@@ -1,0 +1,79 @@
+candidate_seat: Eaglesoft standalone autoclave spore-test compliance log for independent dental practices
+v1_as_shipped: Standalone sterilization tracker (weekly spore-test kit submission to lab portal, pass/fail docket, failed-load quarantine log linked to Eaglesoft office record)
+entry: restated
+niche:
+  icp: independent dental practices
+  system_of_record: Patterson Eaglesoft on Windows
+  workflow_step: autoclave spore-test compliance + failed-load quarantine logging
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: [Lab Tracking/Lab Case Manager, Recall, Treatment Plan, Claims/insurance send, Appointment Book/schedule, Ledger/walkout, Perio/charting]
+  source: agent_opt_out
+slices: [spore-test kit submission to lab portal, pass/fail docket, failed-load quarantine log, Eaglesoft office record link]
+search_classes:
+  sor_primitive: Eaglesoft SmartDoc document storage sterilization log Patterson support
+  dropin_addon: Patterson Eaglesoft eServices sterilization compliance add-on
+  commercial_sku: Mesa Labs dental spore test mail-in sterilization monitoring compliance log
+  tracker_leftover: dental sterilization log software OSHA compliance spore test tracking issue
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 4
+incumbents:
+  - name: Patterson Eaglesoft SmartDoc storage
+    url: https://pattersonsupport.custhelp.com/app/answers/detail/a_id/10209/~/smartdoc---document-storage-location
+    quote: "All SmartDoc records are stored on the server in the Data | Documents directory."
+    seat_match: adjacent_pain
+    leftover: Generic file storage only; no spore submission, docket, or quarantine mechanics
+  - name: Patterson Eaglesoft eService Solutions
+    url: https://pattersonsupport.custhelp.com/app/answers/detail/a_id/7548/~/eaglesoft-and-fuse-integrated-eservice-solutions
+    quote: "Explore an entire suite of integrated eService solutions available with your Eaglesoft or Fuse practice management software."
+    seat_match: adjacent_pain
+    leftover: No sterilization add-on named; generic catalog only
+  - name: Mesa Labs mail-in spore testing
+    url: https://mesalabs.com/mail-in-spore-testing
+    quote: "Our testing systems make it easy to stay in compliance. Run a test, drop it in the mail, and Mesa Labs does the rest for you."
+    seat_match: exact
+    leftover: Only failed-load quarantine + Eaglesoft-link glue remains; mail-in kit + compliance dashboard already ships
+  - name: Crosstex ConFirm 10 monitoring
+    url: https://www.crosstex.com/confirmtm-10-office-biological-monitoring-system-322
+    quote: "In-office biological monitioring system provides final results in just 10 hours"
+    seat_match: exact
+    leftover: Only mail-in docket + Eaglesoft link remains; in-office BI headline UX already ships
+  - name: SporeProof sterilization logging
+    url: https://www.sporeproof.com/
+    quote: "Log autoclave cycles in seconds, track spore tests whether you run them in-house or mail them to a lab, and export inspector-ready reports from any device, even offline."
+    seat_match: exact
+    leftover: Only Eaglesoft office-record link remains; load log + spore tracking + inspector report already ships
+  - name: Sowingo sterilization compliance
+    url: https://sowingo.com/compliance
+    quote: "Sowingo’s compliance software streamlines all manual sterilization logging and record-keeping into a simplified digital solution that makes audit trails a breeze"
+    seat_match: exact
+    leftover: Only lab-portal submission + Eaglesoft link remains; digital sterilization log + audit trail already ships
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Skeptic builds it anyway: weekly spore-test paper logs fail board inspection, Eaglesoft has no sterilization module, and a quarantine-scoped docket filed as an Eaglesoft office record could wedge via inspection fear."
+claim_hygiene: ok
+file_on: https://mesalabs.com/mail-in-spore-testing
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: pass
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: compose_next

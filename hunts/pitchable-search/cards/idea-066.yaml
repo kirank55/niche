@@ -1,0 +1,84 @@
+candidate_seat: Menu allergen/calorie labeling compliance packet beside Toast
+v1_as_shipped: Nightly standalone job reading Toast menu items plus a recipe CSV, emitting an FDA calorie/allergen packet PDF per item for inspector binders and guest-facing labels; no write-time block on POS ticket
+entry: restated
+niche:
+  icp: independent restaurants on Toast cloud POS
+  system_of_record: Toast (cloud)
+  workflow_step: menu allergen/calorie labeling compliance packet
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [POS ticket, end-of-night close, payroll, native inventory, online ordering]
+  source: agent_opt_out
+slices: [packet-generation]
+search_classes:
+  sor_primitive: "Toast allergen menu item docs"
+  dropin_addon: "Toast marketplace allergen nutrition menu app"
+  commercial_sku: "restaurant menu nutrition calorie allergen labeling software MenuCalc MenuSano"
+  tracker_leftover: "Toast allergen modifier BETA FAQ allergen sync issue"
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 5
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 5
+incumbents:
+  - name: Toast support (allergen tab)
+    url: https://support.toasttab.com/en/article/Add-Allergen-Information-to-Online-Ordering-Menu-Items
+    quote: "This article explains how to add allergen information to your menu items in Toast Web so guests can review allergens across your Toast guest-facing channels."
+    seat_match: exact
+    leftover: Native flag display only; calorie math and FDA packet assembly would be a Toast feature request
+  - name: Toast support (item descriptions)
+    url: https://support.toasttab.com/en/article/How-do-I-add-Item-details-to-my-menu-1493070610233
+    quote: "Add menu item descriptions to inform your servers and customers of important details such as ingredients, allergy info, and recipes."
+    seat_match: exact
+    leftover: Manual free text; computed packet is add-to-Toast, not a company
+  - name: MenuSano
+    url: https://www.menusano.com/
+    quote: "MenuSano is the all-in-one nutrition analysis and labeling software that makes it easy to create compliant nutrition fact labels, saving you time and money."
+    seat_match: exact
+    leftover: Standalone SKU; Toast-menu join is glue, not a vacant seat
+  - name: MenuSano for restaurants
+    url: https://www.menusano.com/nutrition-analysis-for-restaurants
+    quote: "Providing accurate calorie information and other nutritional facts on your menus has never been easier with MenuSano."
+    seat_match: exact
+    leftover: Same SKU as above; no Toast write-path, no vacancy
+  - name: MenuCalc pricing
+    url: https://menucalc.com/pricing
+    quote: "Accurate FDA-compliant nutrition analysis for restaurants and allergy disclosure tools."
+    seat_match: exact
+    leftover: Incumbent IS the packet; Toast sync is a feature request on MenuCalc
+  - name: MenuCalc blog (transparency guide)
+    url: https://menucalc.com/blog/restaurant-allergen-nutrition-guide
+    quote: "For U.S. restaurants with 20 or more locations, the FDA mandates calorie counts on menus and access to full nutrition information."
+    seat_match: adjacent_pain
+    leftover: Editorial content, not a seat; points at MenuCalc/SmartMenu SKUs
+  - name: Stream FAQ (Toast allergen sync)
+    url: https://help.streamorders.com/en/articles/16416253-faq-adding-allergens-on-toast
+    quote: "Allergens can also be set on individual modifiers, not just the parent item:"
+    seat_match: adjacent_pain
+    leftover: Third-party menu sync documenting Toast's native BETA allergen section; no packet computation
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Toast flags are display-only with no calorie math; a Toast-aware packet generator could own the inspector binder end to end."
+claim_hygiene: ok
+file_on: https://support.toasttab.com/en/article/Add-Allergen-Information-to-Online-Ordering-Menu-Items
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: fail
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: compose_next

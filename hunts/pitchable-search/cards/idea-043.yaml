@@ -1,0 +1,74 @@
+candidate_seat: HOA violation plus fine dispute packet tracker for AppFolio CAM PMs
+v1_as_shipped: standalone tracker that assembles HOA violation plus fine dispute packets (photos, CC&R citation, notice chain, fine ledger, hearing export) from AppFolio violation exports; never a write-time block on the AppFolio violation screen
+entry: restated
+niche:
+  icp: residential property managers
+  system_of_record: AppFolio Property Manager cloud
+  workflow_step: HOA violation plus fine dispute packet
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [leasing/tenant portal, work orders, native ledger, inspections]
+  source: agent_opt_out
+slices: [violation-fine dispute packet and hearing export]
+search_classes:
+  sor_primitive: AppFolio community association mobile violations tracking letters
+  dropin_addon: AppFolio Stack marketplace HOA violation architectural review
+  commercial_sku: HOA violation tracking fine dispute software HOAshare PayHOA Buildium Vantaca
+  tracker_leftover: HOA violation escalation hearing export feature request
+verdicts:
+  as_company: Occupied 7
+  as_oss: Sparse 3
+  as_plugin: Occupied 7
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 7
+incumbents:
+  - name: AppFolio Community Associations
+    url: http://appfolio.com/markets/hoa/management
+    quote: "as you log violations, write and send letters, and track the status of previous violations in one mobile-friendly system."
+    seat_match: exact
+    leftover: native log plus letters plus status; leftover is only a hearing-packet export flag
+  - name: HOAshare Violations
+    url: https://www.hoashare.com/features/violations
+    quote: "Document violations with timestamped photos, apply fines at each escalation stage, and track payments — all connected in one case file."
+    seat_match: exact
+    leftover: escalation plus fine ledger plus dispute thread; leftover is AppFolio import
+  - name: PayHOA Violations
+    url: https://www.payhoa.com/features/management
+    quote: "Handle your violations like an expert using our powerful, automated violation management system."
+    seat_match: exact
+    leftover: unlimited violations plus templates plus mailed notices; leftover is only CC&R mapping
+  - name: Buildium Violation Tracking
+    url: https://www.buildium.com/features/violations-tracking
+    quote: "Easily create violation notices with photos and deadlines, and update statuses from your desktop or the Buildium mobile app."
+    seat_match: wrong_substrate
+    leftover: same violation mechanics on Buildium SKU; occupied step, different host
+  - name: Vantaca
+    url: https://www.vantaca.com/vantaca-vs-appfolio
+    quote: "Violations, delinquency, and architectural reviews escalate automatically, on the schedule you set"
+    seat_match: wrong_substrate
+    leftover: CAM-native escalation engine; proves violation packet is not vacant process
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Skeptic builds it: AppFolio logs the violation but hearings lose on bad records; a dispute-grade packet with photo chain plus fine ledger would win managers."
+claim_hygiene: ok
+file_on: http://appfolio.com/markets/hoa/management
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: pass
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

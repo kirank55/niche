@@ -1,0 +1,79 @@
+candidate_seat: e-file status plus rejection-fix tracker for Karbon firms
+v1_as_shipped: standalone e-file status plus MeF-ack rejection-fix tracker used alongside Karbon cloud
+entry: restated
+niche:
+  icp: accounting/bookkeeping firms
+  system_of_record: Karbon cloud
+  workflow_step: e-file status plus rejection-fix tracking
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [Work/client timeline, email, time, native task workflow]
+  source: agent_opt_out
+slices: [e-file status plus rejection-fix tracker]
+search_classes:
+  sor_primitive: Karbon templates Tax Compliance US Firms
+  dropin_addon: Karbon integrations TaxBandits IRS acceptance
+  commercial_sku: e-file status MeF acknowledgment rejection fix tracker SKU
+  tracker_leftover: e-file status tracker feature request marketplace issue
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 5
+incumbents:
+  - name: Karbon Templates
+    url: https://karbonhq.com/templates/
+    quote: "Tax Compliance Templates for US Firms"
+    seat_match: adjacent_pain
+    leftover: generic templates; no MeF ack parsing or reject-code fix flow
+  - name: TaxBandits via Karbon
+    url: https://karbonhq.com/integrations/
+    quote: "Run end-to-end 1099 filing workflows from client intake to IRS acceptance, without leaving Karbon."
+    seat_match: adjacent_pain
+    leftover: 1099 acceptance only, not 1040/1120 MeF rejects; marketplace without write-path quote
+  - name: Drake Software
+    url: https://drakesoftware.com/
+    quote: "Get automated return tracking across your Drake ecosystem with status updates, workflow visibility, and built-in urgency alerts."
+    seat_match: exact
+    leftover: return tracking with status already ships in tax software; Karbon tracker duplicates it
+  - name: Intuit Lacerte ProConnect
+    url: https://proconnect.intuit.com/lacerte/
+    quote: "Ensure accuracy with 25,000+ error and informational diagnostics"
+    seat_match: exact
+    leftover: diagnostics plus rejection prevention already ship in tax engine; fix flow needs tax-software context
+  - name: SurePrep
+    url: https://www.sureprep.com/
+    quote: "SurePrep 1040 tax workflow automation solutions"
+    seat_match: adjacent_pain
+    leftover: 1040 prep automation, no MeF ack monitoring
+  - name: TaxDome
+    url: https://taxdome.com/
+    quote: "Connect TaxDome to the software you already use: QuickBooks Online, IRS, Zapier"
+    seat_match: wrong_substrate
+    leftover: competing SoR workflow hub vs Karbon; same e-file pain on different SKU
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Karbon firms lose time hopping between tax engines to confirm MeF acks; a single rejection-fix tracker could centralize status across engines."
+claim_hygiene: ok
+file_on: https://drakesoftware.com/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

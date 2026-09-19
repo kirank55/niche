@@ -1,0 +1,79 @@
+candidate_seat: Pest-control service log plus inspector packet beside Toast
+v1_as_shipped: Standalone tracker collecting pest-vendor service reports and corrective actions into a health-inspector-ready packet with trend log; no Toast write path, no POS hook
+entry: restated
+niche:
+  icp: independent restaurants on Toast cloud POS
+  system_of_record: Toast (cloud)
+  workflow_step: pest-control service log plus inspector packet
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [POS ticket, end-of-night close, payroll, native inventory, online ordering]
+  source: agent_opt_out
+slices: [service-log-packet]
+search_classes:
+  sor_primitive: "Toast pest control log health inspection docs"
+  dropin_addon: "Toast marketplace pest control inspection app"
+  commercial_sku: "restaurant pest control service reports audit documentation Orkin"
+  tracker_leftover: "restaurant health inspection pest logbook checklist corrective action"
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 5
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 5
+incumbents:
+  - name: Orkin documentation
+    url: https://www.orkin.com/commercial/about/documentation
+    quote: "Get anytime access to a personalized portal with information to help you track service records and pest pressure across multiple facilities, identify trouble spots and much more."
+    seat_match: exact
+    leftover: Vendor-tied portal; independent packet is a feature request on the vendor
+  - name: Orkin foodservice
+    url: https://www.orkin.com/commercial/industry/foodservice
+    quote: "One sighting can trigger guest complaints, failed inspections and even temporary closures, all while staff are trying to keep service moving."
+    seat_match: exact
+    leftover: Vendor owns the step end to end including documentation; packet assembly is auto-reject 5
+  - name: Orkin InSite
+    url: https://orkin.com/commercial/about/insite
+    quote: "Whether you need to manage multiple locations, assess seasonal pest trends or capture extensive documentation for a third-party audit, Orkin InSite is the digital command center for your Gold Medal QA or enterprise program."
+    seat_match: exact
+    leftover: IS the log-plus-packet UX, locked to Orkin customers
+  - name: Orkin inspection prep guide
+    url: https://www.orkin.com/commercial/blog/prepping-for-a-restaurant-inspection
+    quote: "Your pest control logbook is your proof that you are taking food safety seriously."
+    seat_match: exact
+    leftover: Names the logbook slice outright; assembly advice, not a vacant SKU
+  - name: SafetyCulture restaurant audit
+    url: https://safetyculture.com/checklists/restaurant-audit
+    quote: "Certified by HACCP International, this self-inspection audit checklist is designed for restaurants to conduct daily or weekly self-inspections on their own, ensuring compliance with Hazard Analysis and Critical Control Points (HACCP) and food safety principles."
+    seat_match: exact
+    leftover: Generic checklist SKU; vendor service reports still live in the pest-vendor portal
+  - name: SafetyCulture (pest line item)
+    url: https://safetyculture.com/checklists/restaurant-audit
+    quote: "Manage pest control and waste disposal and management practices"
+    seat_match: adjacent_pain
+    leftover: Checklist bullet, same packet domain, different mechanics
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 8
+  why_build: "Multi-vendor operators lack one inspector binder across Orkin, Ecolab, and independents; a vendor-neutral packet could own the health-inspection moment."
+claim_hygiene: ok
+file_on: https://www.orkin.com/commercial/about/documentation
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: compose_next

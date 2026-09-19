@@ -1,0 +1,79 @@
+candidate_seat: standalone paint-mix formula plus VOC compliance log tracker on Shopmonkey cloud
+v1_as_shipped: standalone refinish tracker (PPG/Axalta formula lookup log, mix-ratio record, VOC content log for inspector linked to Shopmonkey RO; no color-match claims beyond fetched pages); never blocks Shopmonkey save
+entry: restated
+niche:
+  icp: independent auto-repair shops
+  system_of_record: Shopmonkey cloud
+  workflow_step: refinish paint-mix and VOC compliance logging
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [formula lookup log, mix-ratio record, VOC content log]
+search_classes:
+  sor_primitive: Shopmonkey inspections templates plus reporting
+  dropin_addon: Shopmonkey inventory parts tracking paint material
+  commercial_sku: PPG Axalta refinish color tools paint systems
+  tracker_leftover: Shopmonkey reporting operations audit VOC log
+verdicts:
+  as_company: Occupied 6
+  as_oss: Sparse 2
+  as_plugin: Occupied 5
+density_scores:
+  problem_density: 5
+  exact_mechanics_density: 3
+incumbents:
+  - name: Shopmonkey Inspections
+    url: https://www.shopmonkey.io/product/inspections
+    quote: "Create inspection templates that match how your shop operates and stay consistent across your team."
+    seat_match: exact
+    leftover: generic template builder; no PPG/Axalta formula log, no mix-ratio record, no VOC content log for inspector
+  - name: PPG
+    url: https://www.ppg.com/en-US
+    quote: "When it comes to building durability, increasing performance or enhancing appearance, Our refinish business owns a track record of success no other company can match."
+    seat_match: adjacent_pain
+    leftover: coating manufacture; no shop-side formula lookup log, mix-ratio record, VOC log linked to RO
+  - name: PPG Refinish
+    url: https://www.ppg.com/en-US/refinish
+    quote: "Find a variety of digital color tools to help you identify and spray the perfect color match with ease."
+    seat_match: exact
+    leftover: color-tool lookup only as fetched; no mix-ratio record, no VOC content log for inspector linked to RO; no further color-match claims
+  - name: Axalta
+    url: https://www.axalta.com/
+    quote: "Experience the difference with our industry-leading refinish products ranging from surface preparation to undercoats, basecoats, clearcoats, color-matching technologies and accessories."
+    seat_match: exact
+    leftover: refinish products plus color-matching tech as fetched; no shop mix-ratio record, no VOC inspector log linked to RO
+  - name: Shopmonkey Reporting
+    url: https://www.shopmonkey.io/product/reporting
+    quote: "Gain valuable insights into your business with cloud-based reporting that’s accessible from anywhere."
+    seat_match: adjacent_pain
+    leftover: generic business reporting; no VOC content log, no mix-ratio record
+  - name: Tekmetric
+    url: https://www.tekmetric.com/
+    quote: "Order parts straight from the repair order and watch your inventory update itself."
+    seat_match: wrong_substrate
+    leftover: different SoR inventory; no refinish formula plus VOC mechanics
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Refinish shops face inspector VOC asks plus wasted mix; an RO-linked formula log plus mix-ratio plus VOC-content sheet from SDS would simplify audits."
+claim_hygiene: ok
+file_on: https://www.shopmonkey.io/product/inspections
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

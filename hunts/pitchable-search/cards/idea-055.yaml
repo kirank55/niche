@@ -1,0 +1,79 @@
+candidate_seat: bank-transaction chase packet tracker for Karbon firms advisory only
+v1_as_shipped: standalone uncategorized-transaction plus receipt chase tracker advisory only used alongside Karbon cloud
+entry: restated
+niche:
+  icp: accounting/bookkeeping firms
+  system_of_record: Karbon cloud
+  workflow_step: bank-transaction chase packet tracking advisory only
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [Work/client timeline, email, time, native task workflow]
+  source: agent_opt_out
+slices: [bank-transaction chase packet tracker]
+search_classes:
+  sor_primitive: Karbon templates monthly accounting receipts bank feeds
+  dropin_addon: Karbon integrations Uncat categorize transactions
+  commercial_sku: uncategorized transactions receipt chase packet SKU
+  tracker_leftover: uncategorized transactions chase feature request marketplace issue
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 5
+incumbents:
+  - name: Uncat via Karbon
+    url: https://karbonhq.com/integrations/
+    quote: "Get information back from accounting and bookkeeping clients faster to accurately categorize transactions and close the books."
+    seat_match: adjacent_pain
+    leftover: chase integration already ships; marketplace without write-path quote cannot be exact
+  - name: Uncat
+    url: https://uncat.com/
+    quote: "Make it easy for your clients to explain uncategorized transactions and upload receipts."
+    seat_match: exact
+    leftover: standalone chase packet already ships headline UX; advisory-only cut is narrower filter on same host
+  - name: Dext
+    url: https://www.dext.com/
+    quote: "receipts, invoices, and expenses are automatically captured and categorised with 99.9% accuracy, then synced straight to your accounting software."
+    seat_match: exact
+    leftover: capture-categorise-sync already ships; chase is add-on to Dext
+  - name: Hubdoc
+    url: https://www.hubdoc.com/
+    quote: "With Hubdoc, you can import all your financial documents & export them into data you can use."
+    seat_match: exact
+    leftover: doc import plus Xero/QBO transaction create already ships
+  - name: Double
+    url: https://keeper.app/
+    quote: "Categorize and post transactions automatically"
+    seat_match: exact
+    leftover: auto-categorize plus post already ships; advisory-only without posting duplicates comms slice
+  - name: Xero
+    url: https://www.xero.com/
+    quote: "Save time and easily keep your accounting records accurate."
+    seat_match: adjacent_pain
+    leftover: native bank reconciliation owns accuracy; client chase lives in add-ons
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Karbon bookkeeping teams burn hours chasing receipts for uncategorized QBO/Xero pulls; an advisory-only chase packet could own explanation plus document collection."
+claim_hygiene: ok
+file_on: https://uncat.com/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

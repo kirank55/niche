@@ -1,0 +1,79 @@
+candidate_seat: standalone third-party extended-warranty claim packet tracker on Shopmonkey cloud
+v1_as_shipped: standalone warranty-administrator tracker (CarShield-type claim assembly, coverage-clause checklist, denial appeal + payout status linked to Shopmonkey RO); never blocks Shopmonkey save
+entry: restated
+niche:
+  icp: independent auto-repair shops
+  system_of_record: Shopmonkey cloud
+  workflow_step: third-party extended-warranty claim administration
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [claim assembly packet, coverage-clause checklist, denial appeal docket, payout status]
+search_classes:
+  sor_primitive: Shopmonkey workflow repair order docs
+  dropin_addon: Shopmonkey estimates e-signature authorization
+  commercial_sku: extended warranty administrator claim filing Endurance
+  tracker_leftover: Shopmonkey reporting invoice audit claim status
+verdicts:
+  as_company: Occupied 6
+  as_oss: Sparse 3
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 5
+  exact_mechanics_density: 2
+incumbents:
+  - name: Shopmonkey Workflow
+    url: https://www.shopmonkey.io/product/workflow
+    quote: "Manage your shop's entire workflow in real-time — all in one place."
+    seat_match: adjacent_pain
+    leftover: generic job movement; no coverage-clause checklist, no denial appeal, no payout status
+  - name: Shopmonkey Estimates
+    url: https://www.shopmonkey.io/product/estimates
+    quote: "Allow customers to digitally authorize estimates and invoices with our e-signature tool."
+    seat_match: adjacent_pain
+    leftover: auth capture only; no administrator claim packet, clause checklist, appeal docket
+  - name: Endurance Warranty
+    url: https://www.endurancewarranty.com/
+    quote: "Endurance picks up where your auto warranty leaves off."
+    seat_match: exact
+    leftover: administrator-side coverage and payment; shop-side CarShield-type assembly with clause checklist plus denial appeal linked to RO still standalone
+  - name: Endurance File a Claim
+    url: https://www.endurancewarranty.com/file-a-claim/
+    quote: "Before work begins, have the shop contact Endurance to obtain authorization for the required repair or maintenance."
+    seat_match: exact
+    leftover: authorization call workflow; no standalone clause-checklist tracker, no appeal plus payout-status docket linked to Shopmonkey RO
+  - name: Tekmetric
+    url: https://www.tekmetric.com/
+    quote: "Build a full estimate in under 30 seconds."
+    seat_match: wrong_substrate
+    leftover: Tekmetric estimate building on different SKU; no warranty-administrator packet mechanics
+  - name: Mitchell1
+    url: https://mitchell1.com/
+    quote: "Diagnostic, estimating, OEM repair information and exclusive expert-based fixes delivered together."
+    seat_match: adjacent_pain
+    leftover: diagnostic plus estimating info; no claim assembly, appeal, payout tracking
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Third-party denials kill tickets; a shop-side packet that enforces clause checklist before teardown plus appeal letters plus payout aging linked to RO would save advisors hours."
+claim_hygiene: ok
+file_on: https://www.endurancewarranty.com/file-a-claim/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

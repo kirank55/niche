@@ -1,0 +1,79 @@
+candidate_seat: independent vet practices on ezyVet cloud — dosimetry badge compliance log
+v1_as_shipped: Standalone dosimetry badge compliance log for ezyVet cloud
+entry: restated
+niche:
+  icp: independent veterinary practices
+  system_of_record: ezyVet cloud
+  workflow_step: dosimetry badge wear-return dose compliance logging
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [dose-compliance-log]
+search_classes:
+  sor_primitive: ezyVet integrations API dosimetry compliance
+  dropin_addon: ezyVet staff compliance portal dosimetry integration
+  commercial_sku: veterinary dosimetry badge Landauer Mirion RDC
+  tracker_leftover: dose report ALARA MyRadCare reassignment issue
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 5
+incumbents:
+  - name: ezyVet Integrations
+    url: https://www.ezyvet.com/partners/all-countries/all-categories/p2
+    quote: "Create a custom integration with your ezyVet data"
+    seat_match: adjacent_pain
+    leftover: Generic API only; no badge roster or dose reports.
+  - name: Landauer Veterinary
+    url: https://www.landauer.com/dosimetry-badges-veterinary-clinics
+    quote: "If you’re looking for a simple, reliable veterinary radiation badge service for your practice, you’ve come to the right place."
+    seat_match: exact
+    leftover: Already vet badge service with portal plus ALARA tracking; remaining is duplicate.
+  - name: Mirion Instadose VUE
+    url: https://resources.mirion.com/veterinary-dosimetry
+    quote: "Access dose history anytime without waiting for quarterly results."
+    seat_match: exact
+    leftover: Already on-demand dose plus reassignment with no mail-back; remaining is duplicate.
+  - name: Landauer Compliance
+    url: https://www.landauer.com/radiation-safety-compliance
+    quote: "Manage as low as reasonably achievable (ALARA) exceeders"
+    seat_match: exact
+    leftover: Already dose-report review plus ALARA plus regulatory assist; remaining is duplicate.
+  - name: Radiation Detection Company Vet
+    url: https://radetco.com/industries/veterinary-dosimeter-badge
+    quote: "Radiation Detection Company has helped thousands of veterinary practices protect their employees"
+    seat_match: exact
+    leftover: Already vet badges with MyRadCare reports plus reassignment; remaining is duplicate.
+  - name: DosimetryBadge
+    url: http://dosimetrybadge.com/
+    quote: "Perfect for Dental, Vet and Chiropractic offices"
+    seat_match: exact
+    leftover: Already low-cost quarterly vet monitoring with APEX OSL; remaining is duplicate.
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Lost badges plus late reports risk inspection findings; a roster-aware log could help."
+claim_hygiene: ok
+file_on: https://www.landauer.com/dosimetry-badges-veterinary-clinics
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

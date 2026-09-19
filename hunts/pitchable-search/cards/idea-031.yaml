@@ -1,0 +1,74 @@
+candidate_seat: independent vet practices on ezyVet cloud — controlled-substance log + DEA biennial inventory tracker
+v1_as_shipped: Standalone controlled-substance log + DEA biennial inventory docket on ezyVet cloud, no write-time block, no tray
+entry: restated
+niche:
+  icp: independent veterinary practices
+  system_of_record: ezyVet cloud
+  workflow_step: controlled-substance log + DEA biennial inventory
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [controlled-substance log, DEA biennial inventory]
+search_classes:
+  sor_primitive: ezyVet controlled drug management inventory docs
+  dropin_addon: ezyVet App Store controlled drug CUBEX VetSnap Modeus
+  commercial_sku: veterinary controlled substance log DEA biennial SKU VetSnap CUBEX
+  tracker_leftover: ezyVet controlled drug log feature request issue
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 7
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 4
+incumbents:
+  - name: ezyVet CUBEX integration
+    url: https://www.ezyvet.com/integration/cubex
+    quote: "Effectively manage your controlled substances and other valuable inventory with ezyVet and CUBEX smart cabinets"
+    seat_match: exact
+    leftover: Biennial DEA roll-forward still lives in CUBEX cabinet logs; file on CUBEX
+  - name: ezyVet VetSnap integration
+    url: https://www.ezyvet.com/integration/vetsnap
+    quote: "VetSnap works with ezyVet in order to help practices save time and digitize controlled substance record keeping"
+    seat_match: exact
+    leftover: Standalone biennial count sheet still reconciled in VetSnap; file on VetSnap
+  - name: Modeus Vet S8 ezyVet integration
+    url: https://www.ezyvet.com/integration/vet-s8
+    quote: "An online controlled drug register platform that syncs with ezyVet to eliminate the double-entry of data"
+    seat_match: exact
+    leftover: DEA register adjustments still closed in Vet S8; file on Modeus
+  - name: VetSnap Digital Logbook
+    url: https://vetsnap.com/
+    quote: "Our digital controlled drugs logbook helps your hospital comply with Federal DEA Regulations"
+    seat_match: exact
+    leftover: ezyVet auto-populate plus biennial packet still VetSnap work; file on VetSnap
+  - name: LogRx narcotics tracking
+    url: https://www.logrx.com/
+    quote: "LogRx allows EMS agencies to track narcotics inventory, document medication administration, and maintain DEA-compliant records without purchasing new hardware."
+    seat_match: wrong_substrate
+    leftover: EMS substrate, not ezyVet vet workflow; no vet biennial docket
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Skeptic builds because DEA biennial inventory is painful and ezyVet has no native DEA packet; a neutral log + count sheet could win independents."
+claim_hygiene: ok
+file_on: https://www.ezyvet.com/integration/vetsnap
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: pass
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

@@ -1,0 +1,79 @@
+candidate_seat: standalone salvage rebuilt-title inspection packet tracker on Shopmonkey cloud
+v1_as_shipped: standalone salvage tracker (state inspection checklist assembly, inspection-appointment docket, rebuilt-title branding proof linked to Shopmonkey RO); never blocks Shopmonkey save
+entry: restated
+niche:
+  icp: independent auto-repair shops
+  system_of_record: Shopmonkey cloud
+  workflow_step: salvage rebuilt-title inspection packet
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [state inspection checklist assembly, inspection-appointment docket, rebuilt-title branding proof]
+search_classes:
+  sor_primitive: Shopmonkey inspections attached to repair orders
+  dropin_addon: Shopmonkey estimates e-signature proof capture
+  commercial_sku: salvage recycled parts LKQ plus shop management Tekmetric Mitchell1
+  tracker_leftover: Shopmonkey reporting invoice audit branding proof
+verdicts:
+  as_company: Occupied 5
+  as_oss: Sparse 3
+  as_plugin: Occupied 5
+density_scores:
+  problem_density: 4
+  exact_mechanics_density: 1
+incumbents:
+  - name: Shopmonkey Inspections
+    url: https://www.shopmonkey.io/product/inspections
+    quote: "Attach inspections directly to repair orders so technicians complete them as part of their workflow."
+    seat_match: exact
+    leftover: generic inspection-to-RO attach; no state salvage checklist, no appointment docket, no rebuilt-title branding proof
+  - name: Shopmonkey Estimates
+    url: https://www.shopmonkey.io/product/estimates
+    quote: "Allow customers to digitally authorize estimates and invoices with our e-signature tool."
+    seat_match: adjacent_pain
+    leftover: auth capture; no salvage checklist assembly, appointment docket, branding proof
+  - name: LKQ Corp
+    url: https://lkqcorp.com/
+    quote: "We take pride in being the largest recycler in the automotive industry."
+    seat_match: adjacent_pain
+    leftover: recycled parts supply; no state inspection packet, appointment docket, title-branding proof linked to RO
+  - name: Tekmetric
+    url: https://www.tekmetric.com/
+    quote: "Send digital vehicle inspection results by text or email and get customer approvals while the vehicle is still on the lift."
+    seat_match: wrong_substrate
+    leftover: Tekmetric DVI on different SKU; no salvage-title packet mechanics
+  - name: Mitchell1 Manager SE
+    url: https://mitchell1.com/
+    quote: "Business management tools to help you manage every aspect of your shop more efficiently and profitably."
+    seat_match: adjacent_pain
+    leftover: generic shop management; no state salvage checklist, appointment docket, branding proof
+  - name: Shopmonkey Reporting
+    url: https://www.shopmonkey.io/product/reporting
+    quote: "Gain valuable insights into your business with cloud-based reporting that’s accessible from anywhere."
+    seat_match: adjacent_pain
+    leftover: business reporting; no rebuilt-title proof file, no inspection-appointment tracking
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 5
+  why_build: "Salvage rebuilds die in paperwork; a single RO-linked state checklist plus appointment docket plus branding-proof file would keep indies from losing title fees."
+claim_hygiene: ok
+file_on: https://www.shopmonkey.io/product/inspections
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

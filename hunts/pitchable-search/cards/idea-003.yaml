@@ -1,0 +1,79 @@
+candidate_seat: SOL/limitation computation engine for small litigation firms on Clio cloud
+v1_as_shipped: standalone limitation engine (tolling-rule inputs, jurisdiction rule table, deadline computation + change log posted as Clio matter note); calendar display only, never write-time block
+entry: restated
+niche:
+  icp: solo PI and small litigation firms
+  system_of_record: Clio cloud
+  workflow_step: SOL/limitation rules computation + tolling inputs + change log
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [tolling-rule inputs, jurisdiction rule table, deadline computation, change log as Clio matter note]
+search_classes:
+  sor_primitive: Clio Manage Court Rules Statute of limitations field calendar
+  dropin_addon: Clio CalendarRules integration court rules calendaring
+  commercial_sku: statute limitations deadline calculation CalendarRules LawToolBox
+  tracker_leftover: CalendarRules LawToolBox Clio rule update issue changelog
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 9
+  exact_mechanics_density: 7
+incumbents:
+  - name: Clio Rules-Based Calendaring
+    url: https://www.clio.com/blog/rules-based-calendaring-software-law-firms
+    quote: "CalendarRules provides automated court rules-based calendaring for law firms. Now that it’s part of the Clio family, it fully powers Clio’s court rules feature."
+    seat_match: exact
+    leftover: rules engine plus 50-state library already native via acquisition; tolling-note delta is a flag
+  - name: Clio Statute of Limitations Field
+    url: https://www.clio.com/blog/rules-based-calendaring-software-law-firms
+    quote: "Simply open a Matter card, click on “Edit”, and enter the date in the Statute of limitations field. It’s that easy."
+    seat_match: exact
+    leftover: SOL date store on Matter card already ships; computation-to-note sync is auto-reject 5
+  - name: CalendarRules
+    url: https://calendarrules.com/
+    quote: "Automated court rules-based calendaring for your firm."
+    seat_match: exact
+    leftover: 2500 rule sets plus updates already ship; matter-note posting is integration glue
+  - name: CalendarRules FAQ
+    url: https://calendarrules.com/faq
+    quote: "CalendarRules helps legal teams reduce calendaring risk by replacing manual deadline calculation with rules-based calendaring built and reviewed by legal professionals."
+    seat_match: exact
+    leftover: attorney-built calculation plus dual-entry review already ships; standalone SOL ledger duplicates it
+  - name: LawToolBox
+    url: https://www.lawtoolbox.com/
+    quote: "Automatically calculate 80+ court-specific deadlines by entering a single trial date—saving hours and minimizing risk."
+    seat_match: exact
+    leftover: thousand-jurisdiction calculation plus Outlook/sync already ships; hook is M365 vs Clio note, not vacancy
+  - name: Clio Legal Calendaring
+    url: https://www.clio.com/ca/features/legal-calendaring-software
+    quote: "With Clio’s court rules functionality, you can track court deadlines for your matters by selecting court trigger events for specific court jurisdictions. Once you select a trigger, court rules will automatically find related court events for the specified jurisdiction and add dates to your calendar."
+    seat_match: exact
+    leftover: trigger-to-events with holidays already native; change-log-as-note is orchestration
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 8
+  why_build: "SOL malpractice risk is existential and Clio calendar display is not a tolling engine; a jurisdiction table with tolling inputs and auditable change log posted to the matter would be bought as insurance."
+claim_hygiene: ok
+file_on: https://www.clio.com/blog/rules-based-calendaring-software-law-firms
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

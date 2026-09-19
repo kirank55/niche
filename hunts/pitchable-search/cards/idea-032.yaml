@@ -1,0 +1,74 @@
+candidate_seat: independent vet practices on ezyVet cloud — IDEXX/Antech lab order + result docket tracker
+v1_as_shipped: Standalone lab order + result docket for IDEXX/Antech on ezyVet cloud, no write-time block
+entry: restated
+niche:
+  icp: independent veterinary practices
+  system_of_record: ezyVet cloud
+  workflow_step: IDEXX/Antech lab order + result docket
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [lab order docket, result docket]
+search_classes:
+  sor_primitive: ezyVet diagnostics reference lab docs IDEXX Antech
+  dropin_addon: ezyVet App Store diagnostics IDEXX VetConnect Antech
+  commercial_sku: veterinary reference lab order result SKU IDEXX Antech
+  tracker_leftover: ezyVet lab result missing feature request issue
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 7
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 5
+incumbents:
+  - name: ezyVet IDEXX VetConnect PLUS
+    url: https://www.ezyvet.com/integration/idexx-vetconnect-plus
+    quote: "Send diagnostic requests to IDEXX Reference Labs, directly from ezyVet."
+    seat_match: exact
+    leftover: Result trending still in VetConnect PLUS; file on IDEXX
+  - name: ezyVet IDEXX Reference Laboratories
+    url: https://www.ezyvet.com/integration/idexx-reference-lab
+    quote: "Easily track and receive results straight into ezyVet."
+    seat_match: exact
+    leftover: Requisition + result attach already in ezyVet; file on IDEXX
+  - name: ezyVet Antech Diagnostics
+    url: https://www.ezyvet.com/integration/antech-diagnostics
+    quote: "Send diagnostic requests from ezyVet with just a few clicks"
+    seat_match: exact
+    leftover: Result visibility still in Antech-ezyVet link; file on Antech
+  - name: Antech Diagnostics
+    url: https://www.antechdiagnostics.com/
+    quote: "North America’s largest Reference Lab network"
+    seat_match: exact
+    leftover: Reference-lab menu + consulting already Antech; file on Antech
+  - name: IDEXX Veterinary
+    url: https://www.idexx.com/en/veterinary/
+    quote: "IDEXX Reference Laboratories"
+    seat_match: exact
+    leftover: Lab catalog + analyzers already IDEXX; file on IDEXX
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Skeptic builds neutral lab docket across IDEXX + Antech because result filing is fragmented; single tracker could win."
+claim_hygiene: ok
+file_on: https://www.ezyvet.com/integration/idexx-vetconnect-plus
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: pass
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

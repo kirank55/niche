@@ -1,0 +1,79 @@
+candidate_seat: Shopmonkey-linked ADAS calibration certificate packet tracker for independent shops
+v1_as_shipped: Standalone ADAS tracker for Shopmonkey cloud shops — calibration equipment session log, pre/post-scan report capture, calibration certificate pullback to Shopmonkey RO as attachment; never blocks RO save
+entry: restated
+niche:
+  icp: independent auto-repair shops
+  system_of_record: Shopmonkey cloud
+  workflow_step: ADAS calibration session log and certificate pullback
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [calibration equipment session log, pre/post-scan report capture, calibration certificate pullback to Shopmonkey RO]
+search_classes:
+  sor_primitive: Shopmonkey RO inspection attachment docs
+  dropin_addon: Shopmonkey App Store ADAS calibration
+  commercial_sku: ADAS calibration certificate pre post scan auto repair
+  tracker_leftover: ADAS calibration tracker issue Shopmonkey marketplace
+verdicts:
+  as_company: Saturated 8
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 5
+  exact_mechanics_density: 5
+incumbents:
+  - name: Shopmonkey
+    url: https://shopmonkey.com/
+    quote: NEED_EVIDENCE
+    seat_match: adjacent_pain
+    leftover: Fetch 403 this run; RO-attachment workaround unverified. Do not score vacancy from block.
+  - name: Autel ADAS
+    url: https://www.autel.com/
+    quote: "Advanced Calibration Solution for ADAS"
+    seat_match: exact
+    leftover: Equipment plane ships calibration UX; still needs Shopmonkey RO certificate pullback; file on Autel session log.
+  - name: AirPro Diagnostics
+    url: https://airprodiagnostics.com/
+    quote: "AirPro Diagnostics provides industry-leading solutions for scanning, diagnostics, calibrations, and programming services."
+    seat_match: exact
+    leftover: Remote calibration plus scan UX exists; still needs Shopmonkey RO attachment sync; file on AirPro.
+  - name: Opus IVS
+    url: https://opusivs.com/
+    quote: "Advanced diagnostics, ADAS calibration, and on-demand master technicians — everything your shop needs to take on today’s most complex vehicles."
+    seat_match: exact
+    leftover: Diagnostics plus ADAS plane exists; Shopmonkey certificate pullback is add-to-Opus glue.
+  - name: asTech
+    url: https://astech.com/
+    quote: "asTech helps collision and mechanical repair facilities perform pre- and post-scans, calibrations, and programming without owning every tool or requiring in-house specialists."
+    seat_match: exact
+    leftover: Pre/post-scan plus calibration UX exists; RO certificate link is marketplace-issue glue.
+  - name: Hunter Ultimate ADAS
+    url: https://www.hunter.com/
+    quote: "Standard-defining alignment technology with the fastest and most precise target placement for ADAS calibrations"
+    seat_match: exact
+    leftover: Target-placement calibration UX exists; still needs pre/post-scan report capture tied to Shopmonkey RO.
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Liability demands pre/post-scan proof plus certificate on the RO; a standalone packet that pulls equipment reports back to Shopmonkey could standardize that file."
+claim_hygiene: ok
+file_on: https://airprodiagnostics.com/
+keep_gate_checks:
+  g1_quotes_literal: fail
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: pass
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: pass
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: compose_next

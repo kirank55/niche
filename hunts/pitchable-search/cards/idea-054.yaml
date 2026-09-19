@@ -1,0 +1,79 @@
+candidate_seat: state sales-tax nexus registration packet tracker for Karbon firms
+v1_as_shipped: standalone sales-tax nexus registration packet tracker used alongside Karbon cloud
+entry: restated
+niche:
+  icp: accounting/bookkeeping firms
+  system_of_record: Karbon cloud
+  workflow_step: sales-tax nexus registration packet tracking
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [Work/client timeline, email, time, native task workflow]
+  source: agent_opt_out
+slices: [nexus registration packet tracker]
+search_classes:
+  sor_primitive: Karbon practice management accounting firms
+  dropin_addon: Karbon integrations entity compliance sales tax
+  commercial_sku: sales tax nexus registration packet SKU Avalara TaxJar
+  tracker_leftover: sales tax registration feature request marketplace issue
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 9
+  exact_mechanics_density: 6
+incumbents:
+  - name: Karbon
+    url: https://karbonhq.com/
+    quote: "Boost productivity, strengthen client relationships, and drive profit with the #1-ranked accounting practice management software."
+    seat_match: adjacent_pain
+    leftover: generic PM; no nexus engine or registration flow
+  - name: Avalara
+    url: https://www.avalara.com/
+    quote: "Calculate sales tax across 12,000+ U.S. sales and use tax jurisdictions in real time"
+    seat_match: exact
+    leftover: calculation plus licensing/registration engine already ships headline UX
+  - name: TaxJar
+    url: https://www.taxjar.com/
+    quote: "Our platform automates the entire sales tax lifecycle, from calculations to filing, across all sales channels."
+    seat_match: exact
+    leftover: lifecycle platform with State sales tax registrations already ships packet
+  - name: Anrok
+    url: https://anrok.com/
+    quote: "The moment activity triggers a requirement, Anrok handles registration. No scramble, no missed deadline."
+    seat_match: exact
+    leftover: threshold-triggered registration plus filing already ships
+  - name: Numeral
+    url: https://numeralhq.com/
+    quote: "Identify where you have tax liability and automatically register when you exceed a threshold or establish nexus."
+    seat_match: exact
+    leftover: auto-register on nexus already ships; Karbon packet duplicates monitor
+  - name: Kintsugi
+    url: https://trykintsugi.com/
+    quote: "Kintsugi finds the exposure you didn’t know you had, registers you, and files everywhere you sell"
+    seat_match: exact
+    leftover: exposure-to-filing loop already ships; registration packet is slice of it
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Karbon CAS teams own multi-state registration chaos; a nexus packet with threshold monitoring could sit between ledger and state portals."
+claim_hygiene: ok
+file_on: https://www.avalara.com/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

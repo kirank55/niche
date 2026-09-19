@@ -1,0 +1,74 @@
+candidate_seat: crash/police-report ordering tracker for solo PI firms on Clio cloud
+v1_as_shipped: standalone report-order tracker (state crash-portal ordering, fee payment, report retrieval + deadline linkage to Clio matter as attachment); never blocks Clio save
+entry: restated
+niche:
+  icp: solo PI and small litigation firms
+  system_of_record: Clio cloud
+  workflow_step: crash/police-report ordering + retrieval + deadline linkage
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [state-portal ordering, fee payment, report retrieval, deadline linkage as Clio matter attachment]
+search_classes:
+  sor_primitive: Clio Manage matter Documents attachment subtab
+  dropin_addon: Clio App Directory InfoTrack File Serve Sync matter
+  commercial_sku: crash police report ordering portal CrashDocs NY DMV
+  tracker_leftover: Clio crash report ordering feature request issue
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 6
+incumbents:
+  - name: Clio Manage Matters
+    url: https://help.clio.com/hc/en-us/articles/9285920226075-Clio-Manage-Matters-Overview
+    quote: "Holds documents for the matter, including documents held in third-party drives such as Google Drive."
+    seat_match: exact
+    leftover: multi-portal ordering, fee pay, and per-report status still manual; leftover is add-status-tracker to Clio Documents
+  - name: Clio App Directory InfoTrack File Serve Sync
+    url: https://www.clio.com/app-directory/infotrack-file-and-serve
+    quote: "File documents. Serve parties. Sync dockets. Everything flows back to your Clio Manage matter automatically."
+    seat_match: adjacent_pain
+    leftover: same sync-back mechanics for court filing, not crash portals; crash coverage is add-missing-vertical
+  - name: NY DMV Crash Reports
+    url: https://dmv.ny.gov/records/order-and-access-motor-vehicle-crash-accident-reports
+    quote: "You can search, purchase, and immediately download certified crash reports online."
+    seat_match: exact
+    leftover: single-state portal only; multi-state aggregation plus Clio attachment linkage is glue
+  - name: CARFAX CrashDocs via Officer.com
+    url: https://www.officer.com/command-hq/technology/computers-software/investigation-software/product/11587247/carfax-crashdocsorg-automobile-accident-reporting
+    quote: "Insurers, lawyers and other interested parties can quickly order the reports they need and view some of them immediately, all with no added convenience fees."
+    seat_match: exact
+    leftover: nationwide ordering already ships; Clio matter linkage is a plugin/flag
+  - name: InfoTrack for Clio
+    url: https://www.infotrack.com/clio
+    quote: "Once the clerk endorses your documents, file-stamped copies are downloaded back to your Clio Manage matter automatically."
+    seat_match: adjacent_pain
+    leftover: court-document sync pattern, not crash-report ordering; reuse is orchestration around named primitive
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Solo PI firms chase crash reports across 50 state portals with different fees and delays; a single Clio-linked order tracker with fee log and deadline linkage would save weekly paralegal time."
+claim_hygiene: ok
+file_on: https://dmv.ny.gov/records/order-and-access-motor-vehicle-crash-accident-reports
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

@@ -1,0 +1,79 @@
+candidate_seat: Karbon-firm tax-audit evidence packet with deadline docket
+v1_as_shipped: Standalone packet for Karbon firms covering audit evidence requests, notice-linked deadline docket, and completion states (no write-time block)
+entry: restated
+niche:
+  icp: accounting/bookkeeping firms
+  system_of_record: Karbon cloud
+  workflow_step: tax-audit evidence collection with deadline docket
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [Work/client timeline, email, time, native task workflow]
+  source: agent_opt_out
+slices: [notice register, evidence request list, deadline docket]
+search_classes:
+  sor_primitive: "Karbon IRS transcripts notices deadline tracking TaxNow"
+  dropin_addon: "Karbon integrations IRS transcript notice alerts TaxNow"
+  commercial_sku: "tax notice resolution audit evidence tracker Notice Ninja Canopy transcripts"
+  tracker_leftover: "audit evidence DRL deadline docket accounting feature request"
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 5
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 4
+incumbents:
+  - name: Notice Ninja
+    url: https://www.noticeninja.com
+    quote: "gives enterprise tax teams one platform to gain visibility into every notice, track sequentials, merge duplicates, and stay ahead of the work"
+    seat_match: exact
+    leftover: Karbon-side evidence docket is a sync view on this SKU, not a company.
+  - name: Karbon integrations (TaxNow)
+    url: https://karbonhq.com/integrations/
+    quote: "Monitor clients’ IRS transcripts and receive automated, prioritized alerts on important IRS activities for your clients, right within Karbon."
+    seat_match: exact
+    leftover: Notice ingestion already lands in Karbon; remainder is an evidence-view flag.
+  - name: SafeSend
+    url: https://www.safesend.com/
+    quote: "Automated DRLs with automatic alerts and reminders and real-time completion status."
+    seat_match: exact
+    leftover: Audit evidence chase is a DRL template on this SKU.
+  - name: SmartVault
+    url: https://www.smartvault.com/document-management
+    quote: "Track, secure, and retain documents to meet IRS, SOC 2 Type 2, and FTC compliance."
+    seat_match: exact
+    leftover: Compliance retention plus audit-ready storage already ships; docket is a view.
+  - name: Jetpack Workflow
+    url: https://jetpackworkflow.com/
+    quote: "Create cascading task deadlines and automate your accounting processes."
+    seat_match: adjacent_pain
+    leftover: Generic deadline automation without notice or evidence semantics.
+  - name: Canopy
+    url: https://www.canopytax.com/
+    quote: "Manage clients, documents, billing, intake, and communication from a single login. No context switching."
+    seat_match: adjacent_pain
+    leftover: Suite consolidation treats adjacent pain on a different SKU, not this docket.
+auto_rejects_fired: [1]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Notice tracking plus DRL evidence chase plus compliance retention each have a named owner, so the ceiling assumes the packet is an occupied bundle."
+claim_hygiene: ok
+file_on: https://www.noticeninja.com
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: fail
+  g6_auto_reject_5: pass
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

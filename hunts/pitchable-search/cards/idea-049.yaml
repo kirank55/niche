@@ -1,0 +1,74 @@
+candidate_seat: AppFolio Property Manager cloud + abandoned-unit personal-property disposition packet for residential managers
+v1_as_shipped: Standalone abandoned-property disposition packet tracker for AppFolio units, notice checklist plus deadline log, no write-time block, no overlay
+entry: restated
+niche:
+  icp: residential property managers
+  system_of_record: AppFolio Property Manager cloud
+  workflow_step: abandoned-unit personal-property disposition packet
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [leasing/tenant portal, work orders, native ledger, inspections]
+  source: agent_opt_out
+slices: [disposition-packet-tracker]
+search_classes:
+  sor_primitive: AppFolio abandoned unit personal property notice workflow docs
+  dropin_addon: AppFolio Stack abandonment notice forms integration
+  commercial_sku: landlord abandonment notice forms ezLandlordForms Avail TenantCloud
+  tracker_leftover: AppFolio Stack abandonment disposition checklist feature request
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 3
+incumbents:
+  - name: ezLandlordForms landlord forms
+    url: https://www.ezlandlordforms.com/
+    quote: "ezLandlordForms is trusted nationwide for legally compliant lease documents, tenant screening tools, and landlord workflows"
+    seat_match: exact
+    leftover: Missing AppFolio unit deadline log; remaining is add state abandonment pack to ezLandlordForms
+  - name: Avail lease templates
+    url: https://www.avail.co/
+    quote: "Access state-specific, lawyer-reviewed templates that can be customized with Unlimited Plus."
+    seat_match: exact
+    leftover: Missing personal-property sale/disposal accounting; remaining is add disposition addendum to Avail
+  - name: TenantCloud landlord forms
+    url: https://www.tenantcloud.com/
+    quote: "Landlord Forms: Lease agreements, rent increase notices, addenda, and other important paperwork"
+    seat_match: exact
+    leftover: Missing abandonment timeline tracker; remaining is add abandonment checklist to TenantCloud
+  - name: Buildium platform
+    url: https://www.buildium.com/
+    quote: "Property management software (like Buildium) helps property managers save time and money by streamlining their day-to-day operations."
+    seat_match: wrong_substrate
+    leftover: Different SKU than AppFolio seat
+  - name: AppFolio Performance Platform
+    url: https://www.appfolio.com/
+    quote: "even integrate your favorite proptech solutions."
+    seat_match: adjacent_pain
+    leftover: Generic platform without disposition packet; file as forms integration
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Skeptic would build state-aware abandonment notice packet to avoid wrongful-disposal liability on AppFolio units."
+claim_hygiene: ok
+file_on: https://www.ezlandlordforms.com/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: compose_next

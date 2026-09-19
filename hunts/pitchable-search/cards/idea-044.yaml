@@ -1,0 +1,74 @@
+candidate_seat: turn-vendor COI compliance packet tracker for AppFolio PMs
+v1_as_shipped: standalone tracker that assembles turn-vendor COI packets (ACORD 25 capture, GL/WC/auto limits check, additional-insured check, expiry chase log) from AppFolio vendor exports; never a write-time block on work orders or bills
+entry: restated
+niche:
+  icp: residential property managers
+  system_of_record: AppFolio Property Manager cloud
+  workflow_step: turn-vendor COI compliance packet
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [leasing/tenant portal, work orders, native ledger, inspections]
+  source: agent_opt_out
+slices: [COI capture plus limits check plus expiry chase log]
+search_classes:
+  sor_primitive: AppFolio vendor portal work order invoices vendor management
+  dropin_addon: AppFolio Stack marketplace vendor COI compliance onboarding
+  commercial_sku: vendor COI certificate of insurance tracking software property management
+  tracker_leftover: COI expiry reminder additional insured verification feature request
+verdicts:
+  as_company: Occupied 7
+  as_oss: Sparse 3
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 7
+incumbents:
+  - name: AppFolio Vendor Portal
+    url: http://appfolio.com/markets/hoa/management
+    quote: "Give vendors access to view work order details, upload invoices, add notes and photos, and mark their work as complete all within the fully mobile Vendor Portal in AppFolio."
+    seat_match: adjacent_pain
+    leftover: vendor work hub without COI limits logic; leftover is a COI-requirements flag on the portal
+  - name: COISoftware Property Management
+    url: https://coisoftware.com/coi-tracking-for-property-management
+    quote: "COISoftware collects certificates of insurance from every vendor, contractor and tenant on your properties, reads each ACORD 25 with AI, checks the coverage against your requirements, and alerts you before any COI expires."
+    seat_match: exact
+    leftover: AI read plus limits plus additional-insured plus 60/30/15-day chase; leftover is only AppFolio vendor sync
+  - name: bcs
+    url: http://getbcs.com/
+    quote: "bcs is the #1 certificate of insurance tracking platform that combines AI-powered automation with expert compliance review to manage vendor insurance at scale."
+    seat_match: exact
+    leftover: automated review plus renewal tracking plus analytics; duplicate packet engine
+  - name: COI Tracker
+    url: https://coitracker.co/coi-tracking/vendor-insurance-compliance
+    quote: "COI Tracker turns vendor insurance compliance from a recurring fire-drill into a one-screen dashboard."
+    seat_match: exact
+    leftover: renewal dashboard plus CSV export; turn-vendor slice is the same job
+  - name: COI Dash
+    url: https://www.coidash.com/
+    quote: "Centralize vendor insurance requirements, collect COIs in one place, track review status, and automate reminders before coverage expires."
+    seat_match: exact
+    leftover: requirements plus parse plus compliant/deficient workflow; leftover is property-group filter
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Skeptic builds it: turns stall when a painter has no WC cert; a turn-day COI gate keyed to AppFolio vendors would unblock make-readies."
+claim_hygiene: ok
+file_on: https://coisoftware.com/coi-tracking-for-property-management
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: pass
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

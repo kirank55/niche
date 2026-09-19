@@ -1,0 +1,79 @@
+candidate_seat: medical-records retrieval tracker for solo PI firms on Clio cloud
+v1_as_shipped: standalone retrieval tracker (provider authorization, per-provider request status, records + bill pullback to Clio matter; HIPAA workflow only as fetched, no extra PHI claims); never blocks Clio save
+entry: restated
+niche:
+  icp: solo PI and small litigation firms
+  system_of_record: Clio cloud
+  workflow_step: medical-records retrieval + authorization + per-provider status + pullback
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [provider authorization, per-provider request status, records pullback, bill pullback to Clio matter]
+search_classes:
+  sor_primitive: Clio Personal Injury Medical Records provider bills HIPAA
+  dropin_addon: Clio medical records retrieval integration matter
+  commercial_sku: medical records retrieval personal injury Lexitas ChartSquad
+  tracker_leftover: Lexitas ChartSquad records status delay support issue
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 9
+  exact_mechanics_density: 7
+incumbents:
+  - name: Clio Manage Medical Records
+    url: https://help.clio.com/hc/en-us/articles/9285920226075-Clio-Manage-Matters-Overview
+    quote: "For firms with the Personal Injury add-on, this subtab holds medical provider cards, medical records, and medical bills for the matter."
+    seat_match: exact
+    leftover: native provider-card store already ships; external follow-up automation is add-to-PI-add-on
+  - name: Clio Personal Injury Retrieval
+    url: https://www.clio.com/features/personal-injury-case-management-software/
+    quote: "Spend time on resolving cases, not tracking down medical records. Organize medical records and bills by provider and keep track of missing information, and when you followed up."
+    seat_match: exact
+    leftover: per-provider status plus missing-info plus follow-up date already ships natively
+  - name: Lexitas Record Retrieval
+    url: https://www.lexitaslegal.com/solutions/record-retrieval
+    quote: "Lexitas provides fast, secure, and court-compliant medical record retrieval for lawyers and legal teams handling time-sensitive matters. Our trained retrieval specialists manage the entire process to keep your case moving. From requesting records directly from providers to tracking timelines and resolving delays, we have you covered."
+    seat_match: exact
+    leftover: full-service requesting plus timeline tracking plus delay resolution already ships; Clio pullback is integration
+  - name: ChartSquad Professional Services
+    url: https://chartsquad.com/professional-services
+    quote: "Medical records are necessary to prove injury. Without records, there is no case. ChartSquad allows the injured to be proactive in their case by creating an easy and efficient means in accessing their own Personal Health Information (PHI)."
+    seat_match: exact
+    leftover: HIPAA PHR plus authorization path already ships; firm-side status board duplicates portal
+  - name: ChartSquad Solutions
+    url: https://chartsquad.com/medical-records-solutions
+    quote: "ChartSquad gets your results in about 15 days or less (average turnaround time) -- and you will always pay the lowest legally mandated provider cost."
+    seat_match: exact
+    leftover: turnaround plus cost handling already ships; matter linkage is plugin
+  - name: Clio Personal Injury HIPAA
+    url: https://www.clio.com/features/personal-injury-case-management-software/
+    quote: "Protect sensitive client data by securely storing personal health information in compliance with HIPAA regulations."
+    seat_match: exact
+    leftover: HIPAA store already native; authorization workflow improvement is a flag on PI add-on
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 8
+  why_build: "PI cases stall on provider authorizations and per-provider follow-ups; a Clio-linked retrieval board with authorization packets and bill pullback would unblock settlements."
+claim_hygiene: ok
+file_on: https://www.clio.com/features/personal-injury-case-management-software/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

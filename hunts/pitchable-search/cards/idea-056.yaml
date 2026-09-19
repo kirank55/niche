@@ -1,0 +1,79 @@
+candidate_seat: Karbon-firm engagement-letter + e-sign packet tracker
+v1_as_shipped: Standalone packet tracker for Karbon firms covering issued engagement letters, e-sign completion states, and renewal chase list (no write-time block, no native task/email/time touch)
+entry: restated
+niche:
+  icp: accounting/bookkeeping firms
+  system_of_record: Karbon cloud
+  workflow_step: engagement-letter issuance and e-sign completion chase
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: [Work/client timeline, email, time, native task workflow]
+  source: agent_opt_out
+slices: [letter issuance register, e-sign completion chase, renewal docket]
+search_classes:
+  sor_primitive: "Karbon Engagements proposals engagement letters e-signatures docs"
+  dropin_addon: "Karbon integrations Ignition proposal accepted engagement e-sign"
+  commercial_sku: "accounting engagement letter e-sign software Ignition SafeSend Liscio"
+  tracker_leftover: "engagement letter e-signature reminder audit trail accounting feature request"
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 3
+incumbents:
+  - name: Karbon Engagements
+    url: https://karbonhq.com/feature/engagements/
+    quote: "Bring every step of the client engagement process together, from proposals to payments."
+    seat_match: exact
+    leftover: Bulk renewal/expiry chase across engagements is still manual work inside Karbon; file as automation gap on Karbon, not a company.
+  - name: Karbon eSignatures
+    url: https://karbonhq.com/feature/e-signatures/
+    quote: "Prepare documents for approval and request electronic signatures right from Karbon."
+    seat_match: exact
+    leftover: Packet-level status across proposal plus e-sign plus payment already has reminders and audit trail on this page; remainder is a Karbon view flag.
+  - name: Ignition
+    url: https://www.ignitionapp.com/product/engagement-letters
+    quote: "Automate compliant contracts with engagement letters, secure e-signatures, auto payments, and scope adjustments."
+    seat_match: exact
+    leftover: Karbon write-back already exists ("Create clients, trigger and assign work automatically in Karbon — right from the moment a proposal is accepted in Ignition."); remainder is that integration, not a company.
+  - name: SafeSend
+    url: https://www.safesend.com/
+    quote: "eSign any document, batch processing, mail-merge, automated deadline reminders."
+    seat_match: wrong_substrate
+    leftover: Same engagement-letter slogan on a tax-suite SKU, not Karbon-placed; cross-suite absence is not vacancy.
+  - name: Liscio
+    url: https://www.liscio.me/
+    quote: "Send, sign, and store engagement letters in one place."
+    seat_match: wrong_substrate
+    leftover: File-suite engagement flow on a different SKU; not a Karbon chase seat.
+  - name: DocuSign
+    url: https://www.docusign.com/products/electronic-signature
+    quote: "Send, sign, and track documents"
+    seat_match: adjacent_pain
+    leftover: Horizontal e-sign with no accounting packet semantics; confirms pain, not seat.
+auto_rejects_fired: [1]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 8
+  why_build: "Karbon owns proposals-to-payment natively and Ignition owns the Karbon-connected letter flow, so the ceiling assumes near-total occupancy before search."
+claim_hygiene: ok
+file_on: https://karbonhq.com/feature/engagements/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: fail
+  g6_auto_reject_5: pass
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run
