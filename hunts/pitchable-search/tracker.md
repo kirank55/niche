@@ -5,7 +5,7 @@ Mode: `agent_opt_out` (no user niche). One SoR row per batch (aisle-switch: neve
 Stop rule: first `as_company` Sparse/Greenfield with zero auto-rejects, falsification 3/3, >=5 verified incumbents, `keep_gate: pass`.
 PR update cadence: every 10 scored seats.
 
-- Scored so far: 30
+- Scored so far: 40
 - Pitchable found: no
 
 ## Batch 1 — Clio cloud (solo PI + small litigation firms), ideas 001–010
@@ -26,6 +26,12 @@ file_on targets: decisiv.com, airprodiagnostics.com, bar.ca.gov, recallmasters.c
 Note: ideas 021–025 carry NEED_EVIDENCE SoR rows (shopmonkey.com 403 + websearch 429 this run) — recorded as unproven, not vacancy.
 Signal: ideas 026–030 posted as_oss Sparse 2–3 (core-return, warranty-claim, loaner/toll, paint/VOC, salvage) — OSS/plugin-shaped leftovers, not company keeps.
 
+## Batch 4 — ezyVet cloud (independent veterinary practices), ideas 031–040
+
+All Occupied/file_on, keep_gate fail (AR 1+5; CUBEX/VetSnap/IDEXX/Antech/PetLink/AKC/Trupanion/Vetsource/AngelPaw/GlobalVetLink/DocuPet/Landauer/rVetLink own every slice).
+file_on targets: vetsnap, idexx-vetconnect-plus, petlink-2, trupanion, vetsource, angelpaw.com, globalvetlink.com IHC, docupet data-tools, landauer vet badges, rvetlink.com.
+Note: ideas 036–040 scored with niche.source recorded as `user` by the scorer; batch ran opt-out routed (normalized to agent_opt_out in cards).
+
 ## Prior art (not counted — different session, ServiceTitan cloud, 20 seats, all Occupied/file_on)
 
 Permit filing, rebate claims, equipment registration, warranty claims, financing funding,
@@ -40,4 +46,5 @@ core returns, SLA ledger, plan transfer, chargeback bundle, special-order ETA.
 | 1 | Clio cloud (PI/litigation) | 001–010 | 10 | 0 | batch-1 |
 | 2 | Eaglesoft on Windows (dental) | 011–020 | 10 | 0 | batch-2 |
 | 3 | Shopmonkey cloud (auto repair) | 021–030 | 10 (1 Saturated: ADAS) | 0 | batch-3 |
-| — | next: ezyVet (veterinary) | — | — | — | — |
+| 4 | ezyVet cloud (veterinary) | 031–040 | 10 | 0 | batch-4 |
+| — | next: AppFolio (property) | — | — | — | — |

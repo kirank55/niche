@@ -1,0 +1,79 @@
+candidate_seat: independent vet practices on ezyVet cloud — specialty-referral packet with discharge pullback
+v1_as_shipped: Standalone specialty-referral packet tracker with discharge pullback for ezyVet cloud
+entry: restated
+niche:
+  icp: independent veterinary practices
+  system_of_record: ezyVet cloud
+  workflow_step: oncology cardiology referral packet plus discharge pullback
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [referral-packet-tracker]
+search_classes:
+  sor_primitive: ezyVet integrations Referrals specialty
+  dropin_addon: ezyVet rVetLink integration referral portal
+  commercial_sku: veterinary referral management rVetLink Vetch ShareVille
+  tracker_leftover: rVetLink discharge notification portal access issue
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 5
+incumbents:
+  - name: ezyVet Integrations
+    url: https://www.ezyvet.com/partners/all-countries/all-categories/p2
+    quote: "Reference Labs Referrals Telemedicine"
+    seat_match: adjacent_pain
+    leftover: Category plus API only; no referral packet or discharge pullback.
+  - name: rVetLink IDEXX
+    url: https://rvetlink.com/
+    quote: "including ezyVet, Cornerstone, DVMAX, and ImproMed Infinity"
+    seat_match: exact
+    leftover: Already ezyVet-integrated eReferral with check-in to discharge notifications; remaining is duplicate.
+  - name: UF rVetLink Portal
+    url: https://hospitals.vetmed.ufl.edu/rvetlink
+    quote: "rVetLink is the referring veterinarian’s online portal to access patient records."
+    seat_match: exact
+    leftover: Already discharge-email plus 6-month record pullback; remaining is duplicate.
+  - name: Vetch Specialty
+    url: https://www.vetch.vet/solutions/specialty
+    quote: "Specialty isn't general practice with longer notes."
+    seat_match: exact
+    leftover: Already OCR intake plus episodic chart plus rDVM letters for oncology cardiology; remaining is duplicate.
+  - name: OSU Referral Portals
+    url: https://vmc.vet.osu.edu/referring-veterinarians
+    quote: "Consider us an extension of your practice."
+    seat_match: exact
+    leftover: Already eReferral plus record sharing for cardiology oncology; remaining is duplicate.
+  - name: Central ShareVille
+    url: https://centralpetvet.com/referring-vets
+    quote: "rVetLink will be discontinued and closed on 9/1/26"
+    seat_match: exact
+    leftover: Already ShareVille record portal with check-in discharge deceased alerts; remaining is duplicate.
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Lost discharges break continuity; a neutral pullback tracker could reconcile specialty records."
+claim_hygiene: ok
+file_on: https://rvetlink.com/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

@@ -1,0 +1,74 @@
+candidate_seat: independent vet practices on ezyVet cloud — pet-insurance pre-approval + claim docket tracker
+v1_as_shipped: Standalone pet-insurance pre-approval + claim docket on ezyVet cloud, no write-time block
+entry: restated
+niche:
+  icp: independent veterinary practices
+  system_of_record: ezyVet cloud
+  workflow_step: pet-insurance pre-approval + claim docket
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [pre-approval education, claim docket]
+search_classes:
+  sor_primitive: ezyVet insurance invoicing docs
+  dropin_addon: ezyVet App Store insurance Trupanion Pawlicy VetEnvoy
+  commercial_sku: veterinary pet insurance claim pre-approval SKU Trupanion Pawlicy
+  tracker_leftover: ezyVet insurance claim feature request issue
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 7
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 4
+incumbents:
+  - name: ezyVet Trupanion integration
+    url: https://www.ezyvet.com/integration/trupanion
+    quote: "Trupanion can pay your hospital directly at checkout, eliminating the need for client reimbursement."
+    seat_match: exact
+    leftover: Direct-pay + invoice submit still Trupanion portal; file on Trupanion
+  - name: ezyVet Pawlicy Advisor integration
+    url: https://www.ezyvet.com/integration/pawlicy-advisor
+    quote: "Pawlicy Advisor handles insurance advice, so you can focus on clinical care."
+    seat_match: exact
+    leftover: Pre-visit education still Pawlicy portal; file on Pawlicy
+  - name: ezyVet VetEnvoy integration
+    url: https://www.ezyvet.com/integration/vetenvoy
+    quote: "Submit clinical notes and invoices directly to the VetEnovy claims team for quick assessment."
+    seat_match: exact
+    leftover: Paperless claim transfer still VetEnvoy; file on VetEnvoy
+  - name: ezyVet Petsure eClaims integration
+    url: https://www.ezyvet.com/integration/petsure-eclaims
+    quote: "Easily submit clinical notes and paid invoices directly from ezyVet to PetSure's claims team for assessment."
+    seat_match: exact
+    leftover: eClaim status still Petsure VetHub; file on Petsure
+  - name: Pawlicy Advisor marketplace
+    url: https://pawlicy.com/
+    quote: "We compare the market and match your pet to the right pet insurance."
+    seat_match: adjacent_pain
+    leftover: Off-ezyVet comparison; clinic docket lives in ezyVet integrations
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Skeptic builds neutral pre-approval + claim tracker because Trupanion is single-carrier and Pawlicy is education-only; multi-carrier docket could win."
+claim_hygiene: ok
+file_on: https://www.ezyvet.com/integration/trupanion
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: pass
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

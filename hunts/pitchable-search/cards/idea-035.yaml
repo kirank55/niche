@@ -1,0 +1,74 @@
+candidate_seat: independent vet practices on ezyVet cloud — Rx refill compliance log tracker
+v1_as_shipped: Standalone Rx refill compliance log on ezyVet cloud, no write-time block
+entry: restated
+niche:
+  icp: independent veterinary practices
+  system_of_record: ezyVet cloud
+  workflow_step: Rx refill compliance log
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [refill log, compliance reminders]
+search_classes:
+  sor_primitive: ezyVet prescription online pharmacy docs
+  dropin_addon: ezyVet App Store online pharmacy Vetsource Vetcove Koala
+  commercial_sku: veterinary online pharmacy refill adherence SKU Vetsource Vetcove
+  tracker_leftover: ezyVet prescription refill reminder feature request issue
+verdicts:
+  as_company: Occupied 6
+  as_oss: Occupied 5
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 3
+incumbents:
+  - name: ezyVet Vetsource Prescription Management
+    url: https://www.ezyvet.com/integration/vetsource
+    quote: "From your Vetsource Prescription Management platform, you can approve, deny, or suggest alternatives"
+    seat_match: exact
+    leftover: Approve/deny + Rx reminders still Vetsource; file on Vetsource
+  - name: ezyVet Vetcove Home Delivery
+    url: https://www.ezyvet.com/integration/vetcove-home-delivery
+    quote: "events like refills, cancellations, and order status are automatically written back to ezyVet in real time."
+    seat_match: exact
+    leftover: Refill + autoship docket still Vetcove; file on Vetcove
+  - name: ezyVet Koala Health
+    url: https://www.ezyvet.com/integration/koala-health
+    quote: "Get access to Koala's online platform, KoalaVet, so you can easily manage prescriptions"
+    seat_match: exact
+    leftover: Adherence pouches + refill tracking still Koala; file on Koala
+  - name: ezyVet Otto
+    url: https://www.ezyvet.com/integration/otto
+    quote: "Submission of consultation summary and details from Otto to the patient’s clinical record in ezyVet."
+    seat_match: adjacent_pain
+    leftover: Communication workflows only; refill fill lives in pharmacy SKUs
+  - name: ezyVet integrations index
+    url: https://www.ezyvet.com/integrations/
+    quote: "Vetcove Home Delivery"
+    seat_match: adjacent_pain
+    leftover: Index lists pharmacy aisle; mechanics live in Vetsource/Vetcove/Koala rows
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 6
+  why_build: "Skeptic builds neutral refill compliance log because refills leak to online retailers; EDD + adherence tracker could reclaim."
+claim_hygiene: ok
+file_on: https://www.ezyvet.com/integration/vetsource
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: pass
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run
