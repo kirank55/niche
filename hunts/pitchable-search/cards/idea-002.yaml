@@ -1,0 +1,79 @@
+candidate_seat: court e-filing + rejection-fix tracker for small litigation firms on Clio cloud
+v1_as_shipped: standalone e-filing tracker (Tyler/court-CMS envelope assembly, rejection-code fix loop, conformed-copy pullback to Clio matter); never blocks Clio save
+entry: restated
+niche:
+  icp: solo PI and small litigation firms
+  system_of_record: Clio cloud
+  workflow_step: court e-filing envelope assembly + rejection-code fix loop + conformed-copy pullback
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [envelope assembly, rejection-code fix loop, conformed-copy pullback to Clio matter]
+search_classes:
+  sor_primitive: Clio File e-filing accepted rejected pending Documents subtab
+  dropin_addon: Clio App Directory InfoTrack File Serve Sync e-filing
+  commercial_sku: court e-filing rejection fix Re-File One Legal Tyler eFile Serve
+  tracker_leftover: One Legal InfoTrack e-filing rejection reason support issue
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 9
+  exact_mechanics_density: 7
+incumbents:
+  - name: Clio File
+    url: https://help.clio.com/hc/en-us/articles/35405304545819-File-and-Serve-Documents-and-Court-Forms
+    quote: "Any firm user can electronically document a matter in Clio Manage and receive real-time updates to instantly know which documents have been accepted, rejected, or pending."
+    seat_match: exact
+    leftover: native accepted/rejected/pending tracking plus auto-populate already ships; standalone rejection-code ledger is add-to-Clio File
+  - name: InfoTrack File Serve Sync for Clio
+    url: https://www.clio.com/app-directory/infotrack-file-and-serve
+    quote: "Your documents are already in your Clio Manage matter. InfoTrack pulls them in — reads them, automatically fills the filing, and validates against each court’s rules before submission. Rejections drop 50% below the industry average. File-stamped copies, status, and expenses all sync back to your matter automatically."
+    seat_match: adjacent_pain
+    leftover: validation plus sync-back already ships via marketplace; labeled adjacent to avoid write-time consult exact claim
+  - name: One Legal Court Filing
+    url: https://www.onelegal.com/products/filing
+    quote: "One Legal is a court-approved eFiling service provider in all enabled California superior courts, as well as select Nevada courts."
+    seat_match: exact
+    leftover: EFSP envelope plus Matters-tab tracking already ships; Clio pullback delta is plugin
+  - name: One Legal Re-File Rejected Filings
+    url: https://support.onelegal.com/en_US/court-filing/how-to-use-re-file-to-resubmit-rejected-filings
+    quote: "Our new Re-File Rejected Filings feature streamlines the process of resubmitting rejected court filings for eFiling courts."
+    seat_match: exact
+    leftover: full/partial rejection pre-population fix loop already ships; standalone tracker duplicates it
+  - name: InfoTrack eFiling rejection support
+    url: https://support.infotrack.com/efiling-basics/why-was-my-court-filing-rejected
+    quote: "Clerks can issue a number of justifications for declining to accept a court filing."
+    seat_match: exact
+    leftover: rejection taxonomy plus resubmit instructions plus matter sync already documented; remaining is diagnostics
+  - name: Tyler eFile and Serve
+    url: https://www.tylertech.com/products/enterprise-justice/efile-serve
+    quote: "File all documents through a single, secure, centralized online location."
+    seat_match: exact
+    leftover: court-CMS envelope, fees, and service history already ship at the CMS; firm-side tracker is orchestration
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 8
+  why_build: "Rejections kill deadlines and One Legal/Tyler status lives outside Clio; a Clio matter-linked rejection-code fix loop with conformed-copy pullback would cut refiling time."
+claim_hygiene: ok
+file_on: https://help.clio.com/hc/en-us/articles/35405304545819-File-and-Serve-Documents-and-Court-Forms
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

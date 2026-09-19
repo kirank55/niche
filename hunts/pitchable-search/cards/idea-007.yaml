@@ -1,0 +1,79 @@
+candidate_seat: court-reporter transcript ordering packet tracker on Clio
+v1_as_shipped: Standalone transcript tracker (reporter-agency order, rough/final delivery status, exhibit-link pullback to Clio matter); never blocks Clio save
+entry: restated
+niche:
+  icp: solo PI and small litigation firms
+  system_of_record: Clio cloud
+  workflow_step: transcript ordering and delivery tracking
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [reporter-agency order, rough/final delivery status, exhibit-link pullback to Clio matter]
+search_classes:
+  sor_primitive: Clio Manage tasks for matter-related activity tracking
+  dropin_addon: Steno Clio Manage integration for booking court reporting jobs
+  commercial_sku: court-reporting agency transcript ordering and delivery (Veritext / Planet Depos)
+  tracker_leftover: Steno provider post-job rough-draft and transcript task workflow
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 7
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 7
+incumbents:
+  - name: Clio Manage Tasks
+    url: https://help.clio.com/hc/en-us/articles/9204917906971-Task-Management
+    quote: "Tasks are an essential part of tracking matter-related activities and events in Clio Manage."
+    seat_match: exact
+    leftover: Generic matter task chain; reporter-order state lives with agencies
+  - name: Steno for Clio Manage
+    url: https://help.steno.com/how-do-i-book-jobs-with-steno-on-clio-manage
+    quote: "With Steno's Clio integration, booking court reporting services in Clio Manage is seamless. After your deposition, access all your files in one place without leaving Clio."
+    seat_match: exact
+    leftover: Ordering + files-in-Clio already shipped; exhibit-link polish is a flag
+  - name: Veritext Service Information
+    url: https://veritext.com/service-information-details/
+    quote: "Veritext offers the full spectrum of deposition and court reporting services to our clients."
+    seat_match: exact
+    leftover: Full ordering-to-transcript stack exists; Clio pullback is integration glue
+  - name: Veritext Rough Draft
+    url: https://veritext.com/service-information-details/
+    quote: "Clients may also choose to receive a Rough Draft of the transcript in electronic format prior to the court reporter proofreading and finalizing the transcript."
+    seat_match: exact
+    leftover: Rough/final delivery states already productized with fee schedule
+  - name: Planet Depos Court Reporting
+    url: https://planetdepos.com/court-reporting-services-accurate-records-for-modern-litigation
+    quote: "Court reporting services deliver reliable, certified transcripts that legal teams, courts, and clients can trust."
+    seat_match: exact
+    leftover: Certified-transcript pipeline occupied; exhibit chain-of-custody is their module
+  - name: Planet Depos Transcript Production
+    url: https://planetdepos.com/court-reporting-services-accurate-records-for-modern-litigation
+    quote: "Production of a certified transcript in required formats, with options like rough drafts, realtime feeds for realtime access, and video-to-text synchronization."
+    seat_match: exact
+    leftover: Rough/realtime/final matrix shipped; leftover is a Clio sync setting
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Small firms juggle reporters by email; a Clio-native order + rough/final + exhibit docket would centralize transcript chaos."
+claim_hygiene: ok
+file_on: https://help.steno.com/how-do-i-book-jobs-with-steno-on-clio-manage
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: fail
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

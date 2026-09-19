@@ -1,0 +1,79 @@
+candidate_seat: deposition vendor coordination packet tracker on Clio
+v1_as_shipped: Standalone deposition tracker (videographer/courtroom booking, exhibit sharing status, transcript-delivery docket linked to Clio matter); never blocks Clio save
+entry: restated
+niche:
+  icp: solo PI and small litigation firms
+  system_of_record: Clio cloud
+  workflow_step: deposition vendor and transcript-delivery coordination
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [videographer/courtroom booking, exhibit sharing status, transcript-delivery docket linked to Clio matter]
+search_classes:
+  sor_primitive: Clio Manage tasks for matter-related activity tracking
+  dropin_addon: Steno Clio Manage booking for reporter + videographer + exhibits
+  commercial_sku: deposition management vendor (Esquire / Planet Depos / U.S. Legal Support)
+  tracker_leftover: Steno provider post-job exhibit and transcript task queue
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 7
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 7
+incumbents:
+  - name: Clio Manage Tasks
+    url: https://help.clio.com/hc/en-us/articles/9204917906971-Task-Management
+    quote: "Tasks are an essential part of tracking matter-related activities and events in Clio Manage."
+    seat_match: exact
+    leftover: Generic docket exists; vendor booking state lives with agencies
+  - name: Steno for Clio Manage videographer
+    url: https://help.steno.com/how-do-i-book-jobs-with-steno-on-clio-manage
+    quote: "All videographer orders come with standard video, which includes a video of the witness with date and timestamp."
+    seat_match: exact
+    leftover: Reporter + video + realtime + rough draft bookable from the Clio matter
+  - name: Esquire Deposition Management
+    url: https://www.esquiresolutions.com/services/deposition-management/
+    quote: "Reduce stress and expense, and simplify your deposition management process by partnering with Esquire Deposition Solutions."
+    seat_match: exact
+    leftover: Full vendor coordination (scheduling, case managers, reporters) is the firm
+  - name: Esquire EsquireConnect
+    url: https://www.esquiresolutions.com/services/deposition-management/
+    quote: "With one click, you can schedule a court reporter, videographer, interpreter, or conference room. After the deposition, securely store and access your transcripts online."
+    seat_match: exact
+    leftover: Booking + transcript repository already one click; Clio link is glue
+  - name: Planet Depos Services
+    url: https://planetdepos.com/services
+    quote: "Planet Depos leverages advanced litigation technology to provide best-in-class court reporting services around the world."
+    seat_match: exact
+    leftover: Reporting + videography + remote + rooms + repositories occupied
+  - name: U.S. Legal Support court reporting
+    url: https://www.uslegalsupport.com/
+    quote: "Court reporting is the foundation of our business; it’s in our DNA. We have working business relationships with 5,000+ independent court reporting professionals across the country."
+    seat_match: exact
+    leftover: 5,000-reporter network + remote platform + summaries; file Clio sync there
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Depositions involve reporter + video + room + exhibits + transcript; a Clio docket tying vendors together would help solos."
+claim_hygiene: ok
+file_on: https://www.esquiresolutions.com/services/deposition-management/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: fail
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

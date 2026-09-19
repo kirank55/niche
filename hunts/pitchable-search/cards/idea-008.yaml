@@ -1,0 +1,79 @@
+candidate_seat: process-service affidavit packet tracker on Clio
+v1_as_shipped: Standalone service tracker (server assignment, attempt log, affidavit-of-service capture + filing-status pullback to Clio matter); never blocks Clio save
+entry: restated
+niche:
+  icp: solo PI and small litigation firms
+  system_of_record: Clio cloud
+  workflow_step: process-service attempt and affidavit tracking
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [server assignment, attempt log, affidavit-of-service capture + filing-status pullback to Clio matter]
+search_classes:
+  sor_primitive: Clio Manage tasks for matter-related activity tracking
+  dropin_addon: InfoTrack File Serve Sync ordering service of process from Clio Manage
+  commercial_sku: process-serving attempt + affidavit SKU (ServeManager / ABC Legal / Proof)
+  tracker_leftover: One Legal real-time serve updates + proof-of-service preparation queue
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 7
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 7
+incumbents:
+  - name: Clio Manage Tasks
+    url: https://help.clio.com/hc/en-us/articles/9204917906971-Task-Management
+    quote: "Tasks are an essential part of tracking matter-related activities and events in Clio Manage."
+    seat_match: exact
+    leftover: Generic tracking exists; attempt/GPS/affidavit chain lives with vendors
+  - name: InfoTrack for Clio Manage
+    url: https://www.infotrack.com/clio
+    quote: "Order from top-rated local process servers directly from Clio Manage, track your order status in real time, and automatically capture service fees to the correct matter for effortless billing."
+    seat_match: exact
+    leftover: Clio-native order + real-time status + expense capture already shipped
+  - name: ServeManager
+    url: https://www.servemanager.com/
+    quote: "Law firms can easily place orders for service of process through our integration with InfoTrack. Once the job is placed, they can track status in real-time, receive email notifications, and download completed proofs as soon as they’re approved."
+    seat_match: exact
+    leftover: Assignment + attempt + proof loop closed; Clio pullback is the integration
+  - name: ABC Legal Service of Process
+    url: https://www.abclegal.com/professional-service-of-process
+    quote: "Spend less time managing service of process and more time on what truly matters. Our secure online platform puts everything at your fingertips—from placing orders to receiving proof of service."
+    seat_match: exact
+    leftover: Order-to-proof platform with GPS/photo verification; file Clio edge cases there
+  - name: Proof process serving
+    url: https://www.proofserve.com/
+    quote: "Get affidavits for each attempt, complete with photos, precise location data, and detailed server notes."
+    seat_match: exact
+    leftover: Per-attempt affidavit with evidence already the product; no vacant process
+  - name: One Legal serve updates
+    url: https://support.onelegal.com/serve-complete/how-long-does-it-typically-take-to-receive-my-affidavit-or-proof-of-service
+    quote: "Our process servers log every attempt through the One Legal mobile app, which updates your order immediately."
+    seat_match: exact
+    leftover: Real-time attempt log + 2-3 day proof queue documented; leftover is status mapping
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 7
+  why_build: "Service chaos lives in email; a Clio-side server/attempt/affidavit docket would stop status-chasing for solos."
+claim_hygiene: ok
+file_on: https://www.infotrack.com/clio
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: fail
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

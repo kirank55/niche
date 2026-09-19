@@ -1,0 +1,79 @@
+candidate_seat: healthcare-lien resolution ledger for solo PI firms on Clio cloud
+v1_as_shipped: standalone lien ledger (provider/ERISA lien capture, balance verification, negotiation + reduction log, payoff draft linked to Clio matter); never blocks Clio save
+entry: restated
+niche:
+  icp: solo PI and small litigation firms
+  system_of_record: Clio cloud
+  workflow_step: healthcare-lien capture + verification + negotiation/reduction log + payoff draft
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: agent_opt_out
+slices: [lien capture, balance verification, negotiation/reduction log, payoff draft linked to Clio matter]
+search_classes:
+  sor_primitive: Clio Personal Injury Settlement medical liens reductions calculator
+  dropin_addon: Clio lien resolution integration matter
+  commercial_sku: healthcare lien resolution ERISA negotiation Synergy ARCHER
+  tracker_leftover: Synergy ARCHER lien reduction negotiation support issue
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 9
+  exact_mechanics_density: 7
+incumbents:
+  - name: Clio Manage Settlement
+    url: https://help.clio.com/hc/en-us/articles/9285920226075-Clio-Manage-Matters-Overview
+    quote: "For firms with the Personal Injury add-on, this subtab holds recovery amounts, deductions, and settlement statements for the matter."
+    seat_match: exact
+    leftover: native recovery/deduction/statement store already ships; external negotiation log is add-on
+  - name: Clio Settlement Calculator
+    url: https://www.clio.com/features/personal-injury-case-management-software/
+    quote: "A settlement calculator will take into account any deductions including, medical and non-medical liens, expenses, and legal fees when calculating the final recovery."
+    seat_match: exact
+    leftover: lien-aware deduction math already native; verification plus reduction audit duplicates service vendors
+  - name: Clio Lien Capture
+    url: https://www.clio.com/features/personal-injury-case-management-software/
+    quote: "Clio allows you to enter medical bills and mark them as liens in the medical record tab."
+    seat_match: exact
+    leftover: lien capture plus in-settlement reductions already ship; ERISA/negotiation depth lives with vendors
+  - name: Synergy Settlement Services
+    url: https://partnerwithsynergy.com/
+    quote: "The Nation's Largest & Undisputed Leader in Single-Event Lien Resolution"
+    seat_match: exact
+    leftover: end-to-end resolution at scale already ships; Clio-linked ledger is a portal integration
+  - name: Synergy Lien Audit Negotiation
+    url: https://partnerwithsynergy.com/liens/liens-we-handle
+    quote: "Synergy will audit the claims and ensure that only appropriate claims are part of the lien balance. Finally, we aggressively negotiate every lien claim, leveraging expert strategies and applicable laws."
+    seat_match: exact
+    leftover: audit plus aggressive negotiation plus reduction already ships as service; standalone ledger duplicates it
+  - name: ARCHER PI Lien Resolution
+    url: https://www.archersystems.com/personal-injury/pi-lien-resolution
+    quote: "High-dollar medical liens can drain your client’s settlement and wreak havoc on your firm’s time and internal resources. ARCHER’s highly experienced attorneys and paralegals strategically stage and negotiate liens, resulting in lower overall costs to your clients and better resource management for your firm."
+    seat_match: exact
+    leftover: attorney-led staging plus negotiation plus fund distribution already ships; payoff-draft linkage is file-on-vendor
+auto_rejects_fired: [1, 5]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: pass
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 8
+  why_build: "ERISA/hospital lien verification and reduction negotiations decide net-to-client and malpractice exposure; a Clio-linked ledger with verification and payoff drafts would be retained on every PI settlement."
+claim_hygiene: ok
+file_on: https://partnerwithsynergy.com/
+keep_gate_checks:
+  g1_quotes_literal: pass
+  g2_four_classes: pass
+  g3_file_on_if_host_named: pass
+  g4_no_exact_as_vacant: fail
+  g5_no_occupied_bundle: pass
+  g6_auto_reject_5: fail
+  g7_claim_hygiene: pass
+  g8_plugin_forbids_sparse_company: pass
+  g9_steelman_ceiling: pass
+  g10_hook_is_not_vacancy: pass
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run
