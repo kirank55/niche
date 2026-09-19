@@ -3,7 +3,7 @@
 Load this file before any `as_company` Sparse/Greenfield and before
 applying auto-rejects from [rubric.md](rubric.md).
 
-This file **is** the keep latch (G1-G10). Do not load files outside this
+This file **is** the keep latch (G1-G9). Do not load files outside this
 tree. Occupancy philosophy is unchanged; the checks are bound onto
 vertical-workflow SaaS nouns.
 
@@ -13,25 +13,7 @@ Collapse modes below are the whole deny philosophy for this skill.
 Citing Landlock, Kroxylicious, or `CREATE PUBLICATION` as occupancy on
 a vertical SaaS card is a card fail.
 
-Before Sparse/Greenfield, copy `keep_gate_checks` from
-[output-template-saas.md](output-template-saas.md) and answer every
-key. A missing key is `keep_gate: fail`. Do not set `keep_gate: pass`
-because leftover prose is eloquent or the keep "looks clear."
-
-| Card key | Gate |
-| --- | --- |
-| `g1_quotes_literal` | G1 |
-| `g2_four_classes` | G2 |
-| `g3_file_on_if_host_named` | G3 |
-| `g4_no_exact_as_vacant` | G4 |
-| `g5_no_occupied_bundle` | G5 |
-| `g6_auto_reject_5` | G6 |
-| `g7_claim_hygiene` | G7 |
-| `g8_plugin_forbids_sparse_company` | G8 |
-| `g9_steelman_ceiling` | G9 |
-| `g10_hook_is_not_vacancy` | G10 |
-
-## G1-G10 bind
+## G1-G9 bind
 
 **G1. Quotes are literals.** Each incumbent `quote` is a contiguous
 substring of a page **fetched this run** at `url`. Ellipsis may join two
@@ -89,34 +71,16 @@ from `v1_as_shipped`, and re-score. Hygiene fail is not Occupied-by-itself
 (see [rubric.md](rubric.md)); inventing a SoR property
 **is** a keep block until v1 is restated without it.
 
-**G8. Split-verdict sanity.** Card key:
-`g8_plugin_forbids_sparse_company`. `as_plugin` Greenfield plus an
-`exact` incumbent row is a card fail. `as_plugin` Occupied or Saturated
-plus `file_on: none` is a card fail. `as_plugin` Occupied or Saturated
-**forbids** `as_company` Sparse/Greenfield: that split already says the
-leftover is a flag, plugin, or issue on a named host. Emit `file_on` /
-Occupied as the company verdict, not KEEP. `as_oss` occupancy **lower**
-than `as_company` needs a one-line reason or it is a card fail.
+**G8. Split-verdict sanity.** `as_plugin` Greenfield plus an `exact`
+incumbent row is a card fail. `as_plugin` Occupied plus `file_on: none`
+is a card fail. `as_oss` occupancy **lower** than `as_company` needs a
+one-line reason or it is a card fail.
 
 **G9. Steelman.** Published `exact_mechanics_density` may exceed the
 pre-search ceiling only if G2 added **named** rows. Missed-search is not
 a low ceiling. Two SoR-help quotes are not a 2.5 ceiling.
 
-**G10. Hook is not vacancy.** Card key: `g10_hook_is_not_vacancy`.
-Copy every leftover. If two or more are
-only a different enforcement hook than v1 named — tray vs native
-window, overlay vs module, sidecar vs SoR consult, parser vs executor,
-"not write-time", "does not intercept", "only when invoked via CLI",
-"manual", "not auto", "no block save" — those incumbents occupy the
-process. Fire auto-reject 1 and/or 5. `file_on` the named host.
-`as_company` Occupied. Do **not** label that row `wrong_substrate`
-(that label is SKU / data-plane mismatch only). Do **not** label it
-`adjacent_pain` so `exact_mechanics_density` can stay 0 and
-`as_company` Sparse 2-3. If this hunt already `file_on`'d a host for a
-step, a narrower cut of that step (one extra filter or hook) is not a
-new company keep.
-
-`keep_gate: pass` only if G1-G10 hold. `keep_gate: fail` -> `as_company`
+`keep_gate: pass` only if G1-G9 hold. `keep_gate: fail` -> `as_company`
 is Occupied, Saturated, `file_on`, or `drop`. Never Sparse/Greenfield
 keep. `as_oss` / `as_plugin` may still be Sparse. A tracker bullet
 without an emitted card from [output-template-saas.md](output-template-saas.md)
@@ -135,8 +99,6 @@ labeling is in [calibration-saas.md](calibration-saas.md).
 | Typeform/Jotform + Zapier as the vertical v1 | Auto-reject 2. Occupied / drop. |
 | SoR "no dedicated module" + write-time guard (license-expiry dispatch, 3PO payout join, EPA cylinder ledger) | Class-1 workaround is `exact` for that slice; class 3 occupies the standalone SKU. Skipping class 2-3 is G2 fail. Auto-reject 5. `file_on` the primitive or the matcher/ledger SKU. |
 | Write-time remake/recall/claims guard on Eaglesoft Lab Tracking, Recall, or claims | Native module is `exact`. Auto-reject 1 and 5. `file_on` the module. Do not generate. |
-| Five incumbents labeled `adjacent_pain` / `wrong_substrate` because leftover is only hook mismatch; `exact_mechanics_density: 0`; `as_plugin` Occupied; `file_on: none`; Sparse KEEP | G8 and G10 fail. Occupied leftover. Auto-reject 1 and/or 5. `file_on` the host. Not Sparse. |
-| Narrower cut of a step this hunt already `file_on`'d (same SoR, extra hook or filter) | `file_on` the same host. Not a new company keep. |
 
 ## Write-time consult test (probe b / auto-reject 7)
 
@@ -178,10 +140,6 @@ labels and dual scores. Then apply:
 
 - Clio vs MyCase, Eaglesoft vs Dentrix, Toast vs Square →
   `wrong_substrate` when the seat named the other SKU.
-- Hook mismatch (tray vs native window, sidecar vs consult, parser vs
-  module, "does not intercept") is **not** `wrong_substrate`. If the
-  quote describes deny/allow/record of the same workflow step, the row
-  is `exact` or auto-reject 1. Relabel; that card is a fail until fixed.
 - `language_scoped` → wrong runtime only (SDK / in-process port vs the
   named SoR host). Relabel `language_scoped` on a SKU mismatch; that
   card is a fail until fixed.
@@ -211,10 +169,6 @@ false-keep seeds.
 5. **Native headline module as vacancy.** Lab Tracking, Recall, POS
    ticket, job dispatch, chart, ledger already *are* the UX. A
    write-time guard on that screen is auto-reject 5.
-6. **Hook sold as vacancy.** Leftover is only a different enforcement
-   hook than v1 named. Occupied / `file_on`, not Sparse (G10).
-7. **Occupied plugin sold as Sparse company.** `as_plugin` Occupied
-   plus `as_company` Sparse is a card fail (G8).
 
 ## SaaS embedded deny fallback
 
@@ -232,9 +186,6 @@ seats under `.docs/` or `docs/`), use this list
 - Write-time tray/overlay/guard on a closed native headline module
   (Eaglesoft Lab Tracking / Recall / claims, ServiceTitan dispatch,
   Toast POS ticket, Clio matters)
-- Hook-only leftover claimed as a vacant company keep (`exact` density
-  0 because every row is "not this hook")
-- `as_plugin` Occupied or Saturated claimed as `as_company` Sparse KEEP
 
 A previous kill is a deny-list entry, not a scoring template. Do not
 generate from this list. Re-search **this** seat.

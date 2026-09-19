@@ -5,8 +5,7 @@ category collapse (Clio counted as a MyCase seat, Typeform counted as
 Clio demand-letter intake).
 
 Apply [gate-bind-saas.md](gate-bind-saas.md) notes after this file: SKU
-mismatch is `wrong_substrate`; **hook mismatch is not
-`wrong_substrate`**; fetched G2/Capterra listings are
+mismatch is `wrong_substrate`; fetched G2/Capterra listings are
 `adjacent_pain`; write-time consult is required for marketplace `exact`.
 
 ## Labels
@@ -22,9 +21,7 @@ mismatch is `wrong_substrate`; **hook mismatch is not
 
 If two labels could apply, pick the **strictest mismatch** (prefer
 `wrong_substrate` / `language_scoped` / `obsolete` over `exact`). Do not
-upgrade to `exact` to make a kill easier. Do not pick
-`wrong_substrate` for a hook mismatch (tray vs native window, sidecar
-vs consult) to keep `exact_mechanics_density` at 0. That is G10 fail.
+upgrade to `exact` to make a kill easier.
 
 ## Dual scores
 
@@ -48,7 +45,6 @@ If `v1_as_shipped` is a conjunction, split slices before labeling.
 | ServiceTitan App Marketplace app the SoR consults at job-complete | missing-trade pack on that app | `exact` for the app slice; leftover is auto-reject 5 |
 | ServiceTitan required Skills + skill-gap alert at book/assign | license-expiry dispatch guard on ServiceTitan | `exact` for the assignment-gate slice; leftover auto-expire is auto-reject 5 |
 | Eaglesoft Lab Tracking native window | remake block at appointment completion on Eaglesoft | `exact`; leftover write-time guard is auto-reject 5 |
-| Native SoR step that already records/denies; leftover "not a tray / not write-time" | that step on that SoR | `exact` (or auto-reject 1); leftover auto-reject 5. Not `wrong_substrate`. |
 | Horizontal CRM | vertical workflow on a named SoR | `wrong_substrate` or `adjacent_pain` |
 
 ## How to write a row

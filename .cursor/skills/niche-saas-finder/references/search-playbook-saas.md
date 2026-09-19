@@ -15,8 +15,6 @@ fail.
   process.
 - Use SKU + step nouns: `Clio demand letter`, `Eaglesoft remake case`,
   `Toast end-of-night close`, `ServiceTitan dispatch board`.
-- Do not put the v1 **hook** in the class-3 query (tray, overlay,
-  write-time guard, sidecar, block-save). Search the workflow step.
 - Do not use value-prop queries: `"best dental SaaS"`, `"AI for law"`,
   `"SaaS idea"`.
 
@@ -27,9 +25,7 @@ against this seat's workflow step. Record the queries on the card under
 `search_classes`. Stopping after adjacent pain tools (horizontal CRM,
 generic form builders, unfetched G2/Capterra lists) without class 1-2
 is a keep-gate G2 fail. Stopping after a SoR help article that admits
-"no dedicated module" without class 2-3 is the same G2 fail. Five
-tools labeled `adjacent_pain` only because they do not use the v1 hook
-(tray, overlay, write-time guard, sidecar) also fail G2 / G10.
+"no dedicated module" without class 2-3 is the same G2 fail.
 
 1. **`sor_primitive`.** SoR docs, flags, native workflow, or API for
    that step (the host primitive).
@@ -126,9 +122,6 @@ Do not copy those SKU names onto a new seat as occupancy. Re-search
 Do **not** stop at the fifth adjacent logo.
 
 Do **not** stop because class 1 said there is no dedicated module.
-
-Do **not** stop because five tools "don't use the tray / write-time
-hook" you named in v1. That is G10, not a finished search.
 
 Stop when: classes 1-4 have been queried **and** class 3 produced a
 named commercial SKU row or `NEED_EVIDENCE` **and** either >=5 verified
