@@ -76,8 +76,11 @@ not refuse a user-named SoR because it is missing here.
 
 ## Interest routing (first match wins)
 
-Apply only when `source` is `agent_opt_out`. User-named SoR is never
-overridden.
+Apply only when `source` is `agent_opt_out`. A user-named
+`system_of_record` SKU is never overridden (including SKUs missing
+from the seed table). Opt-out **interest** is routed only by the
+table below — a SKU token that is not a row is unmatched, not a
+sibling SKU.
 
 | Interest contains (case-insensitive) | Inventory row |
 | --- | --- |
@@ -95,7 +98,6 @@ overridden.
 | simplepractice, therapy, counselor | SimplePractice |
 | vet, veterinary, ezyvet, pims (with vet) | ezyVet |
 | shopmonkey, auto shop, auto repair, mechanic (shop) | Shopmonkey |
-| tekmetric | Shopmonkey |
 | appfolio, property manager, landlord, residential property | AppFolio Property Manager |
 | karbon, bookkeeping firm, accounting firm, tax firm | Karbon |
 | (empty or generic: saas, startup, something to build) | ServiceTitan (first inventory row) |
@@ -103,7 +105,8 @@ overridden.
 
 `dental` does not pick Dentrix. `law` does not pick MyCase. Those SKUs
 require the SKU name or an explicit user SoR. `veterinary` does not
-pick ServiceTitan.
+pick ServiceTitan. Interest `tekmetric` is unmatched (not Shopmonkey).
+User-named `Tekmetric cloud` stays that SKU.
 
 ## Closed native headline modules
 

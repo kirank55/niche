@@ -8,6 +8,7 @@ not generation seeds.
 | "give me a SaaS idea" / "dental SaaS" / "AI for law" | Intake card only. `source: intake_blocked`. No candidate card. No search. |
 | "hunt seats around Clio cloud for solo PI firms" | Gate passes. Generate >=5 seats **inside Clio**, none a closed native headline module (matters / native docs / bills / calendar / Grow intake). |
 | User-named SoR not in inventory (e.g. `Tekmetric cloud`) | Pass. Do not rewrite to Shopmonkey or ServiceTitan. |
+| `agent_opt_out` + interest `tekmetric` (SKU token, no routing row) | Return to intake. Do not rewrite to Shopmonkey. |
 | `agent_opt_out` + interest `veterinary` | ezyVet only. Not ServiceTitan, not Dentrix. |
 | `agent_opt_out` + interest `aviation MRO` (named vertical, no routing row) | Return to intake. Ask SoR SKU/host. Do not fill ServiceTitan. |
 | `agent_opt_out` + empty/generic interest | ServiceTitan (first inventory row) is allowed. |

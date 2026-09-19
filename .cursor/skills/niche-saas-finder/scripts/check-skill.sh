@@ -44,6 +44,10 @@ fi
 if ! grep -q 'closed native headline module' "$skill/references/seat-generation-saas.md"; then
   err "seat-generation missing closed native headline modules"
 fi
+if grep -qiE 'tekmetric[[:space:]]*\|[[:space:]]*Shopmonkey' \
+  "$skill/references/seat-generation-saas.md"; then
+  err "tekmetric must not route to Shopmonkey"
+fi
 
 if [[ "$fail" -ne 0 ]]; then
   echo "check-skill: FAILED"
